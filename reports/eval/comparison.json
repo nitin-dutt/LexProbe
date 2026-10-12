@@ -1,0 +1,218 @@
+{
+  "systems": [
+    "baseline",
+    "lora_v4"
+  ],
+  "dataset_version": "v3",
+  "n_queries": 804,
+  "per_clause": {
+    "baseline": {
+      "Auto-Renewal": {
+        "tp": 33,
+        "fp": 0,
+        "fn": 1,
+        "tn": 68,
+        "precision": 1.0,
+        "recall": 0.9705882352941176,
+        "f1": 0.9850746268656716,
+        "support_pos": 34
+      },
+      "Governing Law": {
+        "tp": 74,
+        "fp": 13,
+        "fn": 0,
+        "tn": 135,
+        "precision": 0.8505747126436781,
+        "recall": 1.0,
+        "f1": 0.9192546583850931,
+        "support_pos": 74
+      },
+      "Limitation of Liability": {
+        "tp": 82,
+        "fp": 36,
+        "fn": 0,
+        "tn": 128,
+        "precision": 0.6949152542372882,
+        "recall": 1.0,
+        "f1": 0.8200000000000001,
+        "support_pos": 82
+      },
+      "Liquidated Damages": {
+        "tp": 11,
+        "fp": 4,
+        "fn": 1,
+        "tn": 20,
+        "precision": 0.7333333333333333,
+        "recall": 0.9166666666666666,
+        "f1": 0.8148148148148148,
+        "support_pos": 12
+      },
+      "Non-Compete": {
+        "tp": 30,
+        "fp": 4,
+        "fn": 3,
+        "tn": 62,
+        "precision": 0.8823529411764706,
+        "recall": 0.9090909090909091,
+        "f1": 0.8955223880597014,
+        "support_pos": 33
+      },
+      "Termination for Convenience": {
+        "tp": 26,
+        "fp": 5,
+        "fn": 7,
+        "tn": 61,
+        "precision": 0.8387096774193549,
+        "recall": 0.7878787878787878,
+        "f1": 0.8125,
+        "support_pos": 33
+      },
+      "macro": {
+        "precision": 0.8333143198016875,
+        "recall": 0.9307040998217468,
+        "f1": 0.8745277480208801
+      }
+    },
+    "lora_v4": {
+      "Auto-Renewal": {
+        "tp": 34,
+        "fp": 1,
+        "fn": 0,
+        "tn": 67,
+        "precision": 0.9714285714285714,
+        "recall": 1.0,
+        "f1": 0.9855072463768115,
+        "support_pos": 34
+      },
+      "Governing Law": {
+        "tp": 74,
+        "fp": 0,
+        "fn": 0,
+        "tn": 148,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support_pos": 74
+      },
+      "Limitation of Liability": {
+        "tp": 77,
+        "fp": 0,
+        "fn": 5,
+        "tn": 164,
+        "precision": 1.0,
+        "recall": 0.9390243902439024,
+        "f1": 0.9685534591194969,
+        "support_pos": 82
+      },
+      "Liquidated Damages": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "tn": 24,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support_pos": 12
+      },
+      "Non-Compete": {
+        "tp": 28,
+        "fp": 0,
+        "fn": 5,
+        "tn": 66,
+        "precision": 1.0,
+        "recall": 0.8484848484848485,
+        "f1": 0.9180327868852458,
+        "support_pos": 33
+      },
+      "Termination for Convenience": {
+        "tp": 27,
+        "fp": 1,
+        "fn": 6,
+        "tn": 65,
+        "precision": 0.9642857142857143,
+        "recall": 0.8181818181818182,
+        "f1": 0.8852459016393442,
+        "support_pos": 33
+      },
+      "macro": {
+        "precision": 0.9892857142857143,
+        "recall": 0.9342818428184282,
+        "f1": 0.9595565656701498
+      }
+    }
+  },
+  "support": {
+    "Governing Law": {
+      "pos": 74,
+      "neg": 148
+    },
+    "Limitation of Liability": {
+      "pos": 82,
+      "neg": 164
+    },
+    "Termination for Convenience": {
+      "pos": 33,
+      "neg": 66
+    },
+    "Non-Compete": {
+      "pos": 33,
+      "neg": 66
+    },
+    "Liquidated Damages": {
+      "pos": 12,
+      "neg": 24
+    },
+    "Auto-Renewal": {
+      "pos": 34,
+      "neg": 68
+    }
+  },
+  "paired_bootstrap_groups": {
+    "n_bootstrap": 2000,
+    "n_groups": 68,
+    "a_macro_f1": 0.8745277480208801,
+    "a_ci": [
+      0.8218075177180274,
+      0.9038337598439901
+    ],
+    "b_macro_f1": 0.9595565656701498,
+    "b_ci": [
+      0.9358786993058094,
+      0.98039934257285
+    ],
+    "diff": 0.08502881764926973,
+    "diff_ci": [
+      0.05058911286638601,
+      0.14870416270724274
+    ],
+    "n_valid_draws": 2000,
+    "p_value_one_sided": 0.0
+  },
+  "mcnemar": {
+    "only_b_correct": 68,
+    "only_a_correct": 12,
+    "p_value_two_sided": 1.201648635082027e-10
+  },
+  "format_compliance_top_token": {
+    "baseline": 1.0,
+    "lora_v4": 1.0
+  },
+  "evidence": {
+    "baseline": {
+      "quotes": 318,
+      "grounded_rate": 0.7232704402515723,
+      "exact_rate": 0.7138364779874213,
+      "tp_quotes": 256,
+      "tp_span_f1_mean": 0.7895529106806417,
+      "tp_grounded_rate": 0.81640625
+    },
+    "lora_v4": {
+      "quotes": 254,
+      "grounded_rate": 1.0,
+      "exact_rate": 1.0,
+      "tp_quotes": 252,
+      "tp_span_f1_mean": 0.911406959862236,
+      "tp_grounded_rate": 1.0
+    }
+  }
+}

@@ -1,0 +1,32 @@
+# Secrets — passed at runtime via `docker run -e HF_TOKEN=...`
+.env
+.env.*
+
+# Local environments & caches
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Version control & tooling state
+.git/
+.dvc/
+.claude/
+
+# Experiment tracking (large, local-only)
+mlruns/
+mlflow.db
+logs/
+
+# Data (not needed for serving)
+data/
+
+# Training-only checkpoint state (optimizer/trainer files are not needed for inference)
+models/**/checkpoint-*/
+models/**/optimizer.pt
+models/**/training_args.bin
+
+# Reports & docs
+reports/
+*.md
+!README.md

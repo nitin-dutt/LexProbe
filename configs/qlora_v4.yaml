@@ -1,0 +1,54 @@
+# QLoRA fine-tuning config — adapter v4 (first adapter trained on dataset v3)
+# Usage: python src/finetune.py --config configs/qlora_v4.yaml
+#
+# Every value here is logged to MLflow and copied next to the saved adapter.
+# Values marked TO CONFIRM must be settled before the real run (see alignment_plan.md).
+
+run_name: qlora-v4
+output_dir: models/llama-3.1-8b-cuad-lora-v4
+model_id: meta-llama/Llama-3.1-8B-Instruct
+
+data:
+  dir: data/processed
+  expected_dataset_version: v3   # finetune.py refuses to run on any other dataset version
+  train_file: train.json
+  val_file: val.json
+  # Target quote is a verbatim prefix of the gold span, trimmed to this many chars (B5 / C1)
+  max_answer_chars: 600
+  # "first" = quote the first gold span in the chunk; "join" = all spans joined with " ... "
+  multi_span: first
+
+sequence:
+  # TO CONFIRM (C1): set from the VRAM probe on a free GPU. Must fit prompt + 1,500-char chunk
+  # + trimmed answer; finetune.py reports the token-length distribution and refuses to start
+  # if more than max_dropped_fraction of samples would not fit.
+  max_seq_length: 768
+  max_dropped_fraction: 0.01
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+training:
+  seed: 42
+  num_epochs: 2
+  learning_rate: 2.0e-4
+  per_device_batch_size: 1
+  grad_accum: 8
+  warmup_ratio: 0.03
+  lr_scheduler: cosine
+  # Not paged_adamw_8bit: saving paged optimizer state hangs on Windows/WDDM (alignment_plan C7)
+  optimizer: adamw_8bit
+  logging_steps: 25
+  # Crash safety (C6): checkpoint often; save_steps must be a multiple of eval_steps
+  eval_steps: 100
+  save_steps: 100
+  save_total_limit: 3
+
+validation:
+  # C5: periodic eval on a fixed, seeded val subset — eval loss + decision macro-F1
+  # (Found vs None from the first answer token). Best checkpoint by macro-F1 is kept.
+  max_samples: 300
+  metric_for_best_model: decision_macro_f1

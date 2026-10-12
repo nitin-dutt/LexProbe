@@ -1,0 +1,47 @@
+# Smoke test for the training pipeline — NOT a real run.
+# ~20 optimizer steps; checks training, validation (decision F1), checkpointing and resume.
+# Usage: python src/finetune.py --config configs/smoke_test.yaml
+#        then raise max_steps and re-run with --resume to test resuming.
+
+run_name: smoke-test
+mlflow_experiment: LexProbe-SmokeTests
+output_dir: models/smoke-test
+model_id: meta-llama/Llama-3.1-8B-Instruct
+
+data:
+  dir: data/processed
+  expected_dataset_version: v3
+  train_file: train.json
+  val_file: val.json
+  max_answer_chars: 600
+  multi_span: first
+
+sequence:
+  max_seq_length: 768
+  max_dropped_fraction: 0.01
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+training:
+  seed: 42
+  num_epochs: 1
+  max_steps: 20
+  learning_rate: 2.0e-4
+  per_device_batch_size: 1
+  grad_accum: 8
+  warmup_ratio: 0.03
+  lr_scheduler: cosine
+  # Not paged_adamw_8bit: saving paged optimizer state hangs on Windows/WDDM (alignment_plan C7)
+  optimizer: adamw_8bit
+  logging_steps: 5
+  eval_steps: 10
+  save_steps: 10
+  save_total_limit: 2
+
+validation:
+  max_samples: 30
+  metric_for_best_model: decision_macro_f1

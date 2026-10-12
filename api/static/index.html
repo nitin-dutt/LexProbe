@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LexProbe — Contract Risk Flagging</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; }
+
+    header { text-align: center; margin-bottom: 2.5rem; }
+    header h1 { font-size: 2rem; font-weight: 700; color: #a78bfa; }
+    header p  { color: #94a3b8; margin-top: 0.4rem; font-size: 0.95rem; }
+
+    .card {
+      background: #1e2130;
+      border: 1px solid #2d3148;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    label { font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.5rem; display: block; }
+
+    textarea {
+      width: 100%; height: 220px;
+      background: #0f1117; color: #e2e8f0;
+      border: 1px solid #2d3148; border-radius: 8px;
+      padding: 0.75rem; font-size: 0.9rem;
+      resize: vertical; font-family: inherit;
+    }
+    textarea:focus { outline: none; border-color: #7c3aed; }
+
+    .or-divider {
+      text-align: center; color: #475569;
+      font-size: 0.8rem; margin: 0.75rem 0;
+    }
+
+    .file-upload-area {
+      border: 2px dashed #2d3148; border-radius: 8px;
+      padding: 1rem; text-align: center;
+      cursor: pointer; transition: border-color 0.2s;
+    }
+    .file-upload-area:hover { border-color: #7c3aed; }
+    .file-upload-area input { display: none; }
+    .file-upload-area span { color: #64748b; font-size: 0.85rem; }
+    .file-upload-area .filename { color: #a78bfa; margin-top: 0.25rem; font-size: 0.85rem; }
+
+    button#analyze-btn {
+      width: 100%; padding: 0.85rem;
+      background: #7c3aed; color: white;
+      border: none; border-radius: 8px;
+      font-size: 1rem; font-weight: 600;
+      cursor: pointer; transition: background 0.2s;
+      margin-top: 1rem;
+    }
+    button#analyze-btn:hover   { background: #6d28d9; }
+    button#analyze-btn:disabled { background: #374151; cursor: not-allowed; }
+
+    #status { text-align: center; color: #94a3b8; font-size: 0.85rem; margin-top: 0.75rem; min-height: 1.2rem; }
+
+    /* Results */
+    #results { display: none; }
+    #results h2 { font-size: 1rem; color: #94a3b8; margin-bottom: 1rem; }
+    #results .summary { font-size: 1.1rem; font-weight: 600; color: #e2e8f0; margin-bottom: 1.25rem; }
+
+    .clause-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 0.9rem 1rem;
+      border-radius: 8px; margin-bottom: 0.6rem;
+      border: 1px solid #2d3148;
+    }
+    .clause-item.detected { background: #1a1f35; border-color: #4c1d95; }
+    .clause-item.not-detected { background: #111418; opacity: 0.6; }
+
+    .clause-icon { font-size: 1.1rem; flex-shrink: 0; padding-top: 0.1rem; }
+    .clause-body { flex: 1; }
+    .clause-name { font-weight: 600; font-size: 0.95rem; color: #c4b5fd; }
+    .clause-excerpt {
+      margin-top: 0.35rem; font-size: 0.82rem;
+      color: #94a3b8; line-height: 1.5;
+      border-left: 2px solid #7c3aed;
+      padding-left: 0.6rem;
+    }
+    .section-badge {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 500;
+      background: #2d1b6e; color: #c4b5fd;
+      border: 1px solid #4c1d95;
+      border-radius: 4px; padding: 0.1rem 0.45rem;
+      margin-left: 0.4rem; vertical-align: middle;
+    }
+    .not-detected .clause-name { color: #475569; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⚖️ LexProbe</h1>
+      <p>AI-powered contract risk detection · Fine-tuned Llama-3.1-8B</p>
+    </header>
+
+    <div class="card">
+      <label style="display: flex; justify-content: space-between; align-items: center;">
+        <span>Paste contract text</span>
+        <span style="color: #64748b; font-size: 0.78rem;">Max 15,000 chars (~5 pages)</span>
+      </label>
+      <textarea id="contract-text" placeholder="Paste your contract text here..."></textarea>
+
+      <div class="or-divider">— or upload a .pdf / .docx / .doc / .txt file —</div>
+
+      <div class="file-upload-area" onclick="document.getElementById('file-input').click()">
+        <input type="file" id="file-input" accept=".txt,.pdf,.docx,.doc" />
+        <span>Click to upload a .pdf, .docx, .doc, or .txt file</span>
+        <div style="color: #64748b; font-size: 0.78rem; margin-top: 0.25rem;">Max 2 MB &middot; Up to ~5 pages</div>
+        <div class="filename" id="filename-label"></div>
+      </div>
+
+      <button id="analyze-btn" onclick="analyze()">Analyze Contract</button>
+      <div id="status"></div>
+    </div>
+
+    <div class="card" id="results">
+      <div class="summary" id="summary-text"></div>
+      <h2>Detected Clauses</h2>
+      <div id="clause-list"></div>
+    </div>
+  </div>
+
+  <script>
+    const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024; // 2 MB
+    const MAX_TEXT_CHARS = 15000;                // ~5 pages
+
+    // File selection: validate size and show filename. For .txt, pre-fill textarea.
+    // For PDF/DOCX/DOC, extraction happens server-side on submit.
+    document.getElementById('file-input').addEventListener('change', function() {
+      const file = this.files[0];
+      if (!file) return;
+
+      if (file.size > MAX_FILE_SIZE_BYTES) {
+        setStatus(`Error: File is too large (${(file.size / (1024 * 1024)).toFixed(2)} MB). Maximum allowed size is 2 MB.`);
+        this.value = '';
+        document.getElementById('filename-label').textContent = '';
+        return;
+      }
+
+      setStatus('');
+      document.getElementById('filename-label').textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+      const ext = file.name.split('.').pop().toLowerCase();
+      if (ext === 'txt') {
+        // For plain text, pre-fill the textarea (allows pasting too)
+        const reader = new FileReader();
+        reader.onload = e => {
+          const content = e.target.result;
+          document.getElementById('contract-text').value = content;
+          if (content.length > MAX_TEXT_CHARS) {
+            setStatus(`Warning: Text file contains ${content.length.toLocaleString()} characters (exceeds 15,000 char limit). Please shorten or select an excerpt.`);
+          }
+        };
+        reader.readAsText(file);
+      } else {
+        // For PDF/DOCX/DOC, clear textarea — server will extract
+        document.getElementById('contract-text').value = '';
+        document.getElementById('contract-text').placeholder =
+          `${file.name} selected — text will be extracted on the server when you click Analyze.`;
+      }
+    });
+
+    /**
+     * Parse section headings from contract text.
+     * Returns array of {number, title, startIndex} sorted by position.
+     * Matches patterns like: "1.", "2.", "3.1", "1.a", "ARTICLE I", etc.
+     */
+    function parseSections(text) {
+      const sections = [];
+      // Match numbered sections: "1.", "2.", "3.1.", "1.2.3" at start of line
+      const re = /^(\d+(?:\.\d+)*\.?|[A-Z]+\s+[IVXLCDM]+)\s+([A-Z][A-Z\s\/\-&]+)/gm;
+      let match;
+      while ((match = re.exec(text)) !== null) {
+        sections.push({
+          number: match[1].replace(/\.$/, ''),
+          title:  match[2].trim(),
+          startIndex: match.index,
+        });
+      }
+      return sections;
+    }
+
+    /**
+     * Given the position of a found excerpt in the original text,
+     * return the nearest section heading above it.
+     */
+    function findSection(text, excerpt, sections) {
+      if (!excerpt || sections.length === 0) return null;
+      const pos = text.indexOf(excerpt.substring(0, 60)); // first 60 chars to locate
+      if (pos === -1) return null;
+      // Find the last section whose startIndex is <= pos
+      let best = null;
+      for (const sec of sections) {
+        if (sec.startIndex <= pos) best = sec;
+        else break;
+      }
+      return best;
+    }
+
+    async function analyze() {
+      const fileInput = document.getElementById('file-input');
+      const file = fileInput.files[0];
+      const text = document.getElementById('contract-text').value.trim();
+      const ext = file ? file.name.split('.').pop().toLowerCase() : '';
+      const needsServerExtract = file && ['pdf', 'docx', 'doc'].includes(ext);
+
+      if (!needsServerExtract && !text) {
+        setStatus('Please paste contract text or upload a file first.');
+        return;
+      }
+
+      if (!needsServerExtract && text.length > MAX_TEXT_CHARS) {
+        setStatus(`Error: Contract text (${text.length.toLocaleString()} characters) exceeds the 15,000 character limit (~5 pages). Please shorten or select an excerpt.`);
+        return;
+      }
+
+      const btn = document.getElementById('analyze-btn');
+      btn.disabled = true;
+      btn.textContent = 'Analyzing…';
+      setStatus('Running inference across 6 clause types. This may take 1–2 minutes…');
+      document.getElementById('results').style.display = 'none';
+
+      try {
+        let data;
+        if (needsServerExtract) {
+          // Send file to /upload — server extracts text
+          const formData = new FormData();
+          formData.append('file', file);
+          const resp = await fetch('/upload', { method: 'POST', body: formData });
+          if (!resp.ok) {
+            const err = await resp.json();
+            throw new Error(err.detail || `Server error: ${resp.status}`);
+          }
+          data = await resp.json();
+          // Use server-returned text for section detection
+          renderResults(data, data.contract_text || '', parseSections(data.contract_text || ''));
+        } else {
+          // Send pasted/txt text as JSON
+          const sections = parseSections(text);
+          const resp = await fetch('/analyze-contract', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text }),
+          });
+          if (!resp.ok) {
+            const err = await resp.json();
+            throw new Error(err.detail || `Server error: ${resp.status}`);
+          }
+          data = await resp.json();
+          renderResults(data, text, sections);
+        }
+        setStatus('');
+      } catch (err) {
+        setStatus(`Error: ${err.message}`);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Analyze Contract';
+      }
+    }
+
+    function renderResults(data, text, sections) {
+      const detected = data.clauses.filter(c => c.detected);
+      document.getElementById('summary-text').textContent =
+        `🚨 ${detected.length} of ${data.total_checked} clause types flagged`;
+
+      const list = document.getElementById('clause-list');
+      list.innerHTML = '';
+
+      // Show detected first, then not detected
+      const sorted = [...data.clauses].sort((a, b) => b.detected - a.detected);
+
+      sorted.forEach(c => {
+        const sec = findSection(text, c.extracted_text, sections);
+        const sectionBadge = sec
+          ? `<span class="section-badge">§ ${sec.number} — ${sec.title}</span>`
+          : '';
+
+        const div = document.createElement('div');
+        div.className = `clause-item ${c.detected ? 'detected' : 'not-detected'}`;
+        div.innerHTML = `
+          <div class="clause-icon">${c.detected ? '🚨' : '✅'}</div>
+          <div class="clause-body">
+            <div class="clause-name">${c.clause_type} ${sectionBadge}</div>
+            ${c.extracted_text
+              ? `<div class="clause-excerpt">${c.extracted_text.substring(0, 200)}${c.extracted_text.length > 200 ? '…' : ''}</div>`
+              : ''}
+          </div>`;
+        list.appendChild(div);
+      });
+
+      document.getElementById('results').style.display = 'block';
+    }
+
+    function setStatus(msg) {
+      document.getElementById('status').textContent = msg;
+    }
+  </script>
+</body>
+</html>

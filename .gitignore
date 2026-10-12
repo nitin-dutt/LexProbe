@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+
+# Environment — never commit secrets
+.env
+.env.*
+*.pem
+*.key
+.dvc/config.local
+
+# Data (tracked by DVC instead — the small .dvc pointer files ARE committed)
+data/raw/*
+!data/raw/*.dvc
+data/processed/
+data/archive/
+
+# Run logs
+logs/
+
+# Models
+models/
+
+# MLflow
+mlflow.db
+mlruns/
+
+# Generated reports / tool caches
+drift_report.html
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Editors / OS
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+
+# Personal notes & planning docs — only README.md and the evaluation report are published
+*.md
+!README.md
+!reports/eval/comparison.md
+
+# Retired / personal artifacts (not needed to run the code or verify the reported results)
+reports/*
+!reports/eval/
+data/*.json
+test_contract.txt
+
+# Legacy scripts from the retired v2 pipeline (superseded by src/evaluate.py + src/compare_results.py)
+src/bootstrap_ci.py
+src/error_analysis.py
+src/plot_results.py
+src/evaluate_lora.py
+src/baseline_eval.py
+src/log_dataset_stats.py
+upload_adapter.py
