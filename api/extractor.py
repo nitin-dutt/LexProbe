@@ -1,6 +1,6 @@
 """
 Text extraction from uploaded contract files.
-Supports: .txt, .pdf, .docx, .doc (legacy)
+Supports: .txt, .pdf, .docx. Legacy binary .doc is not supported (save as .docx).
 """
 
 import io
@@ -22,13 +22,10 @@ def extract_text(filename: str, content: bytes) -> str:
     elif ext == "docx":
         return _extract_docx(content)
 
-    elif ext == "doc":
-        return _extract_doc(content)
-
     else:
         raise ValueError(
             f"Unsupported file type: .{ext}. "
-            "Please upload a .pdf, .docx, .doc, or .txt file."
+            "Please upload a .pdf, .docx or .txt file (save legacy .doc files as .docx)."
         )
 
 
@@ -64,29 +61,3 @@ def _extract_docx(content: bytes) -> str:
     if not paragraphs:
         raise ValueError("No text found in the .docx file.")
     return "\n".join(paragraphs)
-
-
-def _extract_doc(content: bytes) -> str:
-    """
-    .doc (legacy binary Word format) support via python-docx2txt.
-    Falls back gracefully if not installed.
-    """
-    try:
-        import docx2txt
-        import tempfile, os
-        # docx2txt works on file paths, not bytes — write to a temp file
-        with tempfile.NamedTemporaryFile(suffix=".doc", delete=False) as tmp:
-            tmp.write(content)
-            tmp_path = tmp.name
-        try:
-            text = docx2txt.process(tmp_path)
-        finally:
-            os.unlink(tmp_path)
-        if not text or not text.strip():
-            raise ValueError("No text extracted from .doc file.")
-        return text
-    except ImportError:
-        raise ValueError(
-            ".doc (legacy Word) support requires docx2txt. "
-            "Run: pip install docx2txt  OR  save the file as .docx and re-upload."
-        )

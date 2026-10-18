@@ -1,0 +1,6 @@
+outs:
+- md5: 239d9c94f57b5177f4715619c8273def.dir
+  size: 185055709
+  nfiles: 8
+  hash: md5
+  path: final_adapter

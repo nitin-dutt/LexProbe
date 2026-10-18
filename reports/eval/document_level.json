@@ -1,0 +1,1281 @@
+{
+ "systems": [
+  "baseline",
+  "lora_v4"
+ ],
+ "split": "test",
+ "dataset_version": "v3",
+ "n_chunks": 2995,
+ "n_contracts": 76,
+ "n_groups": 75,
+ "chunk_positives": {
+  "Governing Law": 74,
+  "Termination for Convenience": 33,
+  "Limitation of Liability": 82,
+  "Auto-Renewal": 34,
+  "Non-Compete": 33,
+  "Liquidated Damages": 12
+ },
+ "contract_positives": {
+  "Auto-Renewal": 31,
+  "Governing Law": 62,
+  "Limitation of Liability": 43,
+  "Liquidated Damages": 7,
+  "Non-Compete": 20,
+  "Termination for Convenience": 25
+ },
+ "threshold_selection": {
+  "baseline": {
+   "selected_on": "validation, max chunk-level macro-F1",
+   "selected_threshold": 7.0,
+   "sweep": [
+    {
+     "threshold": -3.0,
+     "chunk_precision": 0.0368008255851786,
+     "chunk_recall": 0.9827935222672064,
+     "chunk_f1": 0.07043689525134324,
+     "contract_precision": 0.41602886858631855,
+     "contract_recall": 1.0,
+     "contract_f1": 0.5452715398810429
+    },
+    {
+     "threshold": -2.5,
+     "chunk_precision": 0.047599935260156656,
+     "chunk_recall": 0.9827935222672064,
+     "chunk_f1": 0.08987835794694347,
+     "contract_precision": 0.4187574998101314,
+     "contract_recall": 1.0,
+     "contract_f1": 0.5482050603554001
+    },
+    {
+     "threshold": -2.0,
+     "chunk_precision": 0.062393186106658775,
+     "chunk_recall": 0.9676420071156914,
+     "chunk_f1": 0.11559816339340774,
+     "contract_precision": 0.4276141743247006,
+     "contract_recall": 1.0,
+     "contract_f1": 0.557654221196444
+    },
+    {
+     "threshold": -1.5,
+     "chunk_precision": 0.07935499308804203,
+     "chunk_recall": 0.9524904919641761,
+     "chunk_f1": 0.14395235692503316,
+     "contract_precision": 0.4367672900008877,
+     "contract_recall": 1.0,
+     "contract_f1": 0.5671997551360138
+    },
+    {
+     "threshold": -1.0,
+     "chunk_precision": 0.10020756852741719,
+     "chunk_recall": 0.937476996687523,
+     "chunk_f1": 0.17713674220322803,
+     "contract_precision": 0.45016190344965223,
+     "contract_recall": 1.0,
+     "contract_f1": 0.5803848546704918
+    },
+    {
+     "threshold": -0.5,
+     "chunk_precision": 0.12321232908730444,
+     "chunk_recall": 0.9246564838670102,
+     "chunk_f1": 0.21185862544763348,
+     "contract_precision": 0.46195692261117066,
+     "contract_recall": 1.0,
+     "contract_f1": 0.5931833663571741
+    },
+    {
+     "threshold": 0.0,
+     "chunk_precision": 0.1448390974393529,
+     "chunk_recall": 0.903702347226599,
+     "chunk_f1": 0.24220906662026412,
+     "contract_precision": 0.4726575971152999,
+     "contract_recall": 1.0,
+     "contract_f1": 0.6044227562642287
+    },
+    {
+     "threshold": 0.5,
+     "chunk_precision": 0.17171873336151833,
+     "chunk_recall": 0.8908818344060863,
+     "chunk_f1": 0.2782634036167997,
+     "contract_precision": 0.4942078603179217,
+     "contract_recall": 0.9885057471264368,
+     "contract_f1": 0.6231253214090032
+    },
+    {
+     "threshold": 1.0,
+     "chunk_precision": 0.19422828067299427,
+     "chunk_recall": 0.8758683391294332,
+     "chunk_f1": 0.3068470863133763,
+     "contract_precision": 0.5028526517151762,
+     "contract_recall": 0.9770114942528735,
+     "contract_f1": 0.6297613073801466
+    },
+    {
+     "threshold": 1.5,
+     "chunk_precision": 0.21868119322335622,
+     "chunk_recall": 0.8673213305824246,
+     "chunk_f1": 0.3362624920377039,
+     "contract_precision": 0.5107431045866322,
+     "contract_recall": 0.9620051085568327,
+     "contract_f1": 0.6351555356094273
+    },
+    {
+     "threshold": 2.0,
+     "chunk_precision": 0.23487119210605925,
+     "chunk_recall": 0.8437608267587628,
+     "chunk_f1": 0.3521960301738958,
+     "contract_precision": 0.5135469639432865,
+     "contract_recall": 0.9390166028097063,
+     "contract_f1": 0.6322622863007353
+    },
+    {
+     "threshold": 2.5,
+     "chunk_precision": 0.26615513312601796,
+     "chunk_recall": 0.8394873224852586,
+     "chunk_f1": 0.3847301670916507,
+     "contract_precision": 0.5270901378703642,
+     "contract_recall": 0.927522349936143,
+     "contract_f1": 0.6406808303199149
+    },
+    {
+     "threshold": 3.0,
+     "chunk_precision": 0.29102703339115604,
+     "chunk_recall": 0.8249486610167726,
+     "chunk_f1": 0.4075066505169324,
+     "contract_precision": 0.5358589912929942,
+     "contract_recall": 0.9217752234993615,
+     "contract_f1": 0.6460856753409945
+    },
+    {
+     "threshold": 3.5,
+     "chunk_precision": 0.311615603673248,
+     "chunk_recall": 0.8018629910012779,
+     "chunk_f1": 0.4237476038951316,
+     "contract_precision": 0.5512711991370528,
+     "contract_recall": 0.9028928688110726,
+     "contract_f1": 0.6550149569877334
+    },
+    {
+     "threshold": 4.0,
+     "chunk_precision": 0.33407339586052626,
+     "chunk_recall": 0.8018629910012779,
+     "chunk_f1": 0.44380386987537185,
+     "contract_precision": 0.5677907373160737,
+     "contract_recall": 0.9028928688110726,
+     "contract_f1": 0.6661044737394549
+    },
+    {
+     "threshold": 4.5,
+     "chunk_precision": 0.35723234390875563,
+     "chunk_recall": 0.7933159824542694,
+     "chunk_f1": 0.45862956147674244,
+     "contract_precision": 0.5757630509468745,
+     "contract_recall": 0.8841522391259149,
+     "contract_f1": 0.6633651036014087
+    },
+    {
+     "threshold": 5.0,
+     "chunk_precision": 0.39362646603312684,
+     "chunk_recall": 0.7871431429480965,
+     "chunk_f1": 0.48188716180984864,
+     "contract_precision": 0.6120008752330485,
+     "contract_recall": 0.869145853429874,
+     "contract_f1": 0.6767384350359434
+    },
+    {
+     "threshold": 5.5,
+     "chunk_precision": 0.4108704216486543,
+     "chunk_recall": 0.7784836737623116,
+     "chunk_f1": 0.49304206808073814,
+     "contract_precision": 0.6203911889086416,
+     "contract_recall": 0.8652698844376262,
+     "contract_f1": 0.681484542233031
+    },
+    {
+     "threshold": 6.0,
+     "chunk_precision": 0.45652749022314243,
+     "chunk_recall": 0.7424394710514423,
+     "chunk_f1": 0.5022298613707102,
+     "contract_precision": 0.651832135647486,
+     "contract_recall": 0.8445163723048038,
+     "contract_f1": 0.684639146217564
+    },
+    {
+     "threshold": 6.5,
+     "chunk_precision": 0.4804792556439546,
+     "chunk_recall": 0.7424394710514423,
+     "chunk_f1": 0.5170637394427503,
+     "contract_precision": 0.6765869507248817,
+     "contract_recall": 0.8445163723048038,
+     "contract_f1": 0.6982364356600753
+    },
+    {
+     "threshold": 7.0,
+     "chunk_precision": 0.5143144604956841,
+     "chunk_recall": 0.7358605236830212,
+     "chunk_f1": 0.5305458277626756,
+     "contract_precision": 0.6811814919860897,
+     "contract_recall": 0.8330221194312406,
+     "contract_f1": 0.6927997256860787
+    },
+    {
+     "threshold": 7.5,
+     "chunk_precision": 0.5107690919403909,
+     "chunk_recall": 0.7087335475364371,
+     "chunk_f1": 0.5182123024096993,
+     "contract_precision": 0.6709835852682978,
+     "contract_recall": 0.7855875034059198,
+     "contract_f1": 0.6629969185149438
+    },
+    {
+     "threshold": 8.0,
+     "chunk_precision": 0.5225695582633451,
+     "chunk_recall": 0.7044600432629329,
+     "chunk_f1": 0.5274332584757516,
+     "contract_precision": 0.6841907080148809,
+     "contract_recall": 0.7798403769691382,
+     "contract_f1": 0.6688498379617034
+    }
+   ]
+  },
+  "lora_v4": {
+   "selected_on": "validation, max chunk-level macro-F1",
+   "selected_threshold": 4.5,
+   "sweep": [
+    {
+     "threshold": -3.0,
+     "chunk_precision": 0.35053264074945994,
+     "chunk_recall": 0.9276507834557371,
+     "chunk_f1": 0.44979796571565894,
+     "contract_precision": 0.5383060604952067,
+     "contract_recall": 0.9829888027562447,
+     "contract_f1": 0.6469151408341525
+    },
+    {
+     "threshold": -2.5,
+     "chunk_precision": 0.3627967546648394,
+     "chunk_recall": 0.9214779439495643,
+     "chunk_f1": 0.4619857111456016,
+     "contract_precision": 0.5488800463212087,
+     "contract_recall": 0.9829888027562447,
+     "contract_f1": 0.6561218681064315
+    },
+    {
+     "threshold": -2.0,
+     "chunk_precision": 0.3801377206744934,
+     "chunk_recall": 0.9214779439495643,
+     "chunk_f1": 0.48051981070425726,
+     "contract_precision": 0.5600912549551706,
+     "contract_recall": 0.9829888027562447,
+     "contract_f1": 0.6659323989643139
+    },
+    {
+     "threshold": -1.5,
+     "chunk_precision": 0.39949934612341226,
+     "chunk_recall": 0.9170919790372835,
+     "chunk_f1": 0.49905520049516533,
+     "contract_precision": 0.5706854256854257,
+     "contract_recall": 0.9829888027562447,
+     "contract_f1": 0.6740662006944688
+    },
+    {
+     "threshold": -1.0,
+     "chunk_precision": 0.41987393507798587,
+     "chunk_recall": 0.9019404638857683,
+     "chunk_f1": 0.5196349039133545,
+     "contract_precision": 0.5800242180205415,
+     "contract_recall": 0.9829888027562447,
+     "contract_f1": 0.6828014532160444
+    },
+    {
+     "threshold": -0.5,
+     "chunk_precision": 0.43670088762939546,
+     "chunk_recall": 0.889301137649951,
+     "chunk_f1": 0.5341474811338676,
+     "contract_precision": 0.5878501069458516,
+     "contract_recall": 0.9644702842377261,
+     "contract_f1": 0.6832764477669125
+    },
+    {
+     "threshold": 0.0,
+     "chunk_precision": 0.4618862161513068,
+     "chunk_recall": 0.8828346509203063,
+     "chunk_f1": 0.553994955169129,
+     "contract_precision": 0.6070521418846914,
+     "contract_recall": 0.9529760313641629,
+     "contract_f1": 0.6931701223729609
+    },
+    {
+     "threshold": 0.5,
+     "chunk_precision": 0.49448679414788943,
+     "chunk_recall": 0.8572367919891141,
+     "chunk_f1": 0.576520924180696,
+     "contract_precision": 0.6304516860603843,
+     "contract_recall": 0.9529760313641629,
+     "contract_f1": 0.7088493935262602
+    },
+    {
+     "threshold": 1.0,
+     "chunk_precision": 0.5268324578780689,
+     "chunk_recall": 0.8467904482094367,
+     "chunk_f1": 0.5972230047651914,
+     "contract_precision": 0.6490065437805551,
+     "contract_recall": 0.937969645668122,
+     "contract_f1": 0.7167130898227781
+    },
+    {
+     "threshold": 1.5,
+     "chunk_precision": 0.5458382749789443,
+     "chunk_recall": 0.8425169439359325,
+     "chunk_f1": 0.6099816404373571,
+     "contract_precision": 0.654381725193836,
+     "contract_recall": 0.9322225192313404,
+     "contract_f1": 0.7181544308490916
+    },
+    {
+     "threshold": 2.0,
+     "chunk_precision": 0.5723400771029884,
+     "chunk_recall": 0.8382434396624282,
+     "chunk_f1": 0.6267225280718877,
+     "contract_precision": 0.6623257468619671,
+     "contract_recall": 0.9225994238023106,
+     "contract_f1": 0.7203146715175585
+    },
+    {
+     "threshold": 2.5,
+     "chunk_precision": 0.6018072014233861,
+     "chunk_recall": 0.8066107610999254,
+     "chunk_f1": 0.6332907035700495,
+     "contract_precision": 0.6816280737465114,
+     "contract_recall": 0.8983337788470106,
+     "contract_f1": 0.7231199113552055
+    },
+    {
+     "threshold": 3.0,
+     "chunk_precision": 0.6211829625669508,
+     "chunk_recall": 0.7743652288543929,
+     "chunk_f1": 0.6384396966384128,
+     "contract_precision": 0.7125908594357261,
+     "contract_recall": 0.8795931491618533,
+     "contract_f1": 0.7352500748727165
+    },
+    {
+     "threshold": 3.5,
+     "chunk_precision": 0.6633379253609549,
+     "chunk_recall": 0.7360848769775498,
+     "chunk_f1": 0.6357212484635736,
+     "contract_precision": 0.7347300396080884,
+     "contract_recall": 0.8301040048451226,
+     "contract_f1": 0.7158018761053239
+    },
+    {
+     "threshold": 4.0,
+     "chunk_precision": 0.7071925946608343,
+     "chunk_recall": 0.6868140535839194,
+     "chunk_f1": 0.6360847558725392,
+     "contract_precision": 0.779008029008029,
+     "contract_recall": 0.8032395301057482,
+     "contract_f1": 0.7295413131180809
+    },
+    {
+     "threshold": 4.5,
+     "chunk_precision": 0.7733204134366926,
+     "chunk_recall": 0.6484029586970763,
+     "chunk_f1": 0.6551549588718117,
+     "contract_precision": 0.8396103896103896,
+     "contract_recall": 0.740819351306259,
+     "contract_f1": 0.73865463444942
+    },
+    {
+     "threshold": 5.0,
+     "chunk_precision": 0.8136541647085487,
+     "chunk_recall": 0.5989019952642244,
+     "chunk_f1": 0.6399913753070928,
+     "contract_precision": 0.8459595959595959,
+     "contract_recall": 0.6736150658520869,
+     "contract_f1": 0.7037199559959201
+    },
+    {
+     "threshold": 5.5,
+     "chunk_precision": 0.8964180980310013,
+     "chunk_recall": 0.516956705527397,
+     "chunk_f1": 0.5907365801090497,
+     "contract_precision": 0.9290123456790123,
+     "contract_recall": 0.5699133637315709,
+     "contract_f1": 0.6463408765332617
+    },
+    {
+     "threshold": 6.0,
+     "chunk_precision": 0.7578647925033467,
+     "chunk_recall": 0.4357412739765681,
+     "chunk_f1": 0.5115995115995117,
+     "contract_precision": 0.775,
+     "contract_recall": 0.4741180766206044,
+     "contract_f1": 0.5501310413759115
+    },
+    {
+     "threshold": 6.5,
+     "chunk_precision": 0.7690329218106996,
+     "chunk_recall": 0.33499574614125693,
+     "chunk_f1": 0.40932694610308284,
+     "contract_precision": 0.8333333333333334,
+     "contract_recall": 0.37386482792195636,
+     "contract_f1": 0.4616099970938681
+    },
+    {
+     "threshold": 7.0,
+     "chunk_precision": 0.47002997002997,
+     "chunk_recall": 0.22634357386679368,
+     "chunk_f1": 0.2650047483380817,
+     "contract_precision": 0.5,
+     "contract_recall": 0.2498033928772048,
+     "contract_f1": 0.29661293408740874
+    },
+    {
+     "threshold": 7.5,
+     "chunk_precision": 0.3287037037037037,
+     "chunk_recall": 0.15648567119155354,
+     "chunk_f1": 0.18310271615784465,
+     "contract_precision": 0.3333333333333333,
+     "contract_recall": 0.1714975845410628,
+     "contract_f1": 0.19622235271090235
+    },
+    {
+     "threshold": 8.0,
+     "chunk_precision": 0.33060109289617484,
+     "chunk_recall": 0.12405731523378583,
+     "chunk_f1": 0.1493319803822087,
+     "contract_precision": 0.3333333333333333,
+     "contract_recall": 0.13526570048309178,
+     "contract_f1": 0.15869763205828782
+    }
+   ]
+  }
+ },
+ "operating_points": {
+  "natural": {
+   "thresholds": {
+    "baseline": 0.0,
+    "lora_v4": 0.0
+   },
+   "summary": {
+    "baseline": {
+     "chunk": {
+      "Auto-Renewal": {
+       "tp": 33,
+       "fp": 67,
+       "fn": 1,
+       "tn": 2893,
+       "precision": 0.33,
+       "recall": 0.9705882352941176,
+       "f1": 0.49253731343283585,
+       "support_pos": 34
+      },
+      "Governing Law": {
+       "tp": 74,
+       "fp": 212,
+       "fn": 0,
+       "tn": 2709,
+       "precision": 0.25874125874125875,
+       "recall": 1.0,
+       "f1": 0.41111111111111115,
+       "support_pos": 74
+      },
+      "Limitation of Liability": {
+       "tp": 82,
+       "fp": 598,
+       "fn": 0,
+       "tn": 2309,
+       "precision": 0.12058823529411765,
+       "recall": 1.0,
+       "f1": 0.2152230971128609,
+       "support_pos": 82
+      },
+      "Liquidated Damages": {
+       "tp": 11,
+       "fp": 222,
+       "fn": 1,
+       "tn": 2760,
+       "precision": 0.04721030042918455,
+       "recall": 0.9166666666666666,
+       "f1": 0.08979591836734695,
+       "support_pos": 12
+      },
+      "Non-Compete": {
+       "tp": 30,
+       "fp": 154,
+       "fn": 3,
+       "tn": 2804,
+       "precision": 0.16304347826086957,
+       "recall": 0.9090909090909091,
+       "f1": 0.2764976958525346,
+       "support_pos": 33
+      },
+      "Termination for Convenience": {
+       "tp": 26,
+       "fp": 198,
+       "fn": 7,
+       "tn": 2763,
+       "precision": 0.11607142857142858,
+       "recall": 0.7878787878787878,
+       "f1": 0.20233463035019456,
+       "support_pos": 33
+      },
+      "macro": {
+       "precision": 0.17260911688280986,
+       "recall": 0.9307040998217468,
+       "f1": 0.28124996103781397
+      }
+     },
+     "contract": {
+      "Auto-Renewal": {
+       "tp": 30,
+       "fp": 19,
+       "fn": 1,
+       "tn": 26,
+       "precision": 0.6122448979591837,
+       "recall": 0.967741935483871,
+       "f1": 0.75,
+       "support_pos": 31
+      },
+      "Governing Law": {
+       "tp": 62,
+       "fp": 5,
+       "fn": 0,
+       "tn": 9,
+       "precision": 0.9253731343283582,
+       "recall": 1.0,
+       "f1": 0.9612403100775194,
+       "support_pos": 62
+      },
+      "Limitation of Liability": {
+       "tp": 43,
+       "fp": 22,
+       "fn": 0,
+       "tn": 11,
+       "precision": 0.6615384615384615,
+       "recall": 1.0,
+       "f1": 0.7962962962962964,
+       "support_pos": 43
+      },
+      "Liquidated Damages": {
+       "tp": 6,
+       "fp": 44,
+       "fn": 1,
+       "tn": 25,
+       "precision": 0.12,
+       "recall": 0.8571428571428571,
+       "f1": 0.21052631578947367,
+       "support_pos": 7
+      },
+      "Non-Compete": {
+       "tp": 20,
+       "fp": 30,
+       "fn": 0,
+       "tn": 26,
+       "precision": 0.4,
+       "recall": 1.0,
+       "f1": 0.5714285714285715,
+       "support_pos": 20
+      },
+      "Termination for Convenience": {
+       "tp": 25,
+       "fp": 36,
+       "fn": 0,
+       "tn": 15,
+       "precision": 0.4098360655737705,
+       "recall": 1.0,
+       "f1": 0.5813953488372093,
+       "support_pos": 25
+      },
+      "macro": {
+       "precision": 0.5214987598999623,
+       "recall": 0.9708141321044547,
+       "f1": 0.6451478070715118
+      }
+     },
+     "chunk_negatives": 17689,
+     "chunk_false_positive_rate": 0.0820283792187235,
+     "false_flagged_chunks_per_contract": 19.092105263157894,
+     "wrong_clause_flags_per_contract": 2.0526315789473686,
+     "contracts_with_no_wrong_flag": 0.07894736842105263,
+     "top_chunk_on_clause_rate": 0.9193548387096774,
+     "n_contracts": 76
+    },
+    "lora_v4": {
+     "chunk": {
+      "Auto-Renewal": {
+       "tp": 34,
+       "fp": 52,
+       "fn": 0,
+       "tn": 2908,
+       "precision": 0.3953488372093023,
+       "recall": 1.0,
+       "f1": 0.5666666666666667,
+       "support_pos": 34
+      },
+      "Governing Law": {
+       "tp": 74,
+       "fp": 2,
+       "fn": 0,
+       "tn": 2919,
+       "precision": 0.9736842105263158,
+       "recall": 1.0,
+       "f1": 0.9866666666666666,
+       "support_pos": 74
+      },
+      "Limitation of Liability": {
+       "tp": 77,
+       "fp": 27,
+       "fn": 5,
+       "tn": 2880,
+       "precision": 0.7403846153846154,
+       "recall": 0.9390243902439024,
+       "f1": 0.8279569892473119,
+       "support_pos": 82
+      },
+      "Liquidated Damages": {
+       "tp": 12,
+       "fp": 213,
+       "fn": 0,
+       "tn": 2769,
+       "precision": 0.05333333333333334,
+       "recall": 1.0,
+       "f1": 0.10126582278481014,
+       "support_pos": 12
+      },
+      "Non-Compete": {
+       "tp": 28,
+       "fp": 39,
+       "fn": 5,
+       "tn": 2919,
+       "precision": 0.417910447761194,
+       "recall": 0.8484848484848485,
+       "f1": 0.5599999999999999,
+       "support_pos": 33
+      },
+      "Termination for Convenience": {
+       "tp": 27,
+       "fp": 30,
+       "fn": 6,
+       "tn": 2931,
+       "precision": 0.47368421052631576,
+       "recall": 0.8181818181818182,
+       "f1": 0.6,
+       "support_pos": 33
+      },
+      "macro": {
+       "precision": 0.5090576091235127,
+       "recall": 0.9342818428184282,
+       "f1": 0.6070926908942426
+      }
+     },
+     "contract": {
+      "Auto-Renewal": {
+       "tp": 31,
+       "fp": 29,
+       "fn": 0,
+       "tn": 16,
+       "precision": 0.5166666666666667,
+       "recall": 1.0,
+       "f1": 0.6813186813186815,
+       "support_pos": 31
+      },
+      "Governing Law": {
+       "tp": 62,
+       "fp": 0,
+       "fn": 0,
+       "tn": 14,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "support_pos": 62
+      },
+      "Limitation of Liability": {
+       "tp": 43,
+       "fp": 3,
+       "fn": 0,
+       "tn": 30,
+       "precision": 0.9347826086956522,
+       "recall": 1.0,
+       "f1": 0.9662921348314606,
+       "support_pos": 43
+      },
+      "Liquidated Damages": {
+       "tp": 7,
+       "fp": 49,
+       "fn": 0,
+       "tn": 20,
+       "precision": 0.125,
+       "recall": 1.0,
+       "f1": 0.2222222222222222,
+       "support_pos": 7
+      },
+      "Non-Compete": {
+       "tp": 19,
+       "fp": 10,
+       "fn": 1,
+       "tn": 46,
+       "precision": 0.6551724137931034,
+       "recall": 0.95,
+       "f1": 0.7755102040816326,
+       "support_pos": 20
+      },
+      "Termination for Convenience": {
+       "tp": 23,
+       "fp": 13,
+       "fn": 2,
+       "tn": 38,
+       "precision": 0.6388888888888888,
+       "recall": 0.92,
+       "f1": 0.7540983606557377,
+       "support_pos": 25
+      },
+      "macro": {
+       "precision": 0.6450850963407185,
+       "recall": 0.9783333333333334,
+       "f1": 0.7332402671849558
+      }
+     },
+     "chunk_negatives": 17689,
+     "chunk_false_positive_rate": 0.02052122788173441,
+     "false_flagged_chunks_per_contract": 4.776315789473684,
+     "wrong_clause_flags_per_contract": 1.368421052631579,
+     "contracts_with_no_wrong_flag": 0.14473684210526316,
+     "top_chunk_on_clause_rate": 0.9675675675675676,
+     "n_contracts": 76
+    }
+   },
+   "bootstrap": {
+    "chunk": {
+     "n_bootstrap": 2000,
+     "n_groups": 75,
+     "a_precision": 0.17260911688280986,
+     "a_recall": 0.9307040998217468,
+     "a_f1": 0.28124996103781397,
+     "a_precision_ci": [
+      0.14626804324855527,
+      0.20187443565300445
+     ],
+     "a_recall_ci": [
+      0.8787009182004468,
+      0.9733707490612732
+     ],
+     "a_f1_ci": [
+      0.2450606146513801,
+      0.3192414816614738
+     ],
+     "b_precision": 0.5090576091235127,
+     "b_recall": 0.9342818428184282,
+     "b_f1": 0.6070926908942426,
+     "b_precision_ci": [
+      0.4636144676133242,
+      0.5578417603264155
+     ],
+     "b_recall_ci": [
+      0.898769654256167,
+      0.9689023527569738
+     ],
+     "b_f1_ci": [
+      0.5603906218132412,
+      0.6482984788137892
+     ],
+     "diff_f1": 0.3258427298564286,
+     "diff_f1_ci": [
+      0.2939104750781233,
+      0.3557466155791332
+     ],
+     "p_value_one_sided": 0.0
+    },
+    "contract": {
+     "n_bootstrap": 2000,
+     "n_groups": 75,
+     "a_precision": 0.5214987598999623,
+     "a_recall": 0.9708141321044547,
+     "a_f1": 0.6451478070715118,
+     "a_precision_ci": [
+      0.4625910621516538,
+      0.577728780168576
+     ],
+     "a_recall_ci": [
+      0.9166600529100529,
+      1.0
+     ],
+     "a_f1_ci": [
+      0.5862166554830869,
+      0.696808901880945
+     ],
+     "b_precision": 0.6450850963407185,
+     "b_recall": 0.9783333333333334,
+     "b_f1": 0.7332402671849558,
+     "b_precision_ci": [
+      0.5881586022984867,
+      0.6974578197456948
+     ],
+     "b_recall_ci": [
+      0.9511770347707849,
+      1.0
+     ],
+     "b_f1_ci": [
+      0.6829908273745634,
+      0.7737908757535061
+     ],
+     "diff_f1": 0.08809246011344407,
+     "diff_f1_ci": [
+      0.05691643851290875,
+      0.12247449490042568
+     ],
+     "p_value_one_sided": 0.0
+    }
+   }
+  },
+  "tuned": {
+   "thresholds": {
+    "baseline": 7.0,
+    "lora_v4": 4.5
+   },
+   "summary": {
+    "baseline": {
+     "chunk": {
+      "Auto-Renewal": {
+       "tp": 28,
+       "fp": 3,
+       "fn": 6,
+       "tn": 2957,
+       "precision": 0.9032258064516129,
+       "recall": 0.8235294117647058,
+       "f1": 0.8615384615384616,
+       "support_pos": 34
+      },
+      "Governing Law": {
+       "tp": 74,
+       "fp": 22,
+       "fn": 0,
+       "tn": 2899,
+       "precision": 0.7708333333333334,
+       "recall": 1.0,
+       "f1": 0.8705882352941177,
+       "support_pos": 74
+      },
+      "Limitation of Liability": {
+       "tp": 75,
+       "fp": 156,
+       "fn": 7,
+       "tn": 2751,
+       "precision": 0.3246753246753247,
+       "recall": 0.9146341463414634,
+       "f1": 0.47923322683706066,
+       "support_pos": 82
+      },
+      "Liquidated Damages": {
+       "tp": 7,
+       "fp": 32,
+       "fn": 5,
+       "tn": 2950,
+       "precision": 0.1794871794871795,
+       "recall": 0.5833333333333334,
+       "f1": 0.2745098039215686,
+       "support_pos": 12
+      },
+      "Non-Compete": {
+       "tp": 26,
+       "fp": 34,
+       "fn": 7,
+       "tn": 2924,
+       "precision": 0.43333333333333335,
+       "recall": 0.7878787878787878,
+       "f1": 0.5591397849462365,
+       "support_pos": 33
+      },
+      "Termination for Convenience": {
+       "tp": 10,
+       "fp": 6,
+       "fn": 23,
+       "tn": 2955,
+       "precision": 0.625,
+       "recall": 0.30303030303030304,
+       "f1": 0.40816326530612246,
+       "support_pos": 33
+      },
+      "macro": {
+       "precision": 0.5394258295467972,
+       "recall": 0.7354009970580989,
+       "f1": 0.5755287963072612
+      }
+     },
+     "contract": {
+      "Auto-Renewal": {
+       "tp": 27,
+       "fp": 1,
+       "fn": 4,
+       "tn": 44,
+       "precision": 0.9642857142857143,
+       "recall": 0.8709677419354839,
+       "f1": 0.9152542372881356,
+       "support_pos": 31
+      },
+      "Governing Law": {
+       "tp": 62,
+       "fp": 0,
+       "fn": 0,
+       "tn": 14,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "support_pos": 62
+      },
+      "Limitation of Liability": {
+       "tp": 43,
+       "fp": 8,
+       "fn": 0,
+       "tn": 25,
+       "precision": 0.8431372549019608,
+       "recall": 1.0,
+       "f1": 0.9148936170212766,
+       "support_pos": 43
+      },
+      "Liquidated Damages": {
+       "tp": 5,
+       "fp": 16,
+       "fn": 2,
+       "tn": 53,
+       "precision": 0.23809523809523808,
+       "recall": 0.7142857142857143,
+       "f1": 0.35714285714285715,
+       "support_pos": 7
+      },
+      "Non-Compete": {
+       "tp": 18,
+       "fp": 13,
+       "fn": 2,
+       "tn": 43,
+       "precision": 0.5806451612903226,
+       "recall": 0.9,
+       "f1": 0.7058823529411764,
+       "support_pos": 20
+      },
+      "Termination for Convenience": {
+       "tp": 10,
+       "fp": 2,
+       "fn": 15,
+       "tn": 49,
+       "precision": 0.8333333333333334,
+       "recall": 0.4,
+       "f1": 0.5405405405405406,
+       "support_pos": 25
+      },
+      "macro": {
+       "precision": 0.7432494503177615,
+       "recall": 0.8142089093701999,
+       "f1": 0.7389522674889978
+      }
+     },
+     "chunk_negatives": 17689,
+     "chunk_false_positive_rate": 0.01430267397817853,
+     "false_flagged_chunks_per_contract": 3.3289473684210527,
+     "wrong_clause_flags_per_contract": 0.5263157894736842,
+     "contracts_with_no_wrong_flag": 0.5526315789473685,
+     "top_chunk_on_clause_rate": 0.9575757575757575,
+     "n_contracts": 76
+    },
+    "lora_v4": {
+     "chunk": {
+      "Auto-Renewal": {
+       "tp": 30,
+       "fp": 14,
+       "fn": 4,
+       "tn": 2946,
+       "precision": 0.6818181818181818,
+       "recall": 0.8823529411764706,
+       "f1": 0.7692307692307693,
+       "support_pos": 34
+      },
+      "Governing Law": {
+       "tp": 73,
+       "fp": 1,
+       "fn": 1,
+       "tn": 2920,
+       "precision": 0.9864864864864865,
+       "recall": 0.9864864864864865,
+       "f1": 0.9864864864864865,
+       "support_pos": 74
+      },
+      "Limitation of Liability": {
+       "tp": 68,
+       "fp": 4,
+       "fn": 14,
+       "tn": 2903,
+       "precision": 0.9444444444444444,
+       "recall": 0.8292682926829268,
+       "f1": 0.883116883116883,
+       "support_pos": 82
+      },
+      "Liquidated Damages": {
+       "tp": 6,
+       "fp": 8,
+       "fn": 6,
+       "tn": 2974,
+       "precision": 0.42857142857142855,
+       "recall": 0.5,
+       "f1": 0.4615384615384615,
+       "support_pos": 12
+      },
+      "Non-Compete": {
+       "tp": 19,
+       "fp": 8,
+       "fn": 14,
+       "tn": 2950,
+       "precision": 0.7037037037037037,
+       "recall": 0.5757575757575758,
+       "f1": 0.6333333333333334,
+       "support_pos": 33
+      },
+      "Termination for Convenience": {
+       "tp": 6,
+       "fp": 1,
+       "fn": 27,
+       "tn": 2960,
+       "precision": 0.8571428571428571,
+       "recall": 0.18181818181818182,
+       "f1": 0.30000000000000004,
+       "support_pos": 33
+      },
+      "macro": {
+       "precision": 0.7670278503611837,
+       "recall": 0.6592805796536069,
+       "f1": 0.6722843222843223
+      }
+     },
+     "contract": {
+      "Auto-Renewal": {
+       "tp": 29,
+       "fp": 9,
+       "fn": 2,
+       "tn": 36,
+       "precision": 0.7631578947368421,
+       "recall": 0.9354838709677419,
+       "f1": 0.8405797101449276,
+       "support_pos": 31
+      },
+      "Governing Law": {
+       "tp": 62,
+       "fp": 0,
+       "fn": 0,
+       "tn": 14,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "support_pos": 62
+      },
+      "Limitation of Liability": {
+       "tp": 43,
+       "fp": 0,
+       "fn": 0,
+       "tn": 33,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "support_pos": 43
+      },
+      "Liquidated Damages": {
+       "tp": 3,
+       "fp": 8,
+       "fn": 4,
+       "tn": 61,
+       "precision": 0.2727272727272727,
+       "recall": 0.42857142857142855,
+       "f1": 0.33333333333333326,
+       "support_pos": 7
+      },
+      "Non-Compete": {
+       "tp": 14,
+       "fp": 3,
+       "fn": 6,
+       "tn": 53,
+       "precision": 0.8235294117647058,
+       "recall": 0.7,
+       "f1": 0.7567567567567567,
+       "support_pos": 20
+      },
+      "Termination for Convenience": {
+       "tp": 6,
+       "fp": 0,
+       "fn": 19,
+       "tn": 51,
+       "precision": 1.0,
+       "recall": 0.24,
+       "f1": 0.3870967741935484,
+       "support_pos": 25
+      },
+      "macro": {
+       "precision": 0.8099024298714701,
+       "recall": 0.717342549923195,
+       "f1": 0.719627762404761
+      }
+     },
+     "chunk_negatives": 17689,
+     "chunk_false_positive_rate": 0.002035163095709198,
+     "false_flagged_chunks_per_contract": 0.47368421052631576,
+     "wrong_clause_flags_per_contract": 0.2631578947368421,
+     "contracts_with_no_wrong_flag": 0.75,
+     "top_chunk_on_clause_rate": 0.9681528662420382,
+     "n_contracts": 76
+    }
+   },
+   "bootstrap": {
+    "chunk": {
+     "n_bootstrap": 2000,
+     "n_groups": 75,
+     "a_precision": 0.5394258295467972,
+     "a_recall": 0.7354009970580989,
+     "a_f1": 0.5755287963072612,
+     "a_precision_ci": [
+      0.47409305892626186,
+      0.6027861224946295
+     ],
+     "a_recall_ci": [
+      0.6467986031281298,
+      0.791394644329685
+     ],
+     "a_f1_ci": [
+      0.5157568039767373,
+      0.619573945947343
+     ],
+     "b_precision": 0.7670278503611837,
+     "b_recall": 0.6592805796536069,
+     "b_f1": 0.6722843222843223,
+     "b_precision_ci": [
+      0.6635878115115107,
+      0.8415586723689892
+     ],
+     "b_recall_ci": [
+      0.5766957236594411,
+      0.7219006515222659
+     ],
+     "b_f1_ci": [
+      0.5902014457448657,
+      0.7230324800448427
+     ],
+     "diff_f1": 0.09675552597706116,
+     "diff_f1_ci": [
+      0.04630393921288712,
+      0.1410632719264697
+     ],
+     "p_value_one_sided": 0.0
+    },
+    "contract": {
+     "n_bootstrap": 2000,
+     "n_groups": 75,
+     "a_precision": 0.7432494503177615,
+     "a_recall": 0.8142089093701999,
+     "a_f1": 0.7389522674889978,
+     "a_precision_ci": [
+      0.6768060133997633,
+      0.8064004721756738
+     ],
+     "a_recall_ci": [
+      0.729749204688463,
+      0.8817714169000933
+     ],
+     "a_f1_ci": [
+      0.6694748483374937,
+      0.7987330626073423
+     ],
+     "b_precision": 0.8099024298714701,
+     "b_recall": 0.717342549923195,
+     "b_f1": 0.719627762404761,
+     "b_precision_ci": [
+      0.7478310776428224,
+      0.8751925017550016
+     ],
+     "b_recall_ci": [
+      0.6403818529497878,
+      0.7962868734615057
+     ],
+     "b_f1_ci": [
+      0.6473580556811137,
+      0.7822211718588531
+     ],
+     "diff_f1": -0.019324505084236776,
+     "diff_f1_ci": [
+      -0.094083280655175,
+      0.0544823582194256
+     ],
+     "p_value_one_sided": 0.7265
+    }
+   }
+  }
+ },
+ "average_precision": {
+  "chunk": {
+   "n_bootstrap": 1000,
+   "a_ap": 0.693161644804834,
+   "a_ap_ci": [
+    0.611794881923021,
+    0.7583821072087088
+   ],
+   "b_ap": 0.7831262581550592,
+   "b_ap_ci": [
+    0.7037660122927665,
+    0.8458629033133255
+   ],
+   "diff_ap": 0.08996461335022521,
+   "diff_ap_ci": [
+    0.03372070560141704,
+    0.14250664667227295
+   ],
+   "p_value_one_sided": 0.003,
+   "per_clause_a": {
+    "Auto-Renewal": 0.9149726833515599,
+    "Governing Law": 0.9322914584196749,
+    "Limitation of Liability": 0.7562759033483063,
+    "Liquidated Damages": 0.5841491648421504,
+    "Non-Compete": 0.5924703680169395,
+    "Termination for Convenience": 0.3788102908503733
+   },
+   "per_clause_b": {
+    "Auto-Renewal": 0.8821037197054094,
+    "Governing Law": 0.9805041681915172,
+    "Limitation of Liability": 0.9470931738554129,
+    "Liquidated Damages": 0.5770608517948338,
+    "Non-Compete": 0.5933175001171542,
+    "Termination for Convenience": 0.7186781352660271
+   }
+  },
+  "contract": {
+   "n_bootstrap": 1000,
+   "a_ap": 0.8211636580416278,
+   "a_ap_ci": [
+    0.7437783750046717,
+    0.8962284321105111
+   ],
+   "b_ap": 0.8417329361919353,
+   "b_ap_ci": [
+    0.764433590747625,
+    0.9238894941953538
+   ],
+   "diff_ap": 0.020569278150307513,
+   "diff_ap_ci": [
+    -0.04364748168632289,
+    0.07894435435223875
+   ],
+   "p_value_one_sided": 0.243,
+   "per_clause_a": {
+    "Auto-Renewal": 0.9675701049650629,
+    "Governing Law": 1.0,
+    "Limitation of Liability": 0.99128419722895,
+    "Liquidated Damages": 0.5627100840336134,
+    "Non-Compete": 0.7557991257108904,
+    "Termination for Convenience": 0.6496184363112507
+   },
+   "per_clause_b": {
+    "Auto-Renewal": 0.9256615348306965,
+    "Governing Law": 0.9999999999999999,
+    "Limitation of Liability": 0.9999999999999999,
+    "Liquidated Damages": 0.5188323372533898,
+    "Non-Compete": 0.7353084037928428,
+    "Termination for Convenience": 0.8705953412746832
+   }
+  }
+ }
+}

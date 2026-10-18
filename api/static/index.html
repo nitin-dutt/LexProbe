@@ -100,6 +100,10 @@
       margin-left: 0.4rem; vertical-align: middle;
     }
     .not-detected .clause-name { color: #475569; }
+    .verify-badge { display:inline-block; font-size:0.72rem; font-weight:600; border-radius:4px;
+      padding:0.1rem 0.45rem; margin-left:0.4rem; vertical-align:middle; }
+    .verify-badge.ok { background:#0f3324; color:#6ee7b7; border:1px solid #065f46; }
+    .verify-badge.warn { background:#3b2a0b; color:#fcd34d; border:1px solid #92400e; }
   </style>
 </head>
 <body>
@@ -116,11 +120,11 @@
       </label>
       <textarea id="contract-text" placeholder="Paste your contract text here..."></textarea>
 
-      <div class="or-divider">— or upload a .pdf / .docx / .doc / .txt file —</div>
+      <div class="or-divider">— or upload a .pdf / .docx / .txt file —</div>
 
       <div class="file-upload-area" onclick="document.getElementById('file-input').click()">
-        <input type="file" id="file-input" accept=".txt,.pdf,.docx,.doc" />
-        <span>Click to upload a .pdf, .docx, .doc, or .txt file</span>
+        <input type="file" id="file-input" accept=".txt,.pdf,.docx" />
+        <span>Click to upload a .pdf, .docx, or .txt file</span>
         <div style="color: #64748b; font-size: 0.78rem; margin-top: 0.25rem;">Max 2 MB &middot; Up to ~5 pages</div>
         <div class="filename" id="filename-label"></div>
       </div>
@@ -199,10 +203,8 @@
      * Given the position of a found excerpt in the original text,
      * return the nearest section heading above it.
      */
-    function findSection(text, excerpt, sections) {
-      if (!excerpt || sections.length === 0) return null;
-      const pos = text.indexOf(excerpt.substring(0, 60)); // first 60 chars to locate
-      if (pos === -1) return null;
+    function findSection(pos, sections) {
+      if (pos === null || pos === undefined || pos < 0 || sections.length === 0) return null;
       // Find the last section whose startIndex is <= pos
       let best = null;
       for (const sec of sections) {
@@ -217,7 +219,7 @@
       const file = fileInput.files[0];
       const text = document.getElementById('contract-text').value.trim();
       const ext = file ? file.name.split('.').pop().toLowerCase() : '';
-      const needsServerExtract = file && ['pdf', 'docx', 'doc'].includes(ext);
+      const needsServerExtract = file && ['pdf', 'docx'].includes(ext);
 
       if (!needsServerExtract && !text) {
         setStatus('Please paste contract text or upload a file first.');
@@ -232,7 +234,7 @@
       const btn = document.getElementById('analyze-btn');
       btn.disabled = true;
       btn.textContent = 'Analyzing…';
-      setStatus('Running inference across 6 clause types. This may take 1–2 minutes…');
+      setStatus('Analysing the whole document chunk by chunk across 6 clause types. This may take a minute…');
       document.getElementById('results').style.display = 'none';
 
       try {
@@ -248,10 +250,9 @@
           }
           data = await resp.json();
           // Use server-returned text for section detection
-          renderResults(data, data.contract_text || '', parseSections(data.contract_text || ''));
+          renderResults(data);
         } else {
           // Send pasted/txt text as JSON
-          const sections = parseSections(text);
           const resp = await fetch('/analyze-contract', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -262,7 +263,7 @@
             throw new Error(err.detail || `Server error: ${resp.status}`);
           }
           data = await resp.json();
-          renderResults(data, text, sections);
+          renderResults(data);
         }
         setStatus('');
       } catch (err) {
@@ -273,10 +274,16 @@
       }
     }
 
-    function renderResults(data, text, sections) {
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    }
+
+    function renderResults(data) {
+      // start/end offsets refer to the server's normalised text, so sections are parsed from it
+      const sections = parseSections(data.contract_text || '');
       const detected = data.clauses.filter(c => c.detected);
       document.getElementById('summary-text').textContent =
-        `🚨 ${detected.length} of ${data.total_checked} clause types flagged`;
+        `🚨 ${detected.length} of ${data.total_checked} clause types flagged · ${data.chunks_analyzed} chunks analysed · model ${data.model_version}`;
 
       const list = document.getElementById('clause-list');
       list.innerHTML = '';
@@ -285,19 +292,23 @@
       const sorted = [...data.clauses].sort((a, b) => b.detected - a.detected);
 
       sorted.forEach(c => {
-        const sec = findSection(text, c.extracted_text, sections);
+        const sec = findSection(c.start, sections);
         const sectionBadge = sec
-          ? `<span class="section-badge">§ ${sec.number} — ${sec.title}</span>`
+          ? `<span class="section-badge">§ ${esc(sec.number)} — ${esc(sec.title)}</span>`
           : '';
+        const verifyBadge = !c.detected ? ''
+          : c.grounded
+            ? '<span class="verify-badge ok">✔ quote found in document</span>'
+            : '<span class="verify-badge warn">⚠ quote not found verbatim — check manually</span>';
 
         const div = document.createElement('div');
         div.className = `clause-item ${c.detected ? 'detected' : 'not-detected'}`;
         div.innerHTML = `
           <div class="clause-icon">${c.detected ? '🚨' : '✅'}</div>
           <div class="clause-body">
-            <div class="clause-name">${c.clause_type} ${sectionBadge}</div>
+            <div class="clause-name">${esc(c.clause_type)} ${sectionBadge} ${verifyBadge}</div>
             ${c.extracted_text
-              ? `<div class="clause-excerpt">${c.extracted_text.substring(0, 200)}${c.extracted_text.length > 200 ? '…' : ''}</div>`
+              ? `<div class="clause-excerpt">${esc(c.extracted_text.substring(0, 300))}${c.extracted_text.length > 300 ? '…' : ''}</div>`
               : ''}
           </div>`;
         list.appendChild(div);

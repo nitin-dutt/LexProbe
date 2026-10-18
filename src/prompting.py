@@ -43,6 +43,23 @@ def build_prompt(tokenizer, clause_type: str, text: str) -> str:
     )
 
 
+QUESTION_MARKER = "Question: Does this excerpt"
+
+
+def split_prompt(tokenizer, clause_type: str, text: str) -> tuple[str, str]:
+    """
+    (prefix, suffix) of the prompt, split where the clause-specific question begins.
+    The prefix (system message + excerpt) is identical for every clause type, so its
+    computation can be shared across the 6 clause questions (KV-cache reuse in
+    src/evaluate_documents.py). prefix + suffix == build_prompt(...) exactly.
+    """
+    full = build_prompt(tokenizer, clause_type, text)
+    i = full.rfind(QUESTION_MARKER)  # rfind: the real question is last, even if the excerpt quotes it
+    if i == -1:
+        raise ValueError("question marker not found in prompt")
+    return full[:i], full[i:]
+
+
 def encode_prompt(tokenizer, clause_type: str, text: str) -> list[int]:
     """Token ids of the prompt. The chat template already inserts the BOS token, so no special tokens are added."""
     return tokenizer(build_prompt(tokenizer, clause_type, text), add_special_tokens=False)["input_ids"]

@@ -20,8 +20,10 @@ data/archive/
 # Run logs
 logs/
 
-# Models
-models/
+# Models: weights stay out of git (tracked by DVC); the small .dvc pointer files are committed
+models/**/*
+!models/**/
+!models/**/*.dvc
 
 # MLflow
 mlflow.db
@@ -42,8 +44,10 @@ Thumbs.db
 
 # Personal notes & planning docs — only README.md and the evaluation report are published
 *.md
-!README.md
+!/README.md
 !reports/eval/comparison.md
+!reports/eval/document_level.md
+!reports/eval/recovery_stage1.md
 
 # Retired / personal artifacts (not needed to run the code or verify the reported results)
 reports/*
@@ -59,3 +63,6 @@ src/evaluate_lora.py
 src/baseline_eval.py
 src/log_dataset_stats.py
 upload_adapter.py
+
+# Personal study manual (local only)
+study/

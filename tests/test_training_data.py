@@ -9,7 +9,7 @@ import re
 
 import pytest
 
-from prompting import END_OF_TURN, build_messages, encode_prompt, format_target
+from prompting import END_OF_TURN, build_messages, build_prompt, encode_prompt, format_target, split_prompt
 from training_data import (
     IGNORE_INDEX,
     build_example,
@@ -66,6 +66,16 @@ def test_prompt_contains_whole_chunk_unsliced():
     text = "x" * 5000 + " END-OF-CHUNK"
     user = build_messages("Non-Compete", text)[1]["content"]
     assert text in user
+
+
+def test_split_prompt_prefix_is_shared_and_lossless(tok):
+    chunk = "Some excerpt. Question: Does this excerpt mention a trick? More text."
+    parts = [split_prompt(tok, ct, chunk) for ct in ("Governing Law", "Non-Compete", "Auto-Renewal")]
+    assert len({p for p, _ in parts}) == 1                      # prefix identical across clause types
+    for ct, (prefix, suffix) in zip(("Governing Law", "Non-Compete", "Auto-Renewal"), parts):
+        assert prefix + suffix == build_prompt(tok, ct, chunk)  # nothing lost or reordered
+        assert ct in suffix and ct not in prefix
+        assert suffix.startswith("Question: Does this excerpt contain")  # split at the real question, not the quoted one
 
 
 def test_no_hand_written_templates_left_in_src():

@@ -1,0 +1,65 @@
+{
+  "name": "blend_v1",
+  "description": "Per-clause logistic blend of the v4 (adapter on) and zero-shot (adapter off) first-token margins. A clause is flagged when ANY chunk's blended score exceeds the threshold.",
+  "fitted_on": "validation split (all contracts), dataset v3",
+  "adapter": "models/llama-3.1-8b-cuad-lora-v4/final_adapter",
+  "rule": "max",
+  "threshold": -0.5,
+  "clause_params": {
+    "Auto-Renewal": {
+      "w_v4": 0.07383302624773272,
+      "w_baseline": 0.4555604243146759,
+      "intercept": -5.421442377620348
+    },
+    "Governing Law": {
+      "w_v4": 0.557376786645293,
+      "w_baseline": 0.12176231525025574,
+      "intercept": -3.0127673997053663
+    },
+    "Limitation of Liability": {
+      "w_v4": 0.6005397178636869,
+      "w_baseline": 0.0352707930487693,
+      "intercept": -2.1112184193444263
+    },
+    "Liquidated Damages": {
+      "w_v4": 0.26443013852720193,
+      "w_baseline": 0.30388920680292936,
+      "intercept": -5.805437560026675
+    },
+    "Non-Compete": {
+      "w_v4": 0.39979150335789465,
+      "w_baseline": 0.17759851494982096,
+      "intercept": -3.4051509902008212
+    },
+    "Termination for Convenience": {
+      "w_v4": 0.9934814087757056,
+      "w_baseline": 0.08126608224362657,
+      "intercept": -2.496583159001564
+    }
+  },
+  "selection": {
+    "objective": "chunk",
+    "val_contract_f1_out_of_fold": 0.8197063669933852,
+    "val_chunk_f1_out_of_fold": 0.7607763030920291
+  },
+  "test_result_at_selection": {
+    "contract_f1": 0.8281414496275636,
+    "chunk_f1": 0.7810006901311249,
+    "primary_gate_diff": 0.08918918213856586,
+    "primary_gate_ci": [
+      0.017755569748888672,
+      0.15616619277180985
+    ],
+    "stress_gate_diff": 0.055093525291615264,
+    "stress_gate_ci": [
+      0.005726956331469688,
+      0.10692096819329588
+    ]
+  },
+  "source_report": "reports/eval/recovery_stage1.md",
+  "caveats": [
+    "two passes per chunk (adapter on and off): about 1.8x compute",
+    "Auto-Renewal relies mostly on the zero-shot score; Liquidated Damages remains weak",
+    "weights fitted on 77 validation contracts; re-fit if the adapter or dataset changes"
+  ]
+}
