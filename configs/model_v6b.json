@@ -1,0 +1,47 @@
+{
+  "name": "v6b",
+  "description": "v6b adapter alone (one pass per chunk). Score = first-token margin minus a per-clause prior shift; a clause is flagged when ANY chunk's score exceeds the threshold.",
+  "profile": "v4",
+  "adapter": "models/llama-3.1-8b-cuad-lora-v6b/final_adapter",
+  "rule": "max",
+  "threshold": -2.0,
+  "clause_shift": {
+    "Anti-Assignment": 2.3490346339821637,
+    "Auto-Renewal": 4.074445501704959,
+    "Governing Law": 2.4040688940857597,
+    "Limitation of Liability": 2.338134901915414,
+    "Liquidated Damages": 4.73935985328018,
+    "Non-Compete": 3.8960274931216192,
+    "Termination for Convenience": 3.209616219264835
+  },
+  "fitted_on": "shift: training mix vs all training chunks (no validation or test data); threshold: validation only",
+  "selection": {
+    "candidate": "lora_v4:shift",
+    "objective": "chunk",
+    "val_contract_f1_out_of_fold": 0.88760219130666,
+    "val_chunk_f1_out_of_fold": 0.8041937431265941,
+    "stable_across_fold_seeds": [
+      "lora_v4:shift"
+    ]
+  },
+  "test_result_at_selection": {
+    "contract_f1": 0.8668175505537297,
+    "chunk_f1": 0.7942307498571666,
+    "primary_gate_diff": 0.09596358542838934,
+    "primary_gate_ci": [
+      0.03871271370555127,
+      0.1507560165910801
+    ],
+    "stress_gate_diff": 0.06815062221135204,
+    "stress_gate_ci": [
+      0.015876598145146,
+      0.1263324042542046
+    ]
+  },
+  "source_report": "reports/eval_v4/recovery_stage1_v6b.json",
+  "caveats": [
+    "Liquidated Damages is weak (contract F1 0.57 on 12 test positives)",
+    "test split is 76 contracts: differences of a few points between model versions are within noise",
+    "threshold and shifts were fitted for dataset profile v4 (7 clauses); re-fit if the adapter or data change"
+  ]
+}

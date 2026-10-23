@@ -1,0 +1,164 @@
+=== POS | exclusivity_breach_rmb | cooperation agreement
+Article 9 Exclusivity. During the term of this Agreement, Party B shall not cooperate with any third party in respect of the Services within the Territory, and shall not directly or indirectly provide the same or similar services to any competitor of Party A.
+
+Article 10 Liability for Breach. [[[If Party B breaches Article 9, Party B shall pay Party A liquidated damages of RMB 200,000 (RMB TWO HUNDRED THOUSAND) within seven days after Party A's written demand, and Party A shall be entitled to terminate this Agreement immediately and to claim compensation for any loss that exceeds the amount of the liquidated damages.]]]
+
+Article 11 Notice. All notices under this Agreement shall be in writing and delivered in person, by courier or by registered mail to the addresses set out on the signature page. Any change of address shall be notified to the other party in writing.
+
+=== POS | remaining_fees_acceleration | hosting services agreement
+4.5 Term. The Initial Term is thirty-six (36) months from the Service Start Date and shall renew automatically for periods of twelve (12) months unless either party gives notice of non-renewal at least ninety (90) days before the end of the then-current term.
+
+4.6 Early Termination. [[[If Customer terminates this Agreement for any reason other than Provider's uncured material breach before the end of the Initial Term, all Fees for the remainder of the Initial Term shall become immediately due and payable, discounted to present value at the rate of four percent (4%) per annum.]]]
+
+4.7 Provider's Duty. Provider shall have no obligation to refund any Fees paid in advance for the Initial Term. Customer remains entitled to use the Services until the effective date of termination.
+
+=== POS | consultant_walkaway | consulting agreement
+2.2 Term. Consultant shall provide the Services for a fixed period of twelve (12) months beginning on the Start Date. During this period Consultant shall devote the agreed number of days per month to the Project as set out in the Statement of Work.
+
+2.3 Early Withdrawal by Consultant. [[[If Consultant terminates this Agreement without cause before the end of the fixed period, Consultant shall pay Company an amount equal to three (3) months of the monthly fee, which both parties accept as fair compensation for the cost and disruption of finding and training a replacement.]]]
+
+2.4 Early Termination by Company. Company may terminate this Agreement at any time on thirty (30) days' notice, in which case Company shall pay Consultant for all days worked up to the effective date of termination and no further fee.
+
+=== POS | media_cancellation | advertising insertion order
+Advertiser may cancel or change the date of any insertion by written notice to Publisher. Cancellations received before the closing date for the issue are free of charge.
+
+[[[If Advertiser cancels an insertion after the closing date for the issue, or reduces the size of the advertisement, Advertiser shall pay Publisher a cancellation fee of fifty percent (50%) of the rate-card price of the original insertion, and if the cancellation is received less than seven (7) days before publication, one hundred percent (100%) of that price.]]]
+
+Publisher shall use reasonable efforts to resell cancelled space but is under no obligation to do so, and any resale shall not reduce the cancellation fee.
+
+Advertiser shall supply final artwork not later than five (5) Business Days before the closing date.
+
+=== POS | charter_early_redelivery | time charter party
+Clause 14 - Redelivery. The Vessel shall be redelivered to Owners on the expiry of the charter period at a port in the Redelivery Range, in the same good order and condition as when delivered, ordinary wear and tear excepted, and with her tanks cleaned.
+
+Clause 15 - Early Redelivery. [[[Should Charterers redeliver the Vessel before the expiry of the charter period other than as a result of a default by Owners or a total loss of the Vessel, Charterers shall pay to Owners as agreed damages the hire that would have been payable for the balance of the charter period, less the net hire earned by Owners from any substitute employment of the Vessel during that period.]]]
+
+Owners shall use reasonable endeavours to find substitute employment but shall not be required to accept employment that would prejudice their other commitments.
+
+=== POS | take_or_pay | gas supply agreement
+8.1 Annual Contract Quantity. Buyer shall take and pay for, or pay for if made available but not taken, not less than eighty-five percent (85%) of the Annual Contract Quantity in each Contract Year (the "Take-or-Pay Quantity").
+
+8.2 Deficiency Payment. [[[If, in any Contract Year, Buyer fails to take the Take-or-Pay Quantity for any reason other than Seller's failure to deliver or Force Majeure, Buyer shall pay Seller for the deficiency at the Contract Price for that Contract Year, and the parties agree that the deficiency payment is Seller's sole remedy for the shortfall and represents a reasonable estimate of the loss Seller would suffer.]]]
+
+8.3 Make-Up Gas. Buyer may recover gas paid for under Section 8.2 by taking quantities in excess of the Take-or-Pay Quantity in any of the following three (3) Contract Years, at no further charge.
+
+=== POS | abandonment_deposit | residential lease
+22. Abandonment. If Tenant vacates or abandons the Premises before the expiration of the Term, without having given Landlord at least sixty (60) days' written notice, Tenant remains liable for the Rent until the Premises are re-let or the Term expires, whichever occurs first.
+
+23. Security Deposit. [[[If Tenant abandons the Premises or the Lease is terminated because of Tenant's default, Landlord may retain the Security Deposit of One Thousand Eight Hundred Dollars ($1,800) as liquidated damages for the costs of re-letting and lost Rent, in addition to any amounts owed for damage to the Premises beyond ordinary wear and tear.]]]
+
+24. Return of Deposit. In all other cases Landlord shall return the Security Deposit, less lawful deductions, within thirty (30) days after Tenant vacates the Premises and delivers possession and a forwarding address.
+
+=== POS | shipbuilding_delay | shipbuilding contract
+Article 7 - Delivery. The Builder shall deliver the Vessel to the Buyer, in accordance with this Contract and the Specifications, not later than the Delivery Date of 30 September 2027, subject to permissible delays under Article 8.
+
+Article 9 - Non-Delivery. [[[If the delivery of the Vessel is delayed beyond the Delivery Date as extended by permissible delays, the Builder shall pay the Buyer liquidated damages of Three Thousand United States Dollars (US$3,000) per day for each day of delay, commencing on the thirty-first (31st) day after the Delivery Date, up to a maximum of one hundred and eighty (180) days.]]]
+
+If the delay in delivery continues for one hundred and eighty (180) days after the Delivery Date, the Buyer may rescind this Contract by notice and shall be repaid all installments paid, with interest.
+
+=== POS | performer_no_show | entertainment services agreement
+3. Engagement. Artist shall perform one (1) live set of not less than ninety (90) minutes at the Venue on the Performance Date, and shall arrive for sound check at least three (3) hours before the scheduled start time.
+
+4. Guarantee and Deposit. Promoter has paid Artist a deposit of Twenty Thousand Dollars ($20,000) on signature of this Agreement against the total guarantee of Sixty Thousand Dollars ($60,000).
+
+5. Failure to Perform. [[[If Artist fails to appear or perform on the Performance Date for any reason other than illness certified by a doctor, accident or an event of force majeure, Artist shall immediately return the deposit and shall pay Promoter an additional sum equal to the full amount of the guarantee, as the parties' agreed estimate of Promoter's wasted production and marketing costs.]]]
+
+=== POS | dealer_repurchase | dealership agreement
+17.3 Termination by Dealer without Cause. Dealer may terminate this Agreement on one hundred and eighty (180) days' notice. Dealer shall not be entitled to any compensation upon termination under this Section.
+
+17.4 Early Termination Fee. [[[Where Dealer terminates this Agreement before the end of the initial five (5) year term, Dealer shall pay Manufacturer an amount equal to the unrecovered portion of Manufacturer's investment in the dealership signage, demonstration vehicles and dealer training, as shown in the Investment Schedule, which the parties agree is a fair estimate of Manufacturer's loss of that investment.]]]
+
+17.5 Inventory. Manufacturer may elect to repurchase new, unused vehicles at the invoice price less any rebates received by Dealer.
+
+=== POS | withdrawal_fee | credit facility commitment letter
+2. Commitment Fee. In consideration of the Lender's commitment, the Borrower shall pay to the Lender a commitment fee of Seventy-Five Thousand Dollars ($75,000) on the date of countersignature of this letter, which is earned on payment.
+
+3. Withdrawal. [[[If the Borrower withdraws its application, or fails to satisfy the conditions precedent set out in Schedule 1 by the Long-Stop Date for any reason within its control, the Borrower shall pay the Lender a break-up fee of One Hundred and Fifty Thousand Dollars ($150,000), as compensation for the Lender's committed funds and credit-approval costs.]]]
+
+4. Expiry. The Lender's commitment shall lapse automatically if the facility agreement is not signed on or before the Long-Stop Date, and the Lender shall have no further obligation to the Borrower.
+
+=== POS | commercial_operation_delay | power purchase agreement
+5.1 Commercial Operation Date. Seller shall achieve the Commercial Operation Date for the Facility not later than the Guaranteed Commercial Operation Date, being 31 December 2026, as extended by Force Majeure or by Buyer-caused delay.
+
+5.2 Delay Damages. [[[If Seller fails to achieve the Commercial Operation Date by the Guaranteed Commercial Operation Date, Seller shall pay Buyer delay damages equal to Fifty Dollars ($50) per kilowatt of Contract Capacity for each day of delay, which the parties acknowledge is a reasonable measure of Buyer's replacement power costs and not a penalty.]]]
+
+5.3 Termination for Extended Delay. If the Commercial Operation Date has not occurred within one hundred and eighty (180) days after the Guaranteed Commercial Operation Date, Buyer may terminate this Agreement and draw on the Development Security.
+
+=== NEG | deposit_returned | rental agreement
+6. Security Deposit. Tenant has paid a security deposit of Two Thousand Dollars ($2,000), which Landlord shall hold in a separate account as security for Tenant's performance of its obligations under this Lease. The deposit does not bear interest and is not a limit on Tenant's liability.
+
+7. Return. Within thirty (30) days after the Lease ends and Tenant has delivered possession, Landlord shall return the deposit to Tenant, less only the amounts reasonably necessary to repair damage beyond ordinary wear and tear and to pay Rent that is due and unpaid, and shall give Tenant an itemised statement of any deductions with supporting receipts.
+
+8. Utilities. Tenant shall arrange and pay for electricity, gas, water and internet services from the date of possession.
+
+=== NEG | order_cancellation_free | purchase terms
+2.4 Changes and Cancellation. Buyer may reschedule or cancel any Purchase Order, in whole or in part, without charge by giving Seller written notice at least thirty (30) days before the scheduled shipment date. For notice given within thirty (30) days of the shipment date, Buyer shall pay Seller for finished Goods and for raw materials purchased solely for the Purchase Order that cannot be returned or used for other customers, at Seller's documented cost.
+
+2.5 Seller Changes. Seller may not substitute materials or change the manufacturing site for the Goods without Buyer's prior written consent.
+
+2.6 Documents. Seller shall provide a certificate of conformity with each shipment.
+
+=== NEG | relationship_of_parties | marketing agreement
+19.1 Independent Contractors. The parties are independent contractors. Nothing in this Agreement creates a partnership, joint venture, agency or employment relationship between them, and neither party has authority to bind the other or to incur obligations on the other's behalf.
+
+19.2 Publicity. Neither party shall issue any press release or public statement about this Agreement without the prior written approval of the other party, except as required by law or the rules of a securities exchange.
+
+19.3 Subcontracting. Agency may use subcontractors to perform the Services only with Client's prior written consent. Agency remains responsible for the acts and omissions of its subcontractors as if they were its own.
+
+=== NEG | ip_ownership | development agreement
+10.1 Ownership of Deliverables. Subject to Section 10.3, all right, title and interest in and to the Deliverables, including all intellectual property rights, shall vest in Client upon payment in full of the Fees for the relevant Deliverable. Developer hereby assigns to Client all such rights with effect from that payment.
+
+10.2 Developer Tools. Developer retains all rights in its pre-existing materials, tools, libraries and methodologies (the "Developer Tools"). To the extent any Developer Tools are incorporated in a Deliverable, Developer grants Client a perpetual, worldwide, non-exclusive, royalty-free licence to use them as part of that Deliverable.
+
+10.3 Third-Party Components. Open source and third-party components are licensed to Client under their own terms, which Developer shall identify in a schedule delivered with each Deliverable.
+
+=== NEG | data_protection | cloud services agreement
+12.1 Data Processing. Provider shall process Personal Data only on Customer's documented instructions and only for the purpose of providing the Services, and shall ensure that persons authorized to process it are bound by confidentiality obligations.
+
+12.2 Security. Provider shall implement and maintain appropriate technical and organizational measures to protect Personal Data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure or access, including the measures described in Annex 2.
+
+12.3 Breach Notification. Provider shall notify Customer without undue delay, and in any event within seventy-two (72) hours, after becoming aware of a Personal Data breach, and shall provide the information Customer reasonably requires to meet its own notification obligations.
+
+=== NEG | acceptance_reperformance | professional services agreement
+6.1 Acceptance Criteria. Each Deliverable shall be subject to acceptance by Client against the acceptance criteria stated in the Statement of Work. Client shall notify Provider within ten (10) Business Days after delivery whether the Deliverable is accepted or, if not, in what respects it fails to meet the criteria.
+
+6.2 Correction. Provider shall correct any non-conformity notified under Section 6.1 and re-submit the Deliverable within ten (10) Business Days at no additional charge. The acceptance procedure shall then be repeated.
+
+6.3 Repeated Failure. If a Deliverable fails acceptance after the second re-submission, Client may by notice either extend the correction period or terminate the affected Statement of Work and receive a refund of the Fees paid for that Deliverable.
+
+=== NEG | severability_entire_agreement | general terms
+22.1 Entire Agreement. This Agreement, together with its schedules, constitutes the entire agreement between the parties relating to its subject matter and supersedes all prior negotiations, representations, understandings and agreements, whether written or oral, relating to that subject matter.
+
+22.2 Amendment. No amendment of this Agreement shall be effective unless it is in writing and signed by an authorized representative of each party.
+
+22.3 Severability. If any provision of this Agreement is held to be invalid or unenforceable, the remaining provisions shall continue in full force, and the parties shall negotiate in good faith to replace the invalid provision with a valid one that achieves, as nearly as possible, the same commercial result.
+
+22.4 Waiver. A failure or delay in exercising any right under this Agreement shall not operate as a waiver of that right.
+
+=== NEG | step_in_rights | outsourcing agreement
+15.1 Step-In. If Provider fails to perform a critical Service and does not remedy the failure within five (5) Business Days after notice, Customer may, on written notice, take over the performance of the affected Service itself or through a third party (the "Step-In") for as long as the failure continues.
+
+15.2 Costs. During the Step-In, Customer shall continue to pay Provider the Fees for the affected Service, reduced by the reasonable costs Customer incurs in performing it. Provider shall give Customer the access and information it reasonably requires for the Step-In.
+
+15.3 Ending the Step-In. Customer shall end the Step-In and return the affected Service to Provider on written notice once Provider demonstrates to Customer's reasonable satisfaction that it can resume proper performance.
+
+=== NEG | termination_for_convenience_equipment | maintenance agreement
+13.1 Term and Termination. This Agreement continues for twelve (12) months from the Effective Date and renews for successive twelve (12) month periods. Either party may terminate it effective at the end of any period by giving the other party at least thirty (30) days' notice before that date.
+
+13.2 Termination for Cause. Either party may terminate this Agreement immediately upon notice if the other party commits a material breach that is not cured within fifteen (15) days after notice.
+
+13.3 Effect. Upon termination Customer shall pay for maintenance services performed and parts supplied up to the date of termination and Provider shall refund any prepaid charges for the period after the date of termination.
+
+=== NEG | export_compliance | technology distribution agreement
+18.1 Export Compliance. Each party shall comply with all export control and sanctions laws applicable to the Products and the technology provided under this Agreement. Distributor shall not export, re-export or transfer the Products to any country, entity or person subject to sanctions or to which export is prohibited without the necessary authorization.
+
+18.2 Information. Distributor shall provide Supplier on request with the end-use and end-user information Supplier reasonably needs to obtain any export licence.
+
+18.3 Suspension. Supplier may suspend deliveries without liability if it reasonably believes that continued performance would violate applicable export control or sanctions laws.
+
+=== NEG | business_continuity | payment processing agreement
+9.1 Business Continuity. Processor shall maintain a business continuity and disaster recovery plan designed to restore the processing of Transactions within four (4) hours after a disruption, and shall test the plan at least once each year.
+
+9.2 Test Results. Processor shall give Merchant a summary of the results of each test on request, together with a description of any material deficiencies identified and the steps taken to correct them.
+
+9.3 Disaster. If a disaster prevents Processor from processing Transactions for more than twenty-four (24) consecutive hours, Merchant may route Transactions to another processor until Processor confirms that normal operation has resumed, and the minimum monthly volume shall be reduced accordingly.

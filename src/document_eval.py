@@ -30,7 +30,7 @@ from collections import defaultdict
 import numpy as np
 
 from eval_metrics import per_clause_metrics
-from prepare_data import CLAUSE_TYPES
+from prepare_data import CLAUSE_TYPES, DATA_DIR, EVAL_DIR
 
 K = len(CLAUSE_TYPES)
 CT_INDEX = {c: i for i, c in enumerate(CLAUSE_TYPES)}
@@ -255,7 +255,7 @@ def main():
     parser.add_argument("--system", required=True)
     parser.add_argument("--val", help="validation margins of --system (threshold selection)")
     parser.add_argument("--val-baseline", help="validation margins of --baseline (threshold selection)")
-    parser.add_argument("--out", default="reports/eval/document_level")
+    parser.add_argument("--out", default=f"{EVAL_DIR}/document_level")
     parser.add_argument("--bootstrap", type=int, default=2000)
     parser.add_argument("--ap-bootstrap", type=int, default=1000)
     args = parser.parse_args()
@@ -264,7 +264,7 @@ def main():
 
     A, B = load_json(args.baseline), load_json(args.system)
     split = A["split"]
-    chunks = load_json(f"data/processed/chunks_{split}.json")
+    chunks = load_json(f"{DATA_DIR}/chunks_{split}.json")
     ids = {c["chunk_id"] for c in chunks}
     for s in (A, B):
         missing = ids - set(s["margins"])
@@ -287,7 +287,7 @@ def main():
 
     # Thresholds: natural 0 for both; optionally tuned on validation (separately per system)
     tuned = {}
-    vchunks = load_json("data/processed/chunks_val.json") if (args.val or args.val_baseline) else None
+    vchunks = load_json(f"{DATA_DIR}/chunks_val.json") if (args.val or args.val_baseline) else None
     report["threshold_selection"] = {}
     for name, path in ((na, args.val_baseline), (nb, args.val)):
         if path:

@@ -1,0 +1,56 @@
+# v6b: a short continuation of v6 (700 steps, ~1.6 h) with the reviewed hand-written Liquidated Damages data (training only).
+# A short, cheap test of "does the synthetic data help?" before the clean from-scratch v7 run.
+# Usage: python run_overnight.py --config configs/qlora_v6b.yaml
+run_name: qlora-v6b
+profile: v4
+output_dir: models/llama-3.1-8b-cuad-lora-v6b
+model_id: meta-llama/Llama-3.1-8B-Instruct
+init_adapter: models/llama-3.1-8b-cuad-lora-v6/final_adapter   # weights only; fresh optimizer
+post_eval: documents
+post_eval_systems: adapter        # the untrained model scores for all 7 clauses already exist (reports/eval_v4)
+post_eval_sampled: true
+eval_name: lora_v6b
+
+data:
+  dir: data/processed_v4
+  expected_dataset_version: v4
+  train_mix_dir: data/train_mixes/v4h      # 47 hand-written positives + 49 negatives (reviewed 3 rounds; see alignment_plan.md)
+  train_file: train.json
+  val_file: val.json
+  max_answer_chars: 600
+  multi_span: first
+
+sequence:
+  max_seq_length: 768
+  max_dropped_fraction: 0.01
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+training:
+  seed: 42
+  num_epochs: 1
+  max_steps: 700                    # ~0.6 epoch (~1.6 h): a quick test, not a full pass
+  learning_rate: 1.0e-4
+  per_device_batch_size: 1
+  grad_accum: 8
+  warmup_ratio: 0.03
+  lr_scheduler: cosine
+  optimizer: adamw_8bit             # never paged_* (BSOD 0x1E, alignment_plan C7)
+  answer_only_logits: true
+  logging_steps: 25
+  eval_steps: 175
+  save_steps: 175
+  save_total_limit: 3
+
+validation:
+  max_samples: 120
+  metric_for_best_model: realistic_ap
+  eval_at_start: true
+  realistic:                        # bigger than v5/v6 (15/20/25) because that metric saturated
+    pos_per_clause: 25
+    hard_per_clause: 25
+    easy_per_clause: 30

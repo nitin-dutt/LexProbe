@@ -1,0 +1,242 @@
+{
+  "systems": [
+    "baseline",
+    "lora_v6b"
+  ],
+  "dataset_version": "v4",
+  "n_queries": 1077,
+  "per_clause": {
+    "baseline": {
+      "Anti-Assignment": {
+        "tp": 87,
+        "fp": 15,
+        "fn": 4,
+        "tn": 167,
+        "precision": 0.8529411764705882,
+        "recall": 0.9560439560439561,
+        "f1": 0.9015544041450777,
+        "support_pos": 91
+      },
+      "Auto-Renewal": {
+        "tp": 33,
+        "fp": 0,
+        "fn": 1,
+        "tn": 68,
+        "precision": 1.0,
+        "recall": 0.9705882352941176,
+        "f1": 0.9850746268656716,
+        "support_pos": 34
+      },
+      "Governing Law": {
+        "tp": 74,
+        "fp": 16,
+        "fn": 0,
+        "tn": 132,
+        "precision": 0.8222222222222222,
+        "recall": 1.0,
+        "f1": 0.9024390243902439,
+        "support_pos": 74
+      },
+      "Limitation of Liability": {
+        "tp": 82,
+        "fp": 32,
+        "fn": 0,
+        "tn": 132,
+        "precision": 0.7192982456140351,
+        "recall": 1.0,
+        "f1": 0.8367346938775511,
+        "support_pos": 82
+      },
+      "Liquidated Damages": {
+        "tp": 11,
+        "fp": 7,
+        "fn": 1,
+        "tn": 17,
+        "precision": 0.6111111111111112,
+        "recall": 0.9166666666666666,
+        "f1": 0.7333333333333334,
+        "support_pos": 12
+      },
+      "Non-Compete": {
+        "tp": 30,
+        "fp": 2,
+        "fn": 3,
+        "tn": 64,
+        "precision": 0.9375,
+        "recall": 0.9090909090909091,
+        "f1": 0.923076923076923,
+        "support_pos": 33
+      },
+      "Termination for Convenience": {
+        "tp": 26,
+        "fp": 0,
+        "fn": 7,
+        "tn": 66,
+        "precision": 1.0,
+        "recall": 0.7878787878787878,
+        "f1": 0.8813559322033898,
+        "support_pos": 33
+      },
+      "macro": {
+        "precision": 0.8490103936311366,
+        "recall": 0.9343240792820626,
+        "f1": 0.880509848270313
+      }
+    },
+    "lora_v6b": {
+      "Anti-Assignment": {
+        "tp": 76,
+        "fp": 0,
+        "fn": 15,
+        "tn": 182,
+        "precision": 1.0,
+        "recall": 0.8351648351648352,
+        "f1": 0.9101796407185628,
+        "support_pos": 91
+      },
+      "Auto-Renewal": {
+        "tp": 30,
+        "fp": 0,
+        "fn": 4,
+        "tn": 68,
+        "precision": 1.0,
+        "recall": 0.8823529411764706,
+        "f1": 0.9375,
+        "support_pos": 34
+      },
+      "Governing Law": {
+        "tp": 74,
+        "fp": 0,
+        "fn": 0,
+        "tn": 148,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support_pos": 74
+      },
+      "Limitation of Liability": {
+        "tp": 73,
+        "fp": 1,
+        "fn": 9,
+        "tn": 163,
+        "precision": 0.9864864864864865,
+        "recall": 0.8902439024390244,
+        "f1": 0.9358974358974359,
+        "support_pos": 82
+      },
+      "Liquidated Damages": {
+        "tp": 12,
+        "fp": 1,
+        "fn": 0,
+        "tn": 23,
+        "precision": 0.9230769230769231,
+        "recall": 1.0,
+        "f1": 0.9600000000000001,
+        "support_pos": 12
+      },
+      "Non-Compete": {
+        "tp": 31,
+        "fp": 0,
+        "fn": 2,
+        "tn": 66,
+        "precision": 1.0,
+        "recall": 0.9393939393939394,
+        "f1": 0.96875,
+        "support_pos": 33
+      },
+      "Termination for Convenience": {
+        "tp": 28,
+        "fp": 0,
+        "fn": 5,
+        "tn": 66,
+        "precision": 1.0,
+        "recall": 0.8484848484848485,
+        "f1": 0.9180327868852458,
+        "support_pos": 33
+      },
+      "macro": {
+        "precision": 0.987080487080487,
+        "recall": 0.9136629238084454,
+        "f1": 0.9471942662144636
+      }
+    }
+  },
+  "support": {
+    "Limitation of Liability": {
+      "pos": 82,
+      "neg": 164
+    },
+    "Non-Compete": {
+      "pos": 33,
+      "neg": 66
+    },
+    "Anti-Assignment": {
+      "pos": 91,
+      "neg": 182
+    },
+    "Auto-Renewal": {
+      "pos": 34,
+      "neg": 68
+    },
+    "Liquidated Damages": {
+      "pos": 12,
+      "neg": 24
+    },
+    "Governing Law": {
+      "pos": 74,
+      "neg": 148
+    },
+    "Termination for Convenience": {
+      "pos": 33,
+      "neg": 66
+    }
+  },
+  "paired_bootstrap_groups": {
+    "n_bootstrap": 2000,
+    "n_groups": 73,
+    "a_macro_f1": 0.880509848270313,
+    "a_ci": [
+      0.8280986130207069,
+      0.9094427144251499
+    ],
+    "b_macro_f1": 0.9471942662144636,
+    "b_ci": [
+      0.9207829241241301,
+      0.9677941024886804
+    ],
+    "diff": 0.06668441794415059,
+    "diff_ci": [
+      0.031705409822813224,
+      0.11994325196861522
+    ],
+    "n_valid_draws": 2000,
+    "p_value_one_sided": 0.0
+  },
+  "mcnemar": {
+    "only_b_correct": 76,
+    "only_a_correct": 25,
+    "p_value_two_sided": 3.723142327754164e-07
+  },
+  "format_compliance_top_token": {
+    "baseline": 1.0,
+    "lora_v6b": 1.0
+  },
+  "evidence": {
+    "baseline": {
+      "quotes": 415,
+      "grounded_rate": 0.744578313253012,
+      "exact_rate": 0.7325301204819277,
+      "tp_quotes": 343,
+      "tp_span_f1_mean": 0.7758493431990353,
+      "tp_grounded_rate": 0.7900874635568513
+    },
+    "lora_v6b": {
+      "quotes": 326,
+      "grounded_rate": 1.0,
+      "exact_rate": 0.9969325153374233,
+      "tp_quotes": 324,
+      "tp_span_f1_mean": 0.9014926230769031,
+      "tp_grounded_rate": 1.0
+    }
+  }
+}

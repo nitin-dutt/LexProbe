@@ -1,0 +1,620 @@
+{
+ "secondary": {
+  "chunk_macro": {
+   "precision": 0.7726780477586929,
+   "recall": 0.8663500137675174,
+   "f1": 0.8117007675783477
+  },
+  "contract_macro": {
+   "precision": 0.8482240277453043,
+   "recall": 0.9129185867895546,
+   "f1": 0.876607306267628
+  },
+  "per_clause_chunk_f1": {
+   "Auto-Renewal": 0.8923076923076922,
+   "Governing Law": 0.9801324503311257,
+   "Limitation of Liability": 0.861878453038674,
+   "Liquidated Damages": 0.6666666666666666,
+   "Non-Compete": 0.6746987951807228,
+   "Termination for Convenience": 0.7945205479452054
+  },
+  "per_clause_contract_f1": {
+   "Auto-Renewal": 0.9491525423728813,
+   "Governing Law": 1.0,
+   "Limitation of Liability": 0.9555555555555556,
+   "Liquidated Damages": 0.6666666666666666,
+   "Non-Compete": 0.7826086956521738,
+   "Termination for Convenience": 0.9056603773584904
+  },
+  "falsely_flagged_chunks_per_contract": 0.8289473684210527,
+  "wrong_clause_flags_per_contract": 0.25,
+  "chunk_f1_excluding_liquidated_damages": 0.8407075877606841,
+  "contract_f1_excluding_liquidated_damages": 0.9185954341878201,
+  "chunk_f1_diff_vs_reference": {
+   "diff": 0.23617197127108658,
+   "ci": [
+    0.18358459619058715,
+    0.2943330621757273
+   ]
+  },
+  "average_precision_vs_reference_baseline": {
+   "chunk": {
+    "reference": 0.693161644804834,
+    "candidate": 0.834307683870733,
+    "diff": 0.14114603906589895,
+    "ci": [
+     0.08949531097211597,
+     0.2021503470196234
+    ],
+    "per_clause_candidate": {
+     "Auto-Renewal": 0.953149311278749,
+     "Governing Law": 0.9816091138375385,
+     "Limitation of Liability": 0.947706071731452,
+     "Liquidated Damages": 0.7100520480955265,
+     "Non-Compete": 0.6276180461968269,
+     "Termination for Convenience": 0.7857115120843048
+    },
+    "per_clause_reference": {
+     "Auto-Renewal": 0.9149726833515599,
+     "Governing Law": 0.9322914584196749,
+     "Limitation of Liability": 0.7562759033483063,
+     "Liquidated Damages": 0.5841491648421504,
+     "Non-Compete": 0.5924703680169395,
+     "Termination for Convenience": 0.3788102908503733
+    }
+   },
+   "contract": {
+    "reference": 0.8211636580416278,
+    "candidate": 0.9002572261760263,
+    "diff": 0.0790935681343985,
+    "ci": [
+     0.02684945573506926,
+     0.13278816393152798
+    ],
+    "per_clause_candidate": {
+     "Auto-Renewal": 0.9824793860802863,
+     "Governing Law": 1.0,
+     "Limitation of Liability": 1.0000000000000002,
+     "Liquidated Damages": 0.7605442176870749,
+     "Non-Compete": 0.7297444291379171,
+     "Termination for Convenience": 0.9287753241508796
+    },
+    "per_clause_reference": {
+     "Auto-Renewal": 0.9675701049650629,
+     "Governing Law": 1.0,
+     "Limitation of Liability": 0.99128419722895,
+     "Liquidated Damages": 0.5627100840336134,
+     "Non-Compete": 0.7557991257108904,
+     "Termination for Convenience": 0.6496184363112507
+    }
+   }
+  }
+ },
+ "selection_stability": {
+  "1": {
+   "best_val_contract_f1": {
+    "lora_v4:ident": 0.8439371120847027,
+    "lora_v4:shift": 0.846542909108071,
+    "lora_v4:platt": 0.8422940927838178,
+    "blend:platt": 0.8357062481024377
+   },
+   "selected": "lora_v4:shift"
+  },
+  "2": {
+   "best_val_contract_f1": {
+    "lora_v4:ident": 0.8439371120847027,
+    "lora_v4:shift": 0.846542909108071,
+    "lora_v4:platt": 0.8686688642045786,
+    "blend:platt": 0.8578342617766898
+   },
+   "selected": "lora_v4:platt"
+  },
+  "3": {
+   "best_val_contract_f1": {
+    "lora_v4:ident": 0.8439371120847027,
+    "lora_v4:shift": 0.846542909108071,
+    "lora_v4:platt": 0.8390392345749489,
+    "blend:platt": 0.8452727866571651
+   },
+   "selected": "lora_v4:shift"
+  },
+  "4": {
+   "best_val_contract_f1": {
+    "lora_v4:ident": 0.8439371120847027,
+    "lora_v4:shift": 0.846542909108071,
+    "lora_v4:platt": 0.8588357642979493,
+    "blend:platt": 0.8489538278345102
+   },
+   "selected": "lora_v4:platt"
+  },
+  "5": {
+   "best_val_contract_f1": {
+    "lora_v4:ident": 0.8439371120847027,
+    "lora_v4:shift": 0.846542909108071,
+    "lora_v4:platt": 0.8532682595182596,
+    "blend:platt": 0.8440116746486818
+   },
+   "selected": "lora_v4:platt"
+  }
+ },
+ "blend_parameters_fitted_on_all_validation": {
+  "Auto-Renewal": {
+   "w_v4": 0.2998358429235589,
+   "w_baseline": 0.3745389687089963,
+   "intercept": -4.526032063591758
+  },
+  "Governing Law": {
+   "w_v4": 1.2836984316733142,
+   "w_baseline": -0.05469941820472277,
+   "intercept": -0.2641192690746911
+  },
+  "Limitation of Liability": {
+   "w_v4": 1.022746738651905,
+   "w_baseline": 0.035662082275174076,
+   "intercept": -1.8320580877474444
+  },
+  "Liquidated Damages": {
+   "w_v4": 0.5885779290567675,
+   "w_baseline": 0.2526061168129353,
+   "intercept": -4.957625606978031
+  },
+  "Non-Compete": {
+   "w_v4": 0.8455773110376531,
+   "w_baseline": 0.1386207811527433,
+   "intercept": -3.1232590558439344
+  },
+  "Termination for Convenience": {
+   "w_v4": 1.2618498882861502,
+   "w_baseline": 0.09000301633670135,
+   "intercept": -1.5776281299182353
+  }
+ },
+ "rows": [
+  {
+   "candidate": "baseline:ident",
+   "rule": "max",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.24220906662026412,
+   "val_contract_f1": 0.6044227562642287,
+   "test_chunk_f1": 0.28124996103781397,
+   "test_contract_f1": 0.6451478070715118
+  },
+  {
+   "candidate": "baseline:ident",
+   "rule": "max",
+   "objective": "chunk",
+   "threshold": 7.0,
+   "val_chunk_f1": 0.5305458277626756,
+   "val_contract_f1": 0.6927997256860787,
+   "test_chunk_f1": 0.5755287963072612,
+   "test_contract_f1": 0.7389522674889978
+  },
+  {
+   "candidate": "baseline:ident",
+   "rule": "max",
+   "objective": "contract",
+   "threshold": 6.5,
+   "val_chunk_f1": 0.5170637394427503,
+   "val_contract_f1": 0.6982364356600753,
+   "test_chunk_f1": 0.5605617902525118,
+   "test_contract_f1": 0.7311806355036577
+  },
+  {
+   "candidate": "baseline:ident",
+   "rule": "top2",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.24220906662026412,
+   "val_contract_f1": 0.6262339045675559,
+   "test_chunk_f1": 0.28124996103781397,
+   "test_contract_f1": 0.654942820565863
+  },
+  {
+   "candidate": "baseline:ident",
+   "rule": "top2",
+   "objective": "chunk",
+   "threshold": 7.0,
+   "val_chunk_f1": 0.5305458277626756,
+   "val_contract_f1": 0.617000463500014,
+   "test_chunk_f1": 0.5755287963072612,
+   "test_contract_f1": 0.6486134689649953
+  },
+  {
+   "candidate": "baseline:ident",
+   "rule": "top2",
+   "objective": "contract",
+   "threshold": 3.5,
+   "val_chunk_f1": 0.4237476038951316,
+   "val_contract_f1": 0.6836630443178723,
+   "test_chunk_f1": 0.48318079224192273,
+   "test_contract_f1": 0.7254382727933941
+  },
+  {
+   "candidate": "baseline:platt",
+   "rule": "max",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.6269639491695772,
+   "val_contract_f1": 0.705114624806438,
+   "test_chunk_f1": 0.6641999102238684,
+   "test_contract_f1": 0.7557403395787236
+  },
+  {
+   "candidate": "baseline:platt",
+   "rule": "max",
+   "objective": "chunk",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.6269639491695772,
+   "val_contract_f1": 0.705114624806438,
+   "test_chunk_f1": 0.6641999102238684,
+   "test_contract_f1": 0.7557403395787236
+  },
+  {
+   "candidate": "baseline:platt",
+   "rule": "max",
+   "objective": "contract",
+   "threshold": -1.0,
+   "val_chunk_f1": 0.6034617965719687,
+   "val_contract_f1": 0.7331538092712983,
+   "test_chunk_f1": 0.6730247318348918,
+   "test_contract_f1": 0.7730479243359484
+  },
+  {
+   "candidate": "baseline:platt",
+   "rule": "top2",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.6269639491695772,
+   "val_contract_f1": 0.39032234429495166,
+   "test_chunk_f1": 0.6641999102238684,
+   "test_contract_f1": 0.4021169869176103
+  },
+  {
+   "candidate": "baseline:platt",
+   "rule": "top2",
+   "objective": "chunk",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.6269639491695772,
+   "val_contract_f1": 0.39032234429495166,
+   "test_chunk_f1": 0.6641999102238684,
+   "test_contract_f1": 0.4021169869176103
+  },
+  {
+   "candidate": "baseline:platt",
+   "rule": "top2",
+   "objective": "contract",
+   "threshold": -3.0,
+   "val_chunk_f1": 0.5064122676807873,
+   "val_contract_f1": 0.6987661581760175,
+   "test_chunk_f1": 0.5681762744544334,
+   "test_contract_f1": 0.733347060120268
+  },
+  {
+   "candidate": "lora_v4:ident",
+   "rule": "max",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.6868790738095526,
+   "val_contract_f1": 0.7912433192499638,
+   "test_chunk_f1": 0.7324176450563914,
+   "test_contract_f1": 0.8206471387234351
+  },
+  {
+   "candidate": "lora_v4:ident",
+   "rule": "max",
+   "objective": "chunk",
+   "threshold": 2.0,
+   "val_chunk_f1": 0.7895870896882019,
+   "val_contract_f1": 0.8439371120847027,
+   "test_chunk_f1": 0.7684382383973828,
+   "test_contract_f1": 0.8098165397586805
+  },
+  {
+   "candidate": "lora_v4:ident",
+   "rule": "max",
+   "objective": "contract",
+   "threshold": 2.0,
+   "val_chunk_f1": 0.7895870896882019,
+   "val_contract_f1": 0.8439371120847027,
+   "test_chunk_f1": 0.7684382383973828,
+   "test_contract_f1": 0.8098165397586805
+  },
+  {
+   "candidate": "lora_v4:ident",
+   "rule": "top2",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.6868790738095526,
+   "val_contract_f1": 0.6137602225648029,
+   "test_chunk_f1": 0.7324176450563914,
+   "test_contract_f1": 0.593587134864867
+  },
+  {
+   "candidate": "lora_v4:ident",
+   "rule": "top2",
+   "objective": "chunk",
+   "threshold": 2.0,
+   "val_chunk_f1": 0.7895870896882019,
+   "val_contract_f1": 0.38794263225003256,
+   "test_chunk_f1": 0.7684382383973828,
+   "test_contract_f1": 0.4090208223675966
+  },
+  {
+   "candidate": "lora_v4:ident",
+   "rule": "top2",
+   "objective": "contract",
+   "threshold": -1.5,
+   "val_chunk_f1": 0.5812989651373293,
+   "val_contract_f1": 0.7572367304539057,
+   "test_chunk_f1": 0.6420869554924441,
+   "test_contract_f1": 0.7713923709659246
+  },
+  {
+   "candidate": "lora_v4:platt",
+   "rule": "max",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.6671733524245013,
+   "val_contract_f1": 0.71883650390567,
+   "test_chunk_f1": 0.7254328396407996,
+   "test_contract_f1": 0.79170359075942
+  },
+  {
+   "candidate": "lora_v4:platt",
+   "rule": "max",
+   "objective": "chunk",
+   "threshold": -1.5,
+   "val_chunk_f1": 0.7675714120329818,
+   "val_contract_f1": 0.8549242424242425,
+   "test_chunk_f1": 0.8117007675783477,
+   "test_contract_f1": 0.876607306267628
+  },
+  {
+   "candidate": "lora_v4:platt",
+   "rule": "max",
+   "objective": "contract",
+   "threshold": -1.5,
+   "val_chunk_f1": 0.7675714120329818,
+   "val_contract_f1": 0.8549242424242425,
+   "test_chunk_f1": 0.8117007675783477,
+   "test_contract_f1": 0.876607306267628
+  },
+  {
+   "candidate": "lora_v4:platt",
+   "rule": "top2",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.6671733524245013,
+   "val_contract_f1": 0.416627499938802,
+   "test_chunk_f1": 0.7254328396407996,
+   "test_contract_f1": 0.41891714459169704
+  },
+  {
+   "candidate": "lora_v4:platt",
+   "rule": "top2",
+   "objective": "chunk",
+   "threshold": -1.5,
+   "val_chunk_f1": 0.7675714120329818,
+   "val_contract_f1": 0.5905378830565984,
+   "test_chunk_f1": 0.8117007675783477,
+   "test_contract_f1": 0.6678896044681365
+  },
+  {
+   "candidate": "lora_v4:platt",
+   "rule": "top2",
+   "objective": "contract",
+   "threshold": -3.0,
+   "val_chunk_f1": 0.6359412067993387,
+   "val_contract_f1": 0.7521909560054593,
+   "test_chunk_f1": 0.6970416099048666,
+   "test_contract_f1": 0.8101115293396283
+  },
+  {
+   "candidate": "lora_v4:shift",
+   "rule": "max",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.19789286620969793,
+   "val_contract_f1": 0.23848577518302286,
+   "test_chunk_f1": 0.20984848484848487,
+   "test_contract_f1": 0.25523510375023795
+  },
+  {
+   "candidate": "lora_v4:shift",
+   "rule": "max",
+   "objective": "chunk",
+   "threshold": -2.5,
+   "val_chunk_f1": 0.7722148173905277,
+   "val_contract_f1": 0.8377394636015326,
+   "test_chunk_f1": 0.7987241647768862,
+   "test_contract_f1": 0.8412869900105934
+  },
+  {
+   "candidate": "lora_v4:shift",
+   "rule": "max",
+   "objective": "contract",
+   "threshold": -3.0,
+   "val_chunk_f1": 0.7629949395707337,
+   "val_contract_f1": 0.846542909108071,
+   "test_chunk_f1": 0.7896997967440579,
+   "test_contract_f1": 0.8475846655001438
+  },
+  {
+   "candidate": "lora_v4:shift",
+   "rule": "top2",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.19789286620969793,
+   "val_contract_f1": 0.07544836116264687,
+   "test_chunk_f1": 0.20984848484848487,
+   "test_contract_f1": 0.08048309178743962
+  },
+  {
+   "candidate": "lora_v4:shift",
+   "rule": "top2",
+   "objective": "chunk",
+   "threshold": -2.5,
+   "val_chunk_f1": 0.7722148173905277,
+   "val_contract_f1": 0.45201476666993917,
+   "test_chunk_f1": 0.7987241647768862,
+   "test_contract_f1": 0.47509598884598886
+  },
+  {
+   "candidate": "lora_v4:shift",
+   "rule": "top2",
+   "objective": "contract",
+   "threshold": -3.0,
+   "val_chunk_f1": 0.7629949395707337,
+   "val_contract_f1": 0.540409293405701,
+   "test_chunk_f1": 0.7896997967440579,
+   "test_contract_f1": 0.5136650114591291
+  },
+  {
+   "candidate": "blend:platt",
+   "rule": "max",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.754667559530272,
+   "val_contract_f1": 0.8007141082999935,
+   "test_chunk_f1": 0.7989794637252263,
+   "test_contract_f1": 0.8488825229383522
+  },
+  {
+   "candidate": "blend:platt",
+   "rule": "max",
+   "objective": "chunk",
+   "threshold": -0.5,
+   "val_chunk_f1": 0.7810731573123588,
+   "val_contract_f1": 0.8318222981999096,
+   "test_chunk_f1": 0.7925992623076628,
+   "test_contract_f1": 0.8462290036181662
+  },
+  {
+   "candidate": "blend:platt",
+   "rule": "max",
+   "objective": "contract",
+   "threshold": -1.0,
+   "val_chunk_f1": 0.77558891160107,
+   "val_contract_f1": 0.8368618477314129,
+   "test_chunk_f1": 0.7862744208956342,
+   "test_contract_f1": 0.8417656639049914
+  },
+  {
+   "candidate": "blend:platt",
+   "rule": "top2",
+   "objective": "zero",
+   "threshold": 0.0,
+   "val_chunk_f1": 0.754667559530272,
+   "val_contract_f1": 0.44669003000133206,
+   "test_chunk_f1": 0.7989794637252263,
+   "test_contract_f1": 0.4098340548340549
+  },
+  {
+   "candidate": "blend:platt",
+   "rule": "top2",
+   "objective": "chunk",
+   "threshold": -0.5,
+   "val_chunk_f1": 0.7810731573123588,
+   "val_contract_f1": 0.48139211546243077,
+   "test_chunk_f1": 0.7925992623076628,
+   "test_contract_f1": 0.4729359529359529
+  },
+  {
+   "candidate": "blend:platt",
+   "rule": "top2",
+   "objective": "contract",
+   "threshold": -2.5,
+   "val_chunk_f1": 0.7055619174799427,
+   "val_contract_f1": 0.7824161158062086,
+   "test_chunk_f1": 0.7350378654085085,
+   "test_contract_f1": 0.7834095369074618
+  }
+ ],
+ "selected": {
+  "candidate": "lora_v4:platt",
+  "rule": "max",
+  "objective": "chunk",
+  "threshold": -1.5,
+  "val_chunk_f1": 0.7675714120329818,
+  "val_contract_f1": 0.8549242424242425,
+  "test_chunk_f1": 0.8117007675783477,
+  "test_contract_f1": 0.876607306267628
+ },
+ "best_baseline": {
+  "candidate": "baseline:platt",
+  "rule": "max",
+  "objective": "contract",
+  "threshold": -1.0,
+  "val_chunk_f1": 0.6034617965719687,
+  "val_contract_f1": 0.7331538092712983,
+  "test_chunk_f1": 0.6730247318348918,
+  "test_contract_f1": 0.7730479243359484
+ },
+ "approved_reference": {
+  "candidate": "baseline:ident",
+  "rule": "max",
+  "objective": "chunk",
+  "threshold": 7.0,
+  "val_chunk_f1": 0.5305458277626756,
+  "val_contract_f1": 0.6927997256860787,
+  "test_chunk_f1": 0.5755287963072612,
+  "test_contract_f1": 0.7389522674889978
+ },
+ "sanity": {
+  "baseline": {
+   "threshold": 7.0,
+   "expected_threshold": 7.0,
+   "test_contract_f1": 0.7389522674889978,
+   "expected_contract_f1": 0.7389522674889978,
+   "ok": true
+  }
+ },
+ "gates": {
+  "current lora_v5 alone (sanity)": {
+   "candidate": "lora_v4:ident / max / chunk @ +2.0",
+   "reference": "baseline:ident / max / chunk @ +7.0",
+   "reference_test_contract_f1": 0.7389522674889978,
+   "candidate_test_contract_f1": 0.8098165397586805,
+   "diff": 0.07086427226968273,
+   "ci": [
+    0.00906551639203265,
+    0.13313641720821984
+   ],
+   "pass": true
+  },
+  "PRIMARY: selected candidate vs approved reference": {
+   "candidate": "lora_v4:platt / max / chunk @ -1.5",
+   "reference": "baseline:ident / max / chunk @ +7.0",
+   "reference_test_contract_f1": 0.7389522674889978,
+   "candidate_test_contract_f1": 0.876607306267628,
+   "diff": 0.13765503877863017,
+   "ci": [
+    0.06801237755948769,
+    0.20324493278010394
+   ],
+   "pass": true
+  },
+  "STRESS: selected candidate vs best baseline variant": {
+   "candidate": "lora_v4:platt / max / chunk @ -1.5",
+   "reference": "baseline:platt / max / contract @ -1.0",
+   "reference_test_contract_f1": 0.7730479243359484,
+   "candidate_test_contract_f1": 0.876607306267628,
+   "diff": 0.10355938193167957,
+   "ci": [
+    0.036670390715447775,
+    0.17815520395317938
+   ],
+   "pass": true
+  }
+ },
+ "prior_shift": [
+  4.362127574156739,
+  3.385806825033704,
+  3.319817033443658,
+  4.909032130898367,
+  4.185707568236073,
+  4.190445472276561
+ ],
+ "n_bootstrap": 2000
+}

@@ -1,0 +1,162 @@
+=== POS | termination_fee | licensing agreement
+Licensee may terminate this Agreement for its convenience at any time on one hundred and twenty (120) days' written notice. The right to terminate under this Section 15.3 is conditional on Licensee not being in breach of any payment obligation at the time the notice is given.
+
+[[[Upon any termination by Licensee under Section 15.3 before the third anniversary of the Effective Date, Licensee shall pay Licensor a Termination Fee equal to the Minimum Annual Royalty for the Contract Year in which termination takes effect, less any royalties already paid for that Contract Year.]]] The Termination Fee is payable within thirty (30) days after the effective date of termination.
+
+No Termination Fee shall be payable if Licensee terminates under Section 15.1 (Termination for Material Breach) or Section 15.2 (Termination for Insolvency).
+
+After termination, Licensee shall cease all manufacture of Licensed Products but may sell its remaining inventory for a period of ninety (90) days.
+
+=== POS | break_fee | telecommunications services agreement
+The Initial Term of each Service Order is thirty-six (36) months from the Service Commencement Date. Customer acknowledges that Carrier will install dedicated facilities and incur substantial non-recoverable construction costs in order to provide the Services at the Customer Premises.
+
+Customer may cancel a Service before the end of the Initial Term only by written notice. [[[If Customer cancels a Service, or Carrier disconnects it because of Customer's default, before the end of the Initial Term, Customer shall pay Carrier an early termination charge equal to one hundred percent (100%) of the monthly recurring charges for the remainder of the first twelve (12) months of the Initial Term and fifty percent (50%) of the monthly recurring charges for the balance of the Initial Term.]]]
+
+Early termination charges are due on the date of disconnection and are in addition to any outstanding usage and installation charges.
+
+=== POS | delay_compensation | turnkey equipment supply contract
+The Supplier shall deliver the Plant to the Site, ready for installation, not later than the Delivery Date stated in the Contract Schedule, being one hundred and eighty (180) days after the Effective Date. Time is of the essence in respect of the Delivery Date.
+
+[[[If the Supplier is late in delivering the Plant for reasons other than Purchaser delay or Force Majeure, the Supplier shall pay the Purchaser, as the Purchaser's sole compensation for the delay, an amount equal to half of one percent (0.5%) of the Contract Price for each full week of delay, subject to an overall limit of ten percent (10%) of the Contract Price.]]] The Purchaser may deduct this amount from any payment due to the Supplier.
+
+If the delay exceeds sixteen (16) weeks, the Purchaser may terminate the Contract by notice to the Supplier and recover the amounts paid.
+
+=== POS | prepayment_premium | term loan agreement
+Section 2.8 Voluntary Prepayments. The Borrower may prepay the Loans in whole or in part at any time upon three (3) Business Days' prior written notice to the Administrative Agent, subject to the payment of any amounts due under Section 2.10 (Breakage) and to the following prepayment premium.
+
+[[[If the Loans are prepaid, repaid or accelerated for any reason before the second anniversary of the Closing Date, the Borrower shall pay the Lenders a prepayment premium equal to two percent (2.00%) of the principal amount so prepaid, and the Borrower acknowledges that the premium is a reasonable estimate of the Lenders' loss of yield and is not a penalty.]]] After the second anniversary and before the third anniversary the premium shall be one percent (1.00%), and thereafter no premium shall be payable.
+
+Each prepayment shall be applied to the remaining scheduled installments in inverse order of maturity.
+
+=== POS | franchise_transfer_fee | master franchise agreement
+11.6 Franchisor's Right to Terminate. If Franchisee transfers the Franchise, or any interest in the Franchisee, in breach of this Article 11, Franchisor may terminate this Agreement immediately by written notice, and Franchisee shall have no right to cure.
+
+11.7 Payment on Unauthorized Transfer. [[[In the event of an unauthorized transfer in breach of this Article, Franchisee shall pay Franchisor within ten (10) days a sum of Fifty Thousand Dollars ($50,000), which the parties agree is liquidated damages for the harm to the goodwill of the System and the cost of locating a replacement operator, and not a penalty.]]] Payment of this sum shall not relieve Franchisee of its post-term obligations under Article 16.
+
+11.8 Permitted Transfers. A transfer to a Controlled Affiliate of Franchisee that meets Franchisor's then-current requirements shall not require payment of a transfer fee.
+
+=== POS | early_exit_fee | commercial lease agreement
+Tenant shall have a one-time right to terminate this Lease effective as of the last day of the sixtieth (60th) full month of the Term (the "Termination Date"), provided Tenant gives Landlord not less than twelve (12) months' prior written notice and is not then in default.
+
+[[[If Tenant exercises its right to terminate under this Section, Tenant shall pay Landlord on or before the Termination Date a termination fee equal to the unamortized balance, as of the Termination Date, of the Tenant Improvement Allowance, the leasing commissions and the free rent granted under this Lease, amortized in equal monthly installments over the Term at an interest rate of eight percent (8%) per annum.]]] If Tenant fails to pay the termination fee when due, the notice of termination shall be void.
+
+Tenant shall surrender the Premises on the Termination Date in the condition required by Section 22.
+
+=== POS | stock_purchase_default | investment agreement
+Section 6.4 Failure to Fund. Each Investor shall fund its Capital Commitment within five (5) Business Days after receipt of a Drawdown Notice from the General Partner. The General Partner may issue Drawdown Notices on not less than ten (10) Business Days' notice.
+
+Section 6.5 Default. [[[If an Investor fails to fund any portion of its Capital Commitment when due and such failure continues for five (5) Business Days after notice, such Investor shall forfeit fifty percent (50%) of its capital account balance to the Partnership, which the Investors agree is a reasonable estimate of the damages the Partnership will suffer from such default and not a penalty.]]]
+
+Section 6.6 Remedies Cumulative. The Partnership's remedies upon default, including the right to sell the defaulting Investor's interest, are in addition to those in Section 6.5, except that the amount in Section 6.5 shall not be recovered more than once.
+
+=== POS | supplier_exit_payment | exclusive manufacturing agreement
+Manufacturer shall manufacture Products exclusively for Brand Owner within the Territory during the Term and shall not manufacture products of the same class for any third party in that Territory. In consideration of this exclusivity, Brand Owner has committed to purchase the Minimum Quantities set out in Schedule 2.
+
+[[[If Brand Owner terminates this Agreement other than for Manufacturer's uncured breach before the fourth anniversary of the Effective Date, Brand Owner shall pay Manufacturer a sum equal to the purchase price of the Minimum Quantities for the remainder of the then-current Contract Year plus the net book value of the dedicated tooling listed in Schedule 4, and the parties agree that this sum is in full settlement of Manufacturer's losses from the early termination.]]]
+
+Title to the tooling shall pass to Brand Owner upon payment.
+
+=== POS | late_completion | engineering services agreement
+The Engineer shall complete the Design Package and deliver it to the Client by the date stated in Table 1 of the Statement of Work (the "Design Completion Date"). Time is of the essence.
+
+[[[Should the Engineer fail to deliver the Design Package by the Design Completion Date, the Engineer shall pay the Client the amount of One Thousand Dollars ($1,000) for each day of delay until delivery, and the parties agree that this amount is liquidated damages representing a genuine estimate of the Client's loss from deferred construction and not a penalty.]]] The Client may set off any such amount against Fees due to the Engineer.
+
+Delay caused by the Client's failure to provide information requested under Section 4.3 within five (5) Business Days shall extend the Design Completion Date day for day.
+
+=== POS | royalty_buyout | patent license agreement
+Licensee shall pay running royalties on Net Sales of Licensed Products at the rates stated in Section 4.1 until the expiration of the last Valid Claim of the Licensed Patents.
+
+Licensee may terminate this Agreement for convenience on ninety (90) days' written notice. [[[If Licensee terminates for convenience before the first commercial sale of a Licensed Product, Licensee shall pay Licensor a one-time termination payment of Two Hundred and Fifty Thousand Dollars ($250,000) in consideration of the development effort Licensor has expended; after the first commercial sale, the payment shall be equal to the royalties paid in the preceding twelve (12) months.]]]
+
+Upon payment of the termination payment, all licenses granted to Licensee shall terminate and all rights shall revert to Licensor.
+
+=== POS | resignation_payment | sponsorship agreement
+Sponsor may terminate this Agreement if Club is relegated from the Premier Division at the end of any Season, by written notice given within thirty (30) days after the final league fixture of that Season.
+
+[[[If Sponsor terminates this Agreement for any reason other than Club's material breach or relegation, Sponsor shall pay Club the Sponsorship Fee for the remainder of the current Season and fifty percent (50%) of the Sponsorship Fee for each subsequent Season of the Term, such sum being a genuine pre-estimate of Club's loss of commercial income.]]] Club shall use reasonable efforts to find a replacement sponsor and any fees received from a replacement sponsor for the same period shall reduce the amount payable.
+
+Club shall remove Sponsor's branding from the Stadium within sixty (60) days of termination.
+
+=== NEG | exclusivity_without_fee | exclusive distribution agreement
+3.1 Exclusive Appointment. Supplier appoints Distributor as its exclusive distributor of the Products in the Territory for the Term and agrees not to appoint any other distributor or to sell the Products directly to customers in the Territory, except for the Reserved Accounts listed in Schedule 1.
+
+3.2 Distributor Undertakings. Distributor shall use commercially reasonable efforts to promote and sell the Products in the Territory and shall not sell the Products outside the Territory or actively solicit customers outside it.
+
+3.3 Review of Performance. The parties shall meet quarterly to review sales performance against the annual forecast. If Distributor's sales fall materially below the forecast for two consecutive quarters, Supplier may convert the appointment to non-exclusive upon thirty (30) days' written notice.
+
+=== NEG | minimum_forecast | component supply agreement
+4.1 Forecasts. Not less than ninety (90) days before the start of each calendar quarter, Buyer shall give Seller a rolling twelve (12) month forecast of its expected requirements for the Components. The first three months of each forecast shall constitute firm purchase orders; the remainder is for planning purposes only and is not binding on Buyer.
+
+4.2 Capacity. Seller shall use commercially reasonable efforts to supply quantities up to one hundred and twenty percent (120%) of the quantities forecast for any month. Seller shall notify Buyer promptly if it expects to be unable to meet a forecast.
+
+4.3 Allocation. If Seller's supply is constrained, Seller shall allocate available Components among its customers on a fair and reasonable basis, and shall not give preference to its own affiliates.
+
+=== NEG | service_levels_reporting | managed hosting agreement
+5.1 Availability Target. Provider shall use commercially reasonable efforts to make the Hosted Environment available at least 99.9% of the time in each calendar month, excluding scheduled maintenance announced at least forty-eight (48) hours in advance and downtime caused by Customer or by events outside Provider's reasonable control.
+
+5.2 Reporting. Within ten (10) days after the end of each month, Provider shall deliver to Customer a report showing actual availability, the cause of any outage that lasted longer than thirty (30) minutes, and the steps taken to prevent a recurrence.
+
+5.3 Chronic Failure. If availability falls below 99.0% in any three (3) months in a rolling six (6) month period, Customer may terminate this Agreement upon thirty (30) days' notice without liability for early termination.
+
+=== NEG | assignment | software maintenance agreement
+17.1 Assignment. Neither party may assign or transfer this Agreement, in whole or in part, without the prior written consent of the other party, which shall not be unreasonably withheld, conditioned or delayed. Any attempted assignment in violation of this Section is void.
+
+17.2 Change of Control. A change of control of a party shall not be deemed an assignment, but the non-affected party may terminate this Agreement on sixty (60) days' notice if the change of control results in a direct competitor of that party acquiring control.
+
+17.3 Successors. This Agreement binds and benefits the parties and their respective successors and permitted assigns. Nothing in this Agreement confers any right or remedy on any person other than the parties.
+
+=== NEG | dispute_resolution | joint development agreement
+20.1 Escalation. The parties shall attempt in good faith to resolve any dispute arising out of this Agreement by referring it first to the project managers and, if unresolved within fifteen (15) days, to senior executives of each party, who shall meet within a further fifteen (15) days.
+
+20.2 Arbitration. Any dispute not resolved under Section 20.1 shall be finally settled by arbitration under the rules of the International Chamber of Commerce by a single arbitrator appointed in accordance with those rules. The seat of arbitration shall be London and the language shall be English.
+
+20.3 Interim Relief. Nothing in this Article prevents a party from seeking urgent interim or injunctive relief from a court of competent jurisdiction.
+
+=== NEG | pro_rata_license_refund | enterprise license agreement
+9.2 Refund on Termination for Provider's Breach. If Licensee terminates this Agreement under Section 9.1 because of Licensor's material breach, Licensor shall refund the license fees paid by Licensee for the Software, less depreciation calculated on a straight-line basis over a five (5) year period from the Delivery Date, within thirty (30) days after the date of termination.
+
+9.3 Accrued Rights. Termination shall not affect the accrued rights of either party, including Licensor's right to payment for support services performed before the effective date of termination.
+
+9.4 Transition. For ninety (90) days after termination Licensee may continue to use the Software for the sole purpose of transitioning its data to a replacement system, at Licensor's then-current rates for support.
+
+=== NEG | insurance | construction subcontract
+13.1 Insurance. Subcontractor shall maintain throughout the performance of the Work commercial general liability insurance with limits of not less than One Million Dollars ($1,000,000) per occurrence and Two Million Dollars ($2,000,000) in the aggregate, automobile liability insurance of not less than One Million Dollars ($1,000,000) combined single limit, and workers' compensation insurance as required by law.
+
+13.2 Certificates. Before commencing the Work, Subcontractor shall deliver to Contractor certificates of insurance naming Contractor and Owner as additional insureds and providing for thirty (30) days' prior written notice of cancellation.
+
+13.3 Failure to Insure. If Subcontractor fails to maintain the required insurance, Contractor may purchase it and deduct the premium cost from amounts otherwise due to Subcontractor.
+
+=== NEG | warranty_disclaimer | consumer device terms
+10.1 Limited Warranty. The Company warrants to the original purchaser that the Device will be free from defects in materials and workmanship under normal use for one (1) year from the date of purchase. This warranty does not apply to batteries, cosmetic damage, or damage resulting from accident, misuse, liquid exposure or unauthorized modification.
+
+10.2 Remedy. If the Device is found to be defective during the warranty period, the Company will, at its option, repair the Device, replace it with a new or refurbished Device of equivalent function, or refund the purchase price.
+
+10.3 Disclaimer. EXCEPT AS EXPRESSLY PROVIDED IN THIS SECTION, THE DEVICE IS PROVIDED "AS IS" AND THE COMPANY DISCLAIMS ALL OTHER WARRANTIES, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+=== NEG | non_solicit_injunction | executive employment agreement
+8.1 Non-Solicitation. For twelve (12) months after the Termination Date, Executive shall not, directly or indirectly, solicit or induce any employee of the Company to leave the Company's employment, or solicit any customer of the Company with whom Executive had material contact during the last twenty-four (24) months of employment.
+
+8.2 Reasonableness. Executive acknowledges that the restrictions in this Article are reasonable in scope and duration and are necessary to protect the Company's legitimate business interests.
+
+8.3 Remedies. The Company shall be entitled to seek injunctive relief to enforce this Article, and the restricted period shall be extended by any period during which Executive is found to have been in breach.
+
+=== NEG | wind_down_cooperation | transition services agreement
+6.1 Transition Period. Upon termination or expiration of the Services, Provider shall continue to provide the Services for up to six (6) months (the "Transition Period") at the rates then in effect, if requested by Customer in writing not less than thirty (30) days before the effective date of termination.
+
+6.2 Transition Plan. Within fifteen (15) days after notice of termination, the parties shall agree a written plan for the orderly transfer of the Services to Customer or its designee, including the transfer of data, documentation and any third-party licences that can lawfully be assigned.
+
+6.3 Cooperation. Provider shall cooperate in good faith with Customer and its replacement service provider and shall make its personnel reasonably available to answer questions, and Customer shall reimburse Provider's reasonable, documented out-of-pocket costs of doing so.
+
+=== NEG | escrow | software license and escrow agreement
+12.1 Deposit. Within thirty (30) days after the Effective Date, Licensor shall deposit the Source Code and related documentation for the Software with the Escrow Agent under the three-party escrow agreement attached as Exhibit D, and shall update the deposit within thirty (30) days after each major release.
+
+12.2 Release Conditions. The Escrow Agent shall release the deposit to Licensee if (a) Licensor files for bankruptcy or ceases business operations, or (b) Licensor fails to provide maintenance and support for the Software for a period of sixty (60) consecutive days after written notice from Licensee.
+
+12.3 Use of Released Materials. Licensee may use released materials solely to maintain and support the Software for its internal business purposes and subject to the confidentiality obligations of this Agreement.
+
+=== NEG | taxes_and_expenses | marketing services agreement
+7.1 Fees. Client shall pay Agency the monthly retainer set out in Exhibit A. The retainer is payable in advance on the first day of each month and covers the services described in Exhibit A.
+
+7.2 Expenses. Agency shall obtain Client's written approval before incurring any out-of-pocket expense exceeding Five Hundred Dollars ($500). Approved expenses shall be invoiced at cost, with supporting receipts, and shall be paid within thirty (30) days after receipt of the invoice.
+
+7.3 Taxes. Client shall be responsible for all sales, use and value-added taxes arising from the services, other than taxes on Agency's net income, and shall pay such taxes to Agency together with the invoiced amounts or provide a valid exemption certificate.

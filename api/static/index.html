@@ -2,324 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LexProbe — Contract Risk Flagging</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: #0f1117;
-      color: #e2e8f0;
-      min-height: 100vh;
-      padding: 2rem 1rem;
-    }
-
-    .container { max-width: 860px; margin: 0 auto; }
-
-    header { text-align: center; margin-bottom: 2.5rem; }
-    header h1 { font-size: 2rem; font-weight: 700; color: #a78bfa; }
-    header p  { color: #94a3b8; margin-top: 0.4rem; font-size: 0.95rem; }
-
-    .card {
-      background: #1e2130;
-      border: 1px solid #2d3148;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    label { font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.5rem; display: block; }
-
-    textarea {
-      width: 100%; height: 220px;
-      background: #0f1117; color: #e2e8f0;
-      border: 1px solid #2d3148; border-radius: 8px;
-      padding: 0.75rem; font-size: 0.9rem;
-      resize: vertical; font-family: inherit;
-    }
-    textarea:focus { outline: none; border-color: #7c3aed; }
-
-    .or-divider {
-      text-align: center; color: #475569;
-      font-size: 0.8rem; margin: 0.75rem 0;
-    }
-
-    .file-upload-area {
-      border: 2px dashed #2d3148; border-radius: 8px;
-      padding: 1rem; text-align: center;
-      cursor: pointer; transition: border-color 0.2s;
-    }
-    .file-upload-area:hover { border-color: #7c3aed; }
-    .file-upload-area input { display: none; }
-    .file-upload-area span { color: #64748b; font-size: 0.85rem; }
-    .file-upload-area .filename { color: #a78bfa; margin-top: 0.25rem; font-size: 0.85rem; }
-
-    button#analyze-btn {
-      width: 100%; padding: 0.85rem;
-      background: #7c3aed; color: white;
-      border: none; border-radius: 8px;
-      font-size: 1rem; font-weight: 600;
-      cursor: pointer; transition: background 0.2s;
-      margin-top: 1rem;
-    }
-    button#analyze-btn:hover   { background: #6d28d9; }
-    button#analyze-btn:disabled { background: #374151; cursor: not-allowed; }
-
-    #status { text-align: center; color: #94a3b8; font-size: 0.85rem; margin-top: 0.75rem; min-height: 1.2rem; }
-
-    /* Results */
-    #results { display: none; }
-    #results h2 { font-size: 1rem; color: #94a3b8; margin-bottom: 1rem; }
-    #results .summary { font-size: 1.1rem; font-weight: 600; color: #e2e8f0; margin-bottom: 1.25rem; }
-
-    .clause-item {
-      display: flex; gap: 1rem; align-items: flex-start;
-      padding: 0.9rem 1rem;
-      border-radius: 8px; margin-bottom: 0.6rem;
-      border: 1px solid #2d3148;
-    }
-    .clause-item.detected { background: #1a1f35; border-color: #4c1d95; }
-    .clause-item.not-detected { background: #111418; opacity: 0.6; }
-
-    .clause-icon { font-size: 1.1rem; flex-shrink: 0; padding-top: 0.1rem; }
-    .clause-body { flex: 1; }
-    .clause-name { font-weight: 600; font-size: 0.95rem; color: #c4b5fd; }
-    .clause-excerpt {
-      margin-top: 0.35rem; font-size: 0.82rem;
-      color: #94a3b8; line-height: 1.5;
-      border-left: 2px solid #7c3aed;
-      padding-left: 0.6rem;
-    }
-    .section-badge {
-      display: inline-block;
-      font-size: 0.72rem; font-weight: 500;
-      background: #2d1b6e; color: #c4b5fd;
-      border: 1px solid #4c1d95;
-      border-radius: 4px; padding: 0.1rem 0.45rem;
-      margin-left: 0.4rem; vertical-align: middle;
-    }
-    .not-detected .clause-name { color: #475569; }
-    .verify-badge { display:inline-block; font-size:0.72rem; font-weight:600; border-radius:4px;
-      padding:0.1rem 0.45rem; margin-left:0.4rem; vertical-align:middle; }
-    .verify-badge.ok { background:#0f3324; color:#6ee7b7; border:1px solid #065f46; }
-    .verify-badge.warn { background:#3b2a0b; color:#fcd34d; border:1px solid #92400e; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LexProbe · Contract risk triage with verified citations</title>
+  <meta name="description" content="Flags seven risky clause types in a contract and cites the exact source text, checked against your document." />
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>⚖️ LexProbe</h1>
-      <p>AI-powered contract risk detection · Fine-tuned Llama-3.1-8B</p>
-    </header>
+  <a class="skip" href="#input-card">Skip to the contract input</a>
 
-    <div class="card">
-      <label style="display: flex; justify-content: space-between; align-items: center;">
-        <span>Paste contract text</span>
-        <span style="color: #64748b; font-size: 0.78rem;">Max 15,000 chars (~5 pages)</span>
-      </label>
-      <textarea id="contract-text" placeholder="Paste your contract text here..."></textarea>
+  <header class="top">
+    <div class="brand"><span class="mark" aria-hidden="true">⚖</span><span>LexProbe</span></div>
+    <span id="model-chip" class="chip-status" data-state="warn" role="status">Checking the model…</span>
+  </header>
 
-      <div class="or-divider">— or upload a .pdf / .docx / .txt file —</div>
+  <main>
+    <section class="hero">
+      <h1>Contract risk triage with <em>verified</em> citations</h1>
+      <p>Paste or upload a contract. LexProbe flags seven risky clause types, quotes the exact sentence, and checks that every quote really appears in your document.</p>
+      <ol class="steps" aria-label="How it works">
+        <li><strong>1 · Read</strong><span>The whole document is split into chunks and every chunk is scored.</span></li>
+        <li><strong>2 · Quote</strong><span>For each flagged clause the model copies the supporting text.</span></li>
+        <li><strong>3 · Verify</strong><span>Each quote is matched against the source and located by character position.</span></li>
+      </ol>
+    </section>
 
-      <div class="file-upload-area" onclick="document.getElementById('file-input').click()">
-        <input type="file" id="file-input" accept=".txt,.pdf,.docx" />
-        <span>Click to upload a .pdf, .docx, or .txt file</span>
-        <div style="color: #64748b; font-size: 0.78rem; margin-top: 0.25rem;">Max 2 MB &middot; Up to ~5 pages</div>
-        <div class="filename" id="filename-label"></div>
+    <section id="input-card" class="card input">
+      <div class="row-head">
+        <label for="contract-text"><strong>Contract text</strong></label>
+        <span id="counter" class="counter" data-level="ok">0 / 15,000 characters</span>
+      </div>
+      <textarea id="contract-text" spellcheck="false" placeholder="Paste the contract text here…"></textarea>
+
+      <div class="row-tools">
+        <span class="muted">No contract at hand?</span>
+        <button type="button" id="sample-1" class="btn small ghost">Try a sponsorship agreement</button>
+        <button type="button" id="sample-2" class="btn small ghost">Try an IP agreement</button>
+        <span class="muted small-note">Public SEC filings from the CUAD dataset.</span>
       </div>
 
-      <button id="analyze-btn" onclick="analyze()">Analyze Contract</button>
-      <div id="status"></div>
-    </div>
+      <div id="drop" class="drop">
+        <input type="file" id="file-input" accept=".txt,.pdf,.docx" aria-label="Choose a .pdf, .docx or .txt file" />
+        <span><strong>Or drop a file here</strong>, or click to choose one (.pdf, .docx, .txt · max 2 MB · about 5 pages)</span>
+        <span id="file-name" class="file-name"></span>
+      </div>
 
-    <div class="card" id="results">
-      <div class="summary" id="summary-text"></div>
-      <h2>Detected Clauses</h2>
-      <div id="clause-list"></div>
-    </div>
-  </div>
+      <div class="row-submit">
+        <button type="button" id="analyze-btn" class="btn primary">Analyse contract</button>
+        <span class="muted small-note">Runs on a local GPU; a typical contract takes 20 to 60 seconds.</span>
+      </div>
+      <div id="error" class="alert" role="alert" hidden></div>
+      <div id="progress" class="progress" role="status" aria-live="polite" hidden>
+        <div class="bar" aria-hidden="true"><span></span></div>
+        <p>Analysing the whole document chunk by chunk, then quoting and verifying the evidence… <span id="elapsed">0 s</span></p>
+      </div>
+    </section>
 
-  <script>
-    const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024; // 2 MB
-    const MAX_TEXT_CHARS = 15000;                // ~5 pages
+    <section id="results" hidden aria-label="Results">
+      <div class="summary card">
+        <div class="count"><span id="summary-count">0 of 7</span><span id="summary-label" class="muted">clause types flagged</span></div>
+        <div class="summary-side">
+          <p id="summary-meta" class="muted"></p>
+          <div class="toolbar">
+            <button type="button" id="copy-report-btn" class="btn small">Copy report (Markdown)</button>
+            <button type="button" id="download-btn" class="btn small">Download JSON</button>
+            <button type="button" id="print-btn" class="btn small">Print</button>
+            <button type="button" id="again-btn" class="btn small ghost">Analyse another</button>
+          </div>
+        </div>
+        <div id="chips" class="chips" aria-label="Clause types"></div>
+      </div>
 
-    // File selection: validate size and show filename. For .txt, pre-fill textarea.
-    // For PDF/DOCX/DOC, extraction happens server-side on submit.
-    document.getElementById('file-input').addEventListener('change', function() {
-      const file = this.files[0];
-      if (!file) return;
+      <div class="grid">
+        <div class="findings-col">
+          <h2>Findings</h2>
+          <div id="findings"></div>
+          <div id="not-found" class="card notfound" hidden>
+            <h3>Not found in this document</h3>
+            <ul id="not-found-list"></ul>
+            <p class="muted">“Not found” means the model did not flag the clause. It does not prove the clause is absent; read the source for anything that matters.</p>
+          </div>
+        </div>
+        <aside class="doc-col" aria-label="Source document">
+          <div id="doc-pane" class="doc-pane">
+            <div class="doc-head"><strong>Source document</strong><span id="doc-name" class="muted"></span></div>
+            <div id="doc" class="doc"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
 
-      if (file.size > MAX_FILE_SIZE_BYTES) {
-        setStatus(`Error: File is too large (${(file.size / (1024 * 1024)).toFixed(2)} MB). Maximum allowed size is 2 MB.`);
-        this.value = '';
-        document.getElementById('filename-label').textContent = '';
-        return;
-      }
+  <footer>
+    <p><strong>AI-assisted triage, not legal advice.</strong> LexProbe can miss clauses and can flag clauses that are not there. Quotes are checked against the text you supplied, but every finding should be read in context by a person.</p>
+    <p class="muted">Model: Llama-3.1-8B-Instruct with a QLoRA adapter, trained on the open CUAD contract dataset.</p>
+  </footer>
 
-      setStatus('');
-      document.getElementById('filename-label').textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
-      const ext = file.name.split('.').pop().toLowerCase();
-      if (ext === 'txt') {
-        // For plain text, pre-fill the textarea (allows pasting too)
-        const reader = new FileReader();
-        reader.onload = e => {
-          const content = e.target.result;
-          document.getElementById('contract-text').value = content;
-          if (content.length > MAX_TEXT_CHARS) {
-            setStatus(`Warning: Text file contains ${content.length.toLocaleString()} characters (exceeds 15,000 char limit). Please shorten or select an excerpt.`);
-          }
-        };
-        reader.readAsText(file);
-      } else {
-        // For PDF/DOCX/DOC, clear textarea — server will extract
-        document.getElementById('contract-text').value = '';
-        document.getElementById('contract-text').placeholder =
-          `${file.name} selected — text will be extracted on the server when you click Analyze.`;
-      }
-    });
-
-    /**
-     * Parse section headings from contract text.
-     * Returns array of {number, title, startIndex} sorted by position.
-     * Matches patterns like: "1.", "2.", "3.1", "1.a", "ARTICLE I", etc.
-     */
-    function parseSections(text) {
-      const sections = [];
-      // Match numbered sections: "1.", "2.", "3.1.", "1.2.3" at start of line
-      const re = /^(\d+(?:\.\d+)*\.?|[A-Z]+\s+[IVXLCDM]+)\s+([A-Z][A-Z\s\/\-&]+)/gm;
-      let match;
-      while ((match = re.exec(text)) !== null) {
-        sections.push({
-          number: match[1].replace(/\.$/, ''),
-          title:  match[2].trim(),
-          startIndex: match.index,
-        });
-      }
-      return sections;
-    }
-
-    /**
-     * Given the position of a found excerpt in the original text,
-     * return the nearest section heading above it.
-     */
-    function findSection(pos, sections) {
-      if (pos === null || pos === undefined || pos < 0 || sections.length === 0) return null;
-      // Find the last section whose startIndex is <= pos
-      let best = null;
-      for (const sec of sections) {
-        if (sec.startIndex <= pos) best = sec;
-        else break;
-      }
-      return best;
-    }
-
-    async function analyze() {
-      const fileInput = document.getElementById('file-input');
-      const file = fileInput.files[0];
-      const text = document.getElementById('contract-text').value.trim();
-      const ext = file ? file.name.split('.').pop().toLowerCase() : '';
-      const needsServerExtract = file && ['pdf', 'docx'].includes(ext);
-
-      if (!needsServerExtract && !text) {
-        setStatus('Please paste contract text or upload a file first.');
-        return;
-      }
-
-      if (!needsServerExtract && text.length > MAX_TEXT_CHARS) {
-        setStatus(`Error: Contract text (${text.length.toLocaleString()} characters) exceeds the 15,000 character limit (~5 pages). Please shorten or select an excerpt.`);
-        return;
-      }
-
-      const btn = document.getElementById('analyze-btn');
-      btn.disabled = true;
-      btn.textContent = 'Analyzing…';
-      setStatus('Analysing the whole document chunk by chunk across 6 clause types. This may take a minute…');
-      document.getElementById('results').style.display = 'none';
-
-      try {
-        let data;
-        if (needsServerExtract) {
-          // Send file to /upload — server extracts text
-          const formData = new FormData();
-          formData.append('file', file);
-          const resp = await fetch('/upload', { method: 'POST', body: formData });
-          if (!resp.ok) {
-            const err = await resp.json();
-            throw new Error(err.detail || `Server error: ${resp.status}`);
-          }
-          data = await resp.json();
-          // Use server-returned text for section detection
-          renderResults(data);
-        } else {
-          // Send pasted/txt text as JSON
-          const resp = await fetch('/analyze-contract', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text }),
-          });
-          if (!resp.ok) {
-            const err = await resp.json();
-            throw new Error(err.detail || `Server error: ${resp.status}`);
-          }
-          data = await resp.json();
-          renderResults(data);
-        }
-        setStatus('');
-      } catch (err) {
-        setStatus(`Error: ${err.message}`);
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Analyze Contract';
-      }
-    }
-
-    function esc(s) {
-      return String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-    }
-
-    function renderResults(data) {
-      // start/end offsets refer to the server's normalised text, so sections are parsed from it
-      const sections = parseSections(data.contract_text || '');
-      const detected = data.clauses.filter(c => c.detected);
-      document.getElementById('summary-text').textContent =
-        `🚨 ${detected.length} of ${data.total_checked} clause types flagged · ${data.chunks_analyzed} chunks analysed · model ${data.model_version}`;
-
-      const list = document.getElementById('clause-list');
-      list.innerHTML = '';
-
-      // Show detected first, then not detected
-      const sorted = [...data.clauses].sort((a, b) => b.detected - a.detected);
-
-      sorted.forEach(c => {
-        const sec = findSection(c.start, sections);
-        const sectionBadge = sec
-          ? `<span class="section-badge">§ ${esc(sec.number)} — ${esc(sec.title)}</span>`
-          : '';
-        const verifyBadge = !c.detected ? ''
-          : c.grounded
-            ? '<span class="verify-badge ok">✔ quote found in document</span>'
-            : '<span class="verify-badge warn">⚠ quote not found verbatim — check manually</span>';
-
-        const div = document.createElement('div');
-        div.className = `clause-item ${c.detected ? 'detected' : 'not-detected'}`;
-        div.innerHTML = `
-          <div class="clause-icon">${c.detected ? '🚨' : '✅'}</div>
-          <div class="clause-body">
-            <div class="clause-name">${esc(c.clause_type)} ${sectionBadge} ${verifyBadge}</div>
-            ${c.extracted_text
-              ? `<div class="clause-excerpt">${esc(c.extracted_text.substring(0, 300))}${c.extracted_text.length > 300 ? '…' : ''}</div>`
-              : ''}
-          </div>`;
-        list.appendChild(div);
-      });
-
-      document.getElementById('results').style.display = 'block';
-    }
-
-    function setStatus(msg) {
-      document.getElementById('status').textContent = msg;
-    }
-  </script>
+  <script src="/static/app.js" defer></script>
 </body>
 </html>

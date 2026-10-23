@@ -1,0 +1,173 @@
+=== POS | termination_fee | SaaS subscription agreement
+accordance with Section 9.4. Customer shall remain responsible for all Fees accrued through the effective date of termination.
+
+9.5 Early Termination by Customer. Customer may terminate this Agreement for convenience at any time during the Initial Term upon ninety (90) days' prior written notice to Provider. [[[If Customer terminates this Agreement for convenience during the Initial Term, Customer shall pay Provider, within thirty (30) days after the effective date of termination, an early termination fee equal to fifty percent (50%) of the Subscription Fees that would have been payable for the remainder of the Initial Term, which the Parties agree is a reasonable estimate of Provider's losses and not a penalty.]]]
+
+9.6 Effect of Termination. Upon any termination or expiration of this Agreement, Provider shall make Customer Data available for export for a period of thirty (30) days, after which Provider may delete such data in accordance with its standard retention practices. Sections 5 (Confidentiality), 11 (Limitation of Liability) and 14 (General Provisions) shall survive termination.
+
+=== POS | franchise_default | franchise agreement
+14.3 Termination by Franchisor. Franchisor may terminate this Agreement upon written notice, without opportunity to cure, if Franchisee fails to pay any amount due under this Agreement within ten (10) days after written notice of non-payment, or if Franchisee ceases to operate the Franchised Business for more than five (5) consecutive days without Franchisor's prior written consent.
+
+14.4 Damages upon Termination. [[[If Franchisor terminates this Agreement because of a default by Franchisee, Franchisee shall pay Franchisor, within fifteen (15) days after the effective date of termination, as liquidated damages and not as a penalty, an amount equal to the average monthly Royalty Fees paid or payable by Franchisee during the twelve (12) months preceding termination, multiplied by the lesser of (a) thirty-six (36) or (b) the number of months remaining in the then-current term.]]] The parties agree that Franchisor's actual damages from the premature loss of Royalty Fees would be difficult to determine.
+
+14.5 Post-Termination Obligations. Franchisee shall immediately cease using the Marks, return the Manuals, and de-identify the premises in accordance with Franchisor's reasonable instructions.
+
+=== POS | construction_delay | construction contract
+Contractor shall achieve Substantial Completion of the Work within three hundred and sixty (360) days after the Commencement Date stated in the Notice to Proceed (the "Completion Date"). The Completion Date shall be extended only by written Change Order for delays caused by Owner, by changes in the Work, or by Force Majeure events properly noticed under Article 12.
+
+[[[If Contractor fails to achieve Substantial Completion by the Completion Date, Contractor shall pay Owner liquidated damages in the amount of Two Thousand Five Hundred Dollars ($2,500) for each calendar day thereafter until Substantial Completion is achieved, the parties agreeing that Owner's loss from delayed occupancy is difficult to quantify and that this sum is a reasonable forecast of it.]]] Owner may deduct liquidated damages from any sum otherwise payable to Contractor.
+
+Substantial Completion shall be determined by the Architect, whose certificate shall be conclusive as to the date achieved.
+
+=== POS | minimum_shortfall | supply agreement
+Buyer shall purchase from Seller in each Contract Year not less than the Minimum Annual Quantity set out in Exhibit A. Seller shall make available to Buyer, and shall reserve production capacity sufficient to supply, the Minimum Annual Quantity in each Contract Year.
+
+[[[If Buyer's purchases in any Contract Year are less than the Minimum Annual Quantity, Buyer shall pay Seller, within thirty (30) days after the end of that Contract Year, an amount equal to the Unit Price multiplied by the number of units by which purchases fell short, as liquidated damages for Seller's reserved capacity and not as a penalty.]]] Payment of the shortfall amount shall be Seller's sole remedy for Buyer's failure to purchase the Minimum Annual Quantity, except where the shortfall results from Seller's failure to supply or from Force Majeure.
+
+Units paid for under this Section shall not be carried forward to any later Contract Year.
+
+=== POS | deposit_forfeiture | real estate purchase agreement
+6.1 Closing. The closing of the purchase and sale of the Property (the "Closing") shall take place on or before the date that is forty-five (45) days after the expiration of the Inspection Period, at the offices of the Title Company.
+
+6.2 Default by Purchaser. [[[If Purchaser fails to complete the purchase of the Property at the Closing for any reason other than Seller's default or the failure of a condition to Purchaser's obligation to close, Seller shall be entitled to retain the Deposit as liquidated damages, the parties agreeing that Seller's actual damages would be impracticable to ascertain and that the Deposit is a reasonable estimate of them.]]] Retention of the Deposit shall be Seller's sole and exclusive remedy.
+
+6.3 Default by Seller. If Seller fails to convey the Property in accordance with this Agreement, Purchaser may either terminate this Agreement and receive a return of the Deposit or seek specific performance, provided that any action for specific performance is commenced within sixty (60) days.
+
+=== POS | supplier_termination_payment | distribution agreement
+12.2 Termination without Cause by Supplier. Supplier may terminate this Agreement without cause at any time after the second anniversary of the Effective Date by giving Distributor not less than one hundred and eighty (180) days' written notice.
+
+12.3 Termination Payment. [[[If Supplier terminates this Agreement under Section 12.2, Supplier shall pay Distributor, within sixty (60) days after the effective date of termination, an amount equal to the gross margin earned by Distributor on sales of the Products during the twelve (12) months immediately preceding the date of the notice of termination, which the parties agree is a reasonable estimate of the value to Distributor of the distribution rights lost, is payable as liquidated damages, and is Distributor's sole compensation for that loss.]]]
+
+12.4 Repurchase of Inventory. Following any termination, Supplier shall have the option, exercisable within thirty (30) days, to repurchase Distributor's unsold inventory of the Products at Distributor's net landed cost.
+
+=== POS | wind_down_charge | outsourcing agreement
+Client may terminate any Service Tower for convenience on not less than one hundred and twenty (120) days' prior written notice to Provider. Termination of a Service Tower shall not affect the remaining Service Towers.
+
+If Client terminates a Service Tower for convenience before the end of the Initial Term, [[[Client shall pay Provider a termination charge equal to the unamortized portion, calculated on a straight-line basis over the Initial Term, of the transition and set-up costs actually incurred by Provider for that Service Tower, together with the cost of any third-party contracts that Provider cannot terminate without penalty, and the parties acknowledge that this charge is a genuine pre-estimate of Provider's loss.]]]
+
+Provider shall provide reasonable evidence of the amount of the termination charge within thirty (30) days after Client's notice.
+
+=== POS | late_delivery_credit | software development agreement
+5.2 Delivery Schedule. Developer shall deliver each Milestone Deliverable to Client on or before the Delivery Date stated in the Project Plan. Client shall review each Milestone Deliverable and notify Developer of acceptance or of any Defects within ten (10) Business Days after delivery.
+
+5.3 Delay. [[[If Developer fails to deliver a Milestone Deliverable by its Delivery Date for any reason other than Client's delay, Developer shall pay Client liquidated damages equal to one percent (1%) of the Development Fee for each full week of delay, up to a maximum of ten percent (10%) of the Development Fee.]]] Such liquidated damages shall be Client's sole and exclusive remedy for delay, without prejudice to Client's right to terminate under Section 14.2 if the delay exceeds sixty (60) days.
+
+5.4 Acceptance Testing. Acceptance testing shall be performed in Client's test environment using the test scripts agreed in the Project Plan.
+
+=== POS | non_solicitation_breach | joint venture agreement
+7.4 Non-Solicitation. During the Term and for a period of twenty-four (24) months thereafter, neither Party shall, without the prior written consent of the other Party, directly or indirectly solicit for employment any employee of the other Party who was materially involved in the Venture.
+
+7.5 Remedy. [[[If either Party breaches Section 7.4, the breaching Party shall pay the other Party the sum of Seventy-Five Thousand Dollars ($75,000) for each employee so solicited, the Parties acknowledging that the other Party's actual damages from the loss of trained personnel would be difficult to determine and that this sum is a reasonable estimate of those damages and not a penalty.]]] The foregoing shall not prevent the non-breaching Party from seeking injunctive relief to prevent further breaches.
+
+7.6 General recruitment advertisements not targeted at employees of the other Party shall not constitute solicitation for purposes of this Section.
+
+=== POS | merger_termination_fee | merger agreement
+8.3 Termination Fee. (a) The Company shall pay to Parent a fee of Twelve Million Five Hundred Thousand Dollars ($12,500,000) (the "Termination Fee") if this Agreement is terminated by Parent pursuant to Section 8.1(d) (Change of Recommendation) or by the Company pursuant to Section 8.1(g) (Superior Proposal).
+
+(b) The Termination Fee shall be paid by wire transfer of immediately available funds within two (2) Business Days after termination. [[[The parties acknowledge that the Termination Fee is not a penalty but constitutes liquidated damages in a reasonable amount that will compensate Parent for the efforts and resources expended and opportunities foregone while negotiating this Agreement and in reliance on it.]]]
+
+(c) In no event shall the Company be required to pay the Termination Fee on more than one occasion.
+
+=== POS | lease_default | equipment lease agreement
+18. Remedies. Upon the occurrence of an Event of Default, Lessor may, at its option, declare this Lease in default, require Lessee to return the Equipment at Lessee's expense, and exercise any other right available at law.
+
+[[[Upon termination of this Lease by Lessor following an Event of Default, Lessee shall pay Lessor, as liquidated damages and not as a penalty, an amount equal to the present value, discounted at five percent (5%) per annum, of all Rent that would have become due during the remainder of the Lease Term, less the net proceeds of any re-lease or sale of the Equipment received by Lessor.]]] Rent due and unpaid at the date of termination remains payable separately.
+
+19. Lessor's Right to Cure. Lessor may, but shall not be obliged to, remedy any default by Lessee, and Lessee shall reimburse Lessor on demand for its reasonable costs in doing so.
+
+=== POS | cancellation_charge | hospitality event contract
+9. Cancellation. Customer may cancel the Event by giving written notice to Hotel. Cancellation shall be effective on the date Hotel receives the notice.
+
+Customer acknowledges that Hotel will turn away other business in reliance on this Agreement. Accordingly:
+
+[[[If Customer cancels the Event less than thirty (30) days before the first day of the Event, Customer shall pay Hotel a cancellation charge equal to seventy-five percent (75%) of the estimated Food and Beverage revenue stated on the Banquet Event Order, which the parties agree is liquidated damages and not a penalty.]]] If Hotel is able to resell the contracted space for the same dates, Hotel shall refund the portion of the charge attributable to that revenue.
+
+10. Attrition. Customer may reduce the Guest Room Block by up to ten percent (10%) without charge.
+
+=== NEG | termination_for_cause | master services agreement
+11.1 Termination for Cause. Either party may terminate this Agreement upon written notice if the other party materially breaches this Agreement and fails to cure the breach within thirty (30) days after receiving written notice describing the breach in reasonable detail. If the breach is not capable of cure, the non-breaching party may terminate immediately upon notice.
+
+11.2 Insolvency. Either party may terminate this Agreement immediately upon written notice if the other party becomes insolvent, makes an assignment for the benefit of creditors, or becomes the subject of any bankruptcy or similar proceeding that is not dismissed within sixty (60) days.
+
+11.3 Effect of Termination. Upon termination for any reason, each party shall promptly return or destroy the other party's Confidential Information. Customer shall pay Provider for all Services performed and expenses properly incurred up to the effective date of termination. Termination shall not affect rights or obligations that accrued before the effective date.
+
+=== NEG | prepaid_refund | online services terms
+8.4 Termination by Customer for Provider's Breach. If Customer terminates this Agreement because of Provider's uncured material breach, Provider shall refund to Customer, within thirty (30) days after the effective date of termination, the pro rata portion of any Fees prepaid by Customer for the period after the effective date of termination.
+
+8.5 No Other Refunds. Except as expressly provided in this Agreement, all Fees are non-cancellable and non-refundable once the applicable Service Period has begun. Customer remains responsible for Fees for the period before termination.
+
+8.6 Data Return. For thirty (30) days after termination Customer may retrieve Customer Data using the export tools made available through the Service. After that period Provider may delete Customer Data and shall have no further obligation to retain it.
+
+8.7 Survival. Sections 4 (Payment), 6 (Intellectual Property), 9 (Warranties and Disclaimers) and 12 (Governing Law) survive termination.
+
+=== NEG | indemnification | software license agreement
+13.1 Indemnification by Licensor. Licensor shall defend Licensee against any third-party claim alleging that the Software, as delivered by Licensor and used in accordance with this Agreement, infringes a patent, copyright or trademark, and shall pay the damages and costs finally awarded against Licensee or agreed by Licensor in settlement. Licensee shall give Licensor prompt written notice of the claim, sole control of the defense and settlement, and reasonable cooperation at Licensor's expense.
+
+13.2 Exclusions. Licensor shall have no obligation under Section 13.1 to the extent a claim arises from modifications not made by Licensor, from combination of the Software with items not supplied by Licensor, or from use after Licensor has provided a non-infringing replacement.
+
+13.3 Mitigation. If the Software becomes, or in Licensor's opinion is likely to become, the subject of a claim, Licensor may procure the right for Licensee to continue using it, replace or modify it so that it is non-infringing, or terminate the license and refund the unamortized license fee.
+
+=== NEG | warranty_remedy | equipment purchase agreement
+7.1 Warranty. Seller warrants that for a period of twelve (12) months after delivery (the "Warranty Period") the Equipment will be free from defects in materials and workmanship and will conform to the specifications set out in Exhibit B when operated in accordance with Seller's instructions.
+
+7.2 Remedy. If Buyer notifies Seller in writing of a defect during the Warranty Period, Seller shall, at its option and expense, repair or replace the defective Equipment or part within a reasonable time, including the cost of shipping the repaired or replacement item to Buyer. This Section states Seller's entire obligation, and Buyer's exclusive remedy, in respect of defective Equipment.
+
+7.3 Exclusions. The warranty does not cover damage caused by misuse, accident, unauthorized repair, normal wear and tear, or the use of non-approved spare parts. THE FOREGOING WARRANTY IS IN LIEU OF ALL OTHER WARRANTIES, EXPRESS OR IMPLIED.
+
+=== NEG | liability_cap | consulting agreement
+12.1 Limitation of Liability. EXCEPT FOR A PARTY'S INDEMNIFICATION OBLIGATIONS, BREACH OF CONFIDENTIALITY, OR GROSS NEGLIGENCE OR WILLFUL MISCONDUCT, NEITHER PARTY'S TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT, WHETHER IN CONTRACT, TORT OR OTHERWISE, SHALL EXCEED THE TOTAL FEES PAID OR PAYABLE BY CLIENT TO CONSULTANT UNDER THIS AGREEMENT DURING THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE LIABILITY.
+
+12.2 Exclusion of Consequential Damages. IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS, EVEN IF ADVISED OF THEIR POSSIBILITY.
+
+12.3 Basis of the Bargain. The parties agree that the limitations in this Article reflect an allocation of risk and form an essential basis of the bargain between them.
+
+=== NEG | payment_terms | services agreement
+4.1 Fees. Customer shall pay the Fees set out in each Statement of Work. Unless a Statement of Work provides otherwise, Provider shall invoice Fees monthly in arrears, and expenses approved in advance by Customer shall be invoiced at cost without mark-up.
+
+4.2 Payment. Customer shall pay each undisputed invoice within thirty (30) days after receipt by wire transfer to the account designated by Provider. Invoices shall be sent to the accounts payable contact identified in the Statement of Work.
+
+4.3 Disputed Amounts. If Customer disputes any portion of an invoice in good faith, Customer shall notify Provider in writing within fifteen (15) days after receipt, describing the dispute in reasonable detail, and shall pay the undisputed portion. The parties shall work together promptly to resolve the dispute.
+
+4.4 Taxes. Fees are exclusive of applicable sales, use and value-added taxes, which Customer shall bear, other than taxes based on Provider's net income.
+
+=== NEG | force_majeure | manufacturing agreement
+16.1 Force Majeure. Neither party shall be liable for any failure or delay in performing its obligations under this Agreement (other than payment obligations) to the extent the failure or delay is caused by an event beyond its reasonable control, including acts of God, fire, flood, war, terrorism, epidemic, government action, or failure of public utilities or transportation networks.
+
+16.2 Notice and Mitigation. The affected party shall give the other party prompt written notice describing the event and its expected duration, and shall use commercially reasonable efforts to mitigate its effects and resume performance as soon as practicable.
+
+16.3 Extended Events. If a force majeure event continues for more than ninety (90) consecutive days, either party may terminate the affected purchase orders upon written notice, without liability to the other for that termination, and Buyer shall pay for finished goods already completed.
+
+=== NEG | injunctive_relief | non-disclosure and cooperation agreement
+9.1 Equitable Relief. Each party acknowledges that a breach or threatened breach of Section 5 (Confidentiality) or Section 6 (Use Restrictions) would cause the other party irreparable harm for which monetary damages would not be an adequate remedy. Accordingly, the non-breaching party shall be entitled to seek injunctive relief or specific performance in any court of competent jurisdiction, without the requirement of posting a bond or proving actual damages.
+
+9.2 Cumulative Remedies. The rights and remedies under this Agreement are cumulative and in addition to any other rights available at law or in equity.
+
+9.3 Notice of Breach. Each party shall notify the other promptly upon becoming aware of any unauthorized use or disclosure of Confidential Information and shall cooperate to regain possession of it and prevent further unauthorized use.
+
+=== NEG | audit_rights | license and royalty agreement
+10.1 Records. Licensee shall keep complete and accurate books and records of all Net Sales of Licensed Products for at least three (3) years after the end of the calendar quarter to which they relate.
+
+10.2 Audit. Not more than once in any calendar year, Licensor may appoint an independent certified public accountant, reasonably acceptable to Licensee, to inspect those records during normal business hours on ten (10) Business Days' notice, solely to verify the royalty reports and payments made under Article 6.
+
+10.3 Underpayments. If the audit reveals that Licensee underpaid royalties, Licensee shall pay the underpaid amount within thirty (30) days after receiving the accountant's report. Licensor shall bear the cost of the audit unless the underpayment exceeds five percent (5%) of the royalties due for the audited period, in which case Licensee shall reimburse the reasonable cost of the audit.
+
+=== NEG | termination_for_convenience_no_fee | reseller agreement
+14.1 Term. This Agreement begins on the Effective Date and continues for an initial term of two (2) years, after which it renews automatically for successive one (1) year terms unless a party gives notice of non-renewal at least sixty (60) days before the end of the then-current term.
+
+14.2 Termination for Convenience. Either party may terminate this Agreement for any reason or no reason by giving the other party sixty (60) days' prior written notice. Neither party shall be liable to the other solely because of the termination or expiration of this Agreement in accordance with its terms, including for loss of anticipated profits, or for compensation, indemnity or reimbursement of investments made in reliance on this Agreement.
+
+14.3 Orders. Reseller may continue to fulfil accepted orders placed before the effective date of termination.
+
+=== NEG | delivery_and_acceptance | purchase order terms
+3.1 Delivery. Seller shall deliver the Goods to the delivery address stated in the Purchase Order on the delivery date stated in it. Seller shall notify Buyer promptly if it becomes aware that delivery may be late and shall use commercially reasonable efforts to meet the delivery date.
+
+3.2 Late Delivery. If Seller does not deliver the Goods within ten (10) days after the delivery date, Buyer may cancel the affected Purchase Order by written notice without further obligation to Seller, and may purchase substitute goods from another source.
+
+3.3 Inspection. Buyer shall inspect the Goods within fifteen (15) days after delivery and may reject Goods that do not conform to the Purchase Order by written notice stating the grounds for rejection. Seller shall collect rejected Goods at its own cost.
+
+=== NEG | confidentiality | collaboration agreement
+6.1 Confidentiality Obligations. Each party shall hold the other party's Confidential Information in confidence, shall use it only for the purposes of this Agreement, and shall not disclose it to any third party other than its employees, advisors and contractors who need to know it and are bound by written obligations of confidentiality at least as protective as those in this Section.
+
+6.2 Exceptions. Confidential Information does not include information that the receiving party can show (a) is or becomes public through no fault of its own, (b) was already known to it without restriction, (c) was independently developed without use of the disclosing party's information, or (d) was rightfully received from a third party without restriction.
+
+6.3 Return of Materials. Upon request or termination, the receiving party shall promptly return or destroy all Confidential Information and confirm in writing that it has done so.

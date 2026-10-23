@@ -1,0 +1,6 @@
+outs:
+- md5: 7a9953fb251b9d38a15ec1b3598c129b.dir
+  size: 63200530
+  nfiles: 8
+  hash: md5
+  path: train_mixes

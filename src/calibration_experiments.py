@@ -33,7 +33,7 @@ from collections import defaultdict
 import numpy as np
 
 import document_eval as de
-from prepare_data import CLAUSE_TYPES
+from prepare_data import CLAUSE_TYPES, DATA_DIR, EVAL_DIR
 
 K = len(CLAUSE_TYPES)
 # Same grid as the references in document_level.json. A wider grid (up to +14) selects +12.0 for the
@@ -42,7 +42,9 @@ K = len(CLAUSE_TYPES)
 GRID = np.arange(-3.0, 8.01, 0.5)
 N_FOLDS = 5
 STATUS_CODE = {"positive": 1, "negative": 0, "partial": -1}
-OUT = "reports/eval/recovery_stage1"
+OUT = f"{EVAL_DIR}/recovery_stage1"
+TRAIN_QUERIES = f"{DATA_DIR}/train.json"  # the training mix the adapter actually saw (for the prior shift)
+ADAPTER_SYSTEM = "lora_v4"  # which saved scores play the role of "the fine-tuned model" (internal key stays "lora_v4")
 
 
 # ── Data ───────────────────────────────────────────────────────────────────────
@@ -51,14 +53,15 @@ class Split:
 
     def __init__(self, name: str):
         self.name = name
-        self.chunks = de.load_json(f"data/processed/chunks_{name}.json")
+        self.chunks = de.load_json(f"{DATA_DIR}/chunks_{name}.json")
         self.ids = [c["chunk_id"] for c in self.chunks]
         self.titles = [c["contract_title"] for c in self.chunks]
         self.status = np.array([[STATUS_CODE[c["labels"][ct]["status"]] for ct in CLAUSE_TYPES] for c in self.chunks])
         self.segments = segments(self.titles)
 
     def scores(self, system: str) -> np.ndarray:
-        m = de.load_json(f"reports/eval/doc_{system}_{self.name}.json")["margins"]
+        system = ADAPTER_SYSTEM if system == "lora_v4" else system
+        m = de.load_json(f"{EVAL_DIR}/doc_{system}_{self.name}.json")["margins"]
         return np.array([[m[i][ct] for ct in CLAUSE_TYPES] for i in self.ids], dtype=float)
 
 
@@ -179,8 +182,8 @@ def oof_scores(X: np.ndarray, st: np.ndarray, chunk_groups: list, fitted: bool, 
 
 def prior_shift() -> np.ndarray:
     """Per-clause log-odds shift between the training mix and the all-chunks mix of the training contracts."""
-    train_q = de.load_json("data/processed/train.json")
-    chunks = de.load_json("data/processed/chunks_train.json")
+    train_q = de.load_json(TRAIN_QUERIES)
+    chunks = de.load_json(f"{DATA_DIR}/chunks_train.json")
     shifts = []
     for ct in CLAUSE_TYPES:
         tp = sum(1 for q in train_q if q["clause_type"] == ct and q["answers"])
@@ -322,9 +325,13 @@ def run(bootstrap: int = 2000, ap_bootstrap: int = 500) -> dict:
         return next(r for r in rows if (r["candidate"], r["rule"], r["objective"]) == (candidate, rule, objective))
 
     # sanity: the identity rows must reproduce the numbers already reported (document_level.json)
-    ref_json = de.load_json("reports/eval/document_level.json")["operating_points"]["tuned"]
+    # (reference numbers exist only for the reported v3 baseline and v4; other profiles/adapters have none to match)
+    ref_path = f"{EVAL_DIR}/document_level.json"
+    ref_json = de.load_json(ref_path)["operating_points"]["tuned"] if os.path.exists(ref_path) else None
     sanity = {}
     for s, key in (("baseline", "baseline"), ("lora_v4", "lora_v4")):
+        if ref_json is None or (s == "lora_v4" and ADAPTER_SYSTEM != "lora_v4"):
+            continue
         r = row(f"{s}:ident", "max", "chunk")
         exp_t = ref_json["thresholds"][key]
         exp_f1 = ref_json["summary"][key]["contract"]["macro"]["f1"]
@@ -345,7 +352,7 @@ def run(bootstrap: int = 2000, ap_bootstrap: int = 500) -> dict:
         return de.counts_by_group(records(test, cs, gold, keep, r["threshold"]), gm)
 
     gates = {}
-    for label, cand, reference in (("current v4 (sanity)", row("lora_v4:ident", "max", "chunk"), ref),
+    for label, cand, reference in ((f"current {ADAPTER_SYSTEM} alone (sanity)", row("lora_v4:ident", "max", "chunk"), ref),
                                    ("PRIMARY: selected candidate vs approved reference", selected, ref),
                                    ("STRESS: selected candidate vs best baseline variant", selected, best_base)):
         b = de.paired_group_bootstrap(counts(reference), counts(cand), bootstrap)
@@ -417,11 +424,11 @@ def export_blend(res: dict, path: str):
     """Write the selected blend (weights fitted on ALL validation scores) as a config the API can load."""
     sel = res["selected"]
     assert sel["candidate"] == "blend:platt", f"selected candidate is {sel['candidate']}, not the blend"
-    val_meta = de.load_json("reports/eval/doc_lora_v4_val.json")
+    val_meta = de.load_json(f"{EVAL_DIR}/doc_{ADAPTER_SYSTEM}_val.json")
     primary = next(g for k, g in res["gates"].items() if k.startswith("PRIMARY"))
     stress = next(g for k, g in res["gates"].items() if k.startswith("STRESS"))
     cfg = {
-        "name": "blend_v1",
+        "name": "blend_" + (OUT.rsplit("_", 1)[-1] if OUT != f"{EVAL_DIR}/recovery_stage1" else "v1"),
         "description": "Per-clause logistic blend of the v4 (adapter on) and zero-shot (adapter off) first-token margins. "
                        "A clause is flagged when ANY chunk's blended score exceeds the threshold.",
         "fitted_on": "validation split (all contracts), dataset " + val_meta["dataset_version"],
@@ -434,7 +441,7 @@ def export_blend(res: dict, path: str):
         "test_result_at_selection": {"contract_f1": sel["test_contract_f1"], "chunk_f1": sel["test_chunk_f1"],
                                      "primary_gate_diff": primary["diff"], "primary_gate_ci": primary["ci"],
                                      "stress_gate_diff": stress["diff"], "stress_gate_ci": stress["ci"]},
-        "source_report": "reports/eval/recovery_stage1.md",
+        "source_report": OUT + ".md",
         "caveats": ["two passes per chunk (adapter on and off): about 1.8x compute",
                     "Auto-Renewal relies mostly on the zero-shot score; Liquidated Damages remains weak",
                     "weights fitted on 77 validation contracts; re-fit if the adapter or dataset changes"],
@@ -449,7 +456,17 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--bootstrap", type=int, default=2000)
     parser.add_argument("--export-blend", metavar="PATH", help="also write the selected blend as a JSON config (e.g. configs/blend_v1.json)")
+    parser.add_argument("--adapter-system", default="lora_v4",
+                        help="saved-score system name of the fine-tuned model, e.g. lora_v5 (reads doc_<name>_<split>.json)")
+    parser.add_argument("--train-queries", help="training file the adapter was trained on (default: <data dir>/train.json)")
+    parser.add_argument("--tag", default="", help="suffix for the report files, e.g. v5 -> recovery_stage1_v5.*")
     args = parser.parse_args()
+    global ADAPTER_SYSTEM, OUT, TRAIN_QUERIES
+    if args.train_queries:
+        TRAIN_QUERIES = args.train_queries
+    ADAPTER_SYSTEM = args.adapter_system
+    if args.tag:
+        OUT = f"{OUT}_{args.tag}"
     res = run(args.bootstrap)
     write_report(res)
     if args.export_blend:

@@ -1,0 +1,185 @@
+=== POS | months_of_fees | reseller agreement
+Reseller's appointment is for an initial term of three (3) years from the Effective Date. Reseller acknowledges that Vendor has agreed to the discounts in Schedule 2 in reliance on Reseller's commitment to the full initial term.
+
+If Reseller terminates this Agreement for convenience before the end of the initial term, [[[Reseller shall pay Vendor a termination fee equal to the average monthly purchases made by Reseller during the six (6) months preceding the notice multiplied by the number of whole months remaining in the initial term, up to a maximum of twelve (12) months.]]] The termination fee is payable on the effective date of termination.
+
+Vendor may deduct the termination fee from any rebates or credits otherwise due to Reseller.
+
+=== POS | remaining_months | managed network services agreement
+Each Site Order has a minimum service period of sixty (60) months from the Site Acceptance Date. During the minimum service period Customer may reduce the bandwidth of a Site only with Provider's written consent.
+
+[[[If Customer terminates a Site Order for convenience, or Provider terminates it for Customer's uncured breach, before the end of the minimum service period, Customer shall pay Provider an amount equal to the Monthly Charges for that Site multiplied by the number of months remaining in the minimum service period, together with any unrecovered installation charges.]]]
+
+Provider shall issue an invoice for the early termination amount on the effective date of termination, payable within thirty (30) days.
+
+Termination of one Site Order does not affect any other Site Order.
+
+=== POS | termination_fee_formula | exclusive supply agreement
+14.2 Termination by Purchaser for Convenience. After the third anniversary of the Effective Date, Purchaser may terminate this Agreement for convenience on twelve (12) months' prior written notice to Supplier.
+
+14.3 Termination Fee. [[[Where Purchaser terminates under Section 14.2, Purchaser shall pay Supplier a termination fee equal to the sum of (i) the book value of the production equipment dedicated to Purchaser's Products, as stated in Schedule 5, less depreciation to the termination date, and (ii) the cost of raw materials and work in progress held for Purchaser's forecast requirements for the following ninety (90) days.]]]
+
+14.4 Title. Upon payment of the fee in full, Supplier shall deliver any such work in progress and materials to Purchaser at Purchaser's cost.
+
+=== POS | agreed_delay_damages_euro | plant construction contract
+The Contractor shall complete the Works and the Employer shall take over the Plant on or before the Time for Completion stated in Appendix 1. The Time for Completion may be extended only in accordance with Clause 8.4.
+
+[[[If the Contractor fails to comply with the Time for Completion, the Contractor shall pay the Employer agreed damages of One Thousand Five Hundred Euros (EUR 1,500) for each day that elapses between the Time for Completion and the date of taking over, and these agreed damages shall be the Contractor's only liability to the Employer for the delay.]]] The Employer may recover the damages by deduction from sums due to the Contractor or from the performance guarantee.
+
+The agreed damages shall not exceed ten percent (10%) of the Contract Price.
+
+=== POS | party_a_breach | technical cooperation agreement
+Article 7 Breach. If Party A fails to deliver the Technical Materials to Party B within thirty days after the date stipulated in Article 3, Party A shall pay Party B a penalty of 0.05% of the total contract price for each day of delay.
+
+Article 8 Liquidated Damages. [[[If Party B fails to pay the Technical Service Fee in accordance with Article 4 and the failure continues for more than sixty days, Party A may terminate this Agreement, and Party B shall pay Party A liquidated damages equal to twenty percent of the total contract price, which shall not exclude Party A's right to claim for the actual loss exceeding such amount.]]]
+
+Article 9 Force Majeure. Neither party shall be liable for delay caused by force majeure, but the affected party shall notify the other party within seven days and provide a certificate issued by the competent authority.
+
+=== POS | minimum_guarantee | media licensing agreement
+5.1 Programming Commitment. Licensee shall broadcast not less than the number of hours of Programming stated in Schedule 3 in each License Year, and shall give Licensor monthly broadcast logs within ten (10) days after the end of each month.
+
+5.2 Shortfall. [[[If Licensee broadcasts fewer than the committed hours in any License Year, Licensee shall pay Licensor an amount equal to the Minimum Guarantee for that License Year divided by the committed hours, multiplied by the number of hours of shortfall, and the parties agree that this sum compensates Licensor for the loss of exposure of the Programming.]]]
+
+5.3 Make-Good. Licensee may make good a shortfall by broadcasting the missing hours within ninety (90) days after the end of the License Year, in which case no payment is due for those hours.
+
+=== POS | buyer_default_sale_of_goods | goods sale contract
+7. Acceptance of Delivery. Buyer shall take delivery of the Goods at the Delivery Point within five (5) days after Seller's notice that the Goods are ready. Risk passes to Buyer on delivery, or on the date when Buyer should have taken delivery.
+
+8. Buyer's Default. [[[If Buyer fails to take delivery of the Goods or refuses to accept them without lawful excuse, Buyer shall pay Seller, as liquidated damages for the costs of re-marketing the Goods and the loss of the sale, ten percent (10%) of the price of the Goods.]]] Seller may also store the Goods at Buyer's risk and expense and may resell them without further notice to Buyer.
+
+9. Resale. Net proceeds of any resale, after deducting storage costs, shall be credited against the price owed by Buyer.
+
+=== POS | opening_deadline_forfeiture | area development agreement
+4.1 Opening Schedule. Developer shall open and begin operating each Restaurant by the Opening Deadline stated for it in the Development Schedule attached as Exhibit B.
+
+4.2 Failure to Open. [[[If Developer fails to open a Restaurant by its Opening Deadline, Developer shall forfeit the Development Fee paid for that Restaurant, and Franchisor may, on written notice, terminate Developer's rights to develop in the unopened portion of the Territory, in each case without refund, the Development Fee being the parties' reasonable estimate of Franchisor's loss from holding that part of the Territory unavailable to other developers.]]]
+
+4.3 Extension. Franchisor may extend an Opening Deadline once for up to ninety (90) days if Developer shows that delay was caused by permitting or construction matters outside its control and pays an extension fee of Five Thousand Dollars ($5,000).
+
+=== POS | venue_deposit | venue hire agreement
+Hirer has paid a booking deposit equal to one quarter of the Hire Charge on signing this Agreement. The balance of the Hire Charge is due thirty (30) days before the Event Date.
+
+[[[If Hirer cancels this booking for any reason, the booking deposit shall be retained by the Venue as agreed compensation for the loss of the date, and if the cancellation takes place within sixty (60) days of the Event Date, Hirer shall also pay the balance of the Hire Charge less any amount received from re-letting the date.]]]
+
+The Venue shall use reasonable efforts to re-let the date, and any amount received from re-letting shall first be applied to reduce the balance payable by Hirer.
+
+Hirer may transfer the booking to another date, subject to availability, on payment of an administration fee.
+
+=== POS | reverse_termination_fee | acquisition agreement
+Section 9.4 Parent Termination Fee. If this Agreement is terminated by the Company pursuant to Section 9.1(e) because Parent has failed to consummate the Closing when required by Section 2.2, then Parent shall pay the Company, within three (3) Business Days after such termination, a fee of Forty Million Dollars ($40,000,000) (the "Parent Termination Fee").
+
+[[[The parties agree that the Parent Termination Fee is not a penalty but constitutes liquidated damages in a reasonable amount that will compensate the Company in the circumstances in which it is payable, in light of the difficulty of accurately determining actual damages, and that payment of the Parent Termination Fee shall be the Company's sole and exclusive remedy against Parent in such circumstances.]]]
+
+Section 9.5 Expenses. Except as set out in this Article, each party shall bear its own expenses in connection with this Agreement.
+
+=== POS | shortfall_amount | non-exclusive distribution agreement
+6.1 Minimum Purchase. In each Contract Year Distributor shall purchase not less than the Minimum Annual Purchase Quantity stated in Exhibit C for each Product.
+
+6.2 Shortfall Payment. [[[If, in any Contract Year, Distributor's purchases of a Product are below the Minimum Annual Purchase Quantity, Distributor shall pay Supplier, within thirty (30) days after the end of that Contract Year, the Unit Margin for that Product multiplied by the number of units by which purchases were below the minimum, as liquidated damages for the margin Supplier loses on those units, and Supplier may elect instead to convert the distribution rights for that Product to non-exclusive.]]]
+
+6.3 Unit Margin. The "Unit Margin" for a Product is the list price less Supplier's standard cost, as set out in Exhibit C and adjusted annually in accordance with Section 4.2.
+
+=== POS | player_buyout | player services agreement
+12.1 Term. The Player shall render services to the Club as a professional football player for a term of four (4) seasons commencing on 1 July 2025.
+
+12.2 Buy-Out. [[[The Player may terminate this Agreement before the end of the term in order to join another club only if the Player, or the new club on his behalf, pays the Club a release fee of Eight Million Euros (EUR 8,000,000) in cleared funds before the registration of the Player with the new club, and the parties agree that this sum represents a reasonable estimate of the Club's loss of the Player's services.]]]
+
+12.3 Notice. Notice of the Player's intention to exercise his right under Section 12.2 must be given in writing to the Club's general manager no later than 31 March in the season before the proposed transfer.
+
+=== NEG | price_adjustment | long-term supply agreement
+5.1 Price. The prices for the Products for the first Contract Year are set out in Schedule A. Prices are exclusive of taxes, duties and transportation, which shall be borne by Buyer.
+
+5.2 Annual Adjustment. Not less than sixty (60) days before the start of each subsequent Contract Year, Seller may propose an adjustment to the prices to reflect changes in the published Producer Price Index for the relevant product category since the previous adjustment, provided that no adjustment in any year shall exceed five percent (5%).
+
+5.3 Most Favoured Customer. If Seller sells substantially similar quantities of the Products to any other customer in the Territory at a lower price, Seller shall offer the lower price to Buyer from the date of that sale.
+
+=== NEG | return_of_equipment | equipment loan agreement
+11.1 Return. Upon termination or expiration of this Agreement, or at any earlier time when Lender requests it in writing, Borrower shall return the Equipment to Lender at the address stated in Schedule 1 within ten (10) days, in good condition, ordinary wear and tear excepted, and with all accessories and manuals.
+
+11.2 Inspection. Lender shall inspect the Equipment within five (5) Business Days after its return and shall notify Borrower in writing of any damage beyond ordinary wear and tear, which Borrower shall repair at its cost or reimburse at Lender's documented repair cost.
+
+11.3 Risk. Risk of loss or damage to the Equipment remains with Borrower until Lender has received it at the return address.
+
+=== NEG | records_retention | clinical services agreement
+14.1 Records. Provider shall maintain complete and accurate records of the Services performed, including all source data, correspondence and reports, in accordance with applicable law and good clinical practice.
+
+14.2 Retention. Provider shall retain such records for at least fifteen (15) years after completion of the Study, or for any longer period required by law, and shall give Sponsor not less than ninety (90) days' notice before destroying any records so that Sponsor may take possession of them.
+
+14.3 Access. Sponsor and regulatory authorities may inspect the records and the facilities used for the Services during normal business hours on reasonable notice.
+
+=== NEG | governing_law | software distribution agreement
+25.1 Governing Law. This Agreement and any dispute or claim arising out of or in connection with it or its subject matter shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of laws principles.
+
+25.2 Jurisdiction. Each party irrevocably submits to the exclusive jurisdiction of the state and federal courts located in New York County, New York, for any proceeding arising out of this Agreement, and waives any objection to venue in those courts.
+
+25.3 Language. This Agreement is made in the English language. Any translation is for convenience only and the English version shall prevail.
+
+=== NEG | survival | patent and know-how licence
+21.1 Survival. The following provisions survive expiration or termination of this Agreement for any reason: Article 1 (Definitions), Section 4.6 (Reports and Payments Accrued), Article 8 (Confidentiality), Article 10 (Indemnification), Article 11 (Limitation of Liability), Section 15.5 (Effect of Termination) and Article 18 (General).
+
+21.2 Accrued Rights. Termination or expiration of this Agreement shall not relieve either party of any obligation or liability that accrued before the effective date, and shall not prejudice any other right or remedy of either party.
+
+21.3 Sell-Off. After expiration, but not after termination for Licensee's breach, Licensee may sell Licensed Products in inventory for a period of ninety (90) days, subject to the payment of royalties on those sales.
+
+=== NEG | subcontractor_conduct | supply chain agreement
+9.1 Supplier Code of Conduct. Supplier shall comply, and shall ensure its own suppliers comply, with Buyer's Supplier Code of Conduct as in effect from time to time, including its requirements on labour practices, health and safety, environmental protection and anti-corruption.
+
+9.2 Audits. Buyer or its designee may, on reasonable notice and not more than twice a year, audit Supplier's facilities for compliance with the Code. Supplier shall correct any non-compliance identified within the period agreed in a written corrective action plan.
+
+9.3 Serious Violations. Buyer may suspend purchases while a serious violation, such as the use of forced labour or bribery, is investigated and may terminate this Agreement if the violation is not remedied.
+
+=== NEG | key_personnel | professional services agreement
+4.1 Key Personnel. The individuals named in the Statement of Work as Key Personnel shall be principally responsible for the Services. Provider shall not remove or replace any Key Personnel without Customer's prior written consent, except in the case of illness, resignation, termination of employment or leave of absence.
+
+4.2 Replacement. If any Key Personnel must be replaced, Provider shall promptly propose a replacement of equivalent qualifications and experience and shall bear the cost of any time the replacement needs to become familiar with the Services.
+
+4.3 Customer Request. Customer may require Provider to remove any individual from the Services if the individual's performance or conduct is unsatisfactory, and Provider shall promptly provide a replacement.
+
+=== NEG | sublicense | trademark licence
+6.1 Sublicensing. Licensee may not grant sublicenses of the Licensed Marks without Licensor's prior written consent. Any sublicense permitted by Licensor shall be in writing, shall be consistent with and no broader than this Agreement, and shall terminate automatically upon termination of this Agreement.
+
+6.2 Responsibility. Licensee remains responsible for the acts and omissions of its sublicensees. Licensee shall provide Licensor with a copy of each sublicense within ten (10) days after it is signed.
+
+6.3 Quality Control. Each sublicensee shall comply with Licensor's quality standards, and Licensor may inspect samples of goods bearing the Licensed Marks on request.
+
+=== NEG | training | enterprise software agreement
+8.1 Training. Vendor shall provide the training services described in Schedule 4, which include two (2) days of on-site administrator training and unlimited access to Vendor's online training library for the term of the subscription.
+
+8.2 Additional Training. Customer may order additional training at Vendor's then-current rates. Training sessions cancelled by Customer less than five (5) Business Days before the scheduled date may be rescheduled once without charge.
+
+8.3 Materials. Vendor grants Customer the right to copy and distribute the training materials internally for use by Customer's employees.
+
+=== NEG | benchmarking | information technology outsourcing
+17.1 Benchmarking. Customer may, not more than once every two (2) years after the second anniversary of the Effective Date, appoint an independent benchmarker to compare the Charges for the Services with the charges of other providers for comparable services in comparable volumes.
+
+17.2 Procedure. Provider shall give the benchmarker the information it reasonably needs and shall cooperate in good faith. Customer shall bear the benchmarker's fees unless the benchmark shows that the Charges exceed the benchmark by more than ten percent (10%).
+
+17.3 Outcome. If the benchmark shows that the Charges exceed the benchmark range, the parties shall negotiate in good faith an adjustment to the Charges to bring them within that range.
+
+=== NEG | limitation_period | share purchase agreement
+10.2 Time Limits. The Seller shall not be liable for any claim under the Warranties unless the Buyer has given the Seller written notice of the claim, with reasonable details, within eighteen (18) months after Closing, or in the case of the Tax Warranties within six (6) years after Closing.
+
+10.3 Thresholds. The Seller shall not be liable for any individual claim under the Warranties unless the amount of the claim exceeds Fifty Thousand Dollars ($50,000), and shall not be liable for any claims unless their aggregate amount exceeds Four Hundred Thousand Dollars ($400,000), in which case the Seller shall be liable only for the excess.
+
+10.4 Conduct of Claims. The Buyer shall allow the Seller to participate in the defence of any third-party claim.
+
+=== NEG | interest_free_credit_note | wholesale agreement
+10.1 Returns. Customer may return Products that are defective or that were delivered in error within thirty (30) days after delivery, by notifying Supplier and following Supplier's returns procedure. Supplier shall collect the returned Products at its own cost.
+
+10.2 Credit. Supplier shall issue a credit note for the invoice price of returned Products within fourteen (14) days after receiving them. The credit may be applied to future orders or, at Customer's request, refunded.
+
+10.3 Other Returns. Products that are not defective may be returned only with Supplier's prior written consent and may be subject to a restocking arrangement agreed at the time.
+
+=== NEG | assignment_of_receivables | master purchase agreement
+13.1 Assignment of Payments. Seller may assign its right to receive payment under this Agreement to a financial institution upon written notice to Buyer. Buyer shall, after receiving that notice, pay the assigned amounts to the assignee and shall be entitled to the same defences and set-offs against the assignee as it would have had against Seller.
+
+13.2 No Other Assignment. Except as provided in Section 13.1, neither party may assign this Agreement without the prior written consent of the other party.
+
+13.3 Notice. Any assignment notice shall identify the assignee and the account to which payments are to be made.
+
+=== NEG | notices | joint marketing agreement
+23.1 Notices. Any notice under this Agreement shall be in writing and shall be delivered by hand, sent by recognised international courier, or sent by email with a confirming copy by courier, to the address or email address stated on the signature page or such other address as the recipient has notified.
+
+23.2 Deemed Receipt. A notice delivered by hand is deemed received on delivery; a notice sent by courier is deemed received on the second Business Day after dispatch; and a notice sent by email is deemed received on the next Business Day after transmission, provided no delivery failure message is received.
+
+23.3 Language. All notices shall be in the English language.

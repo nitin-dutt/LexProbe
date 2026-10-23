@@ -12,13 +12,14 @@
 
 An end-to-end LLM engineering project that flags high-risk clauses in commercial contracts, quotes the supporting text, and tracks the whole lifecycle from versioned data to served model.
 
-LexProbe fine-tunes **Llama-3.1-8B-Instruct** with **4-bit QLoRA on a single 8 GB laptop GPU**, then combines the fine-tuned and zero-shot scores into a calibrated **blend** that is the deployed model. Every choice (threshold, calibration, variant) is made on validation data only, and results are reported on a frozen, leak-free test split in three ways:
+LexProbe fine-tunes **Llama-3.1-8B-Instruct** with **4-bit QLoRA on a single 8 GB laptop GPU** to detect **seven risky clause types** in commercial contracts (Governing Law, Limitation of Liability, Termination for Convenience, Auto-Renewal, Non-Compete, Liquidated Damages, Anti-Assignment) and to quote the supporting text. The deployed model is **v6b**, scored in a single pass per chunk. Every choice (threshold, calibration, variant) is made on validation data only, and results are reported on a frozen, leak-free test split of 76 contracts the models never saw:
 
-* **Held-out test sample** (804 queries, 1 positive : 2 negatives): macro-F1 **0.875 → 0.960** (zero-shot → fine-tuned), false alarms **62 → 2**, every quoted citation (254/254) verbatim from the contract.
-* **Realistic full-document test** (every chunk of the 76 held-out contracts, only 1.5% of cases are real clauses): the fine-tuned model alone scores chunk macro-F1 **0.607** at its default threshold (zero-shot: 0.281).
-* **Deployed blend, contract-level macro-F1 on that test: 0.739 (tuned zero-shot) → 0.828** (+0.089, 95% CI +0.018 to +0.156), chunk-level F1 0.781, 0.62 falsely flagged chunks per contract.
+* **Realistic full-document test** (every chunk of the 76 held-out contracts, where only ~1.5% of cases are real clauses): contract-level macro-F1 **0.771 (tuned zero-shot) → 0.867** (+0.096, 95% CI +0.039 to +0.151); chunk-level F1 0.794; 0.88 falsely flagged chunks per contract.
+* **Ranking quality** (threshold-free average precision over the 7 clauses): **0.844 vs 0.710 for the untrained model** (the difference is outside the noise).
+* **Evidence:** of 326 quotes on the sampled test, 100.0% are found in the source and 99.7% are exact substrings (325/326); span-overlap F1 against the experts' highlight is 0.901 (untrained model: 0.776).
+* **Sampled test** (1 positive : 2 negatives, an easier test): macro-F1 0.881 → 0.947.
 
-**Honest limits:** the fine-tuned model *alone* is statistically tied with a threshold-tuned zero-shot model at contract-level detection (0.720 vs 0.739); the gain comes from combining the two, which costs two forward passes (about 1.8× compute). The fine-tuned model carries almost no weight for Auto-Renewal, and Liquidated Damages remains weak (contract F1 0.50).
+**Honest limits:** Liquidated Damages stays weak (contract F1 0.57; only 12 test positives). With 76 test contracts, differences of a few points between model versions (v4, v5, v6, v6b) are within noise, so the claim is "clearly better than untrained, versions statistically alike". The adapter was trained in stages (v4 → v5 → v6 → v6b), and 47 positive plus 49 negative **hand-written, AI-authored** Liquidated Damages examples (reviewed externally three times) were added in the last stage; their effect cannot be measured with 12 test examples. Of the six pre-set targets, two are met (contract F1 ≥ 0.86 and beating tuned zero-shot with a CI above zero) and four are not (chunk F1 0.794 < 0.81, weakest clause 0.57 < 0.73, 0.88 false alarms per contract > 0.5, quotes 99.7% exact rather than 100%). **History:** the first model (v4) scored macro-F1 0.875 → 0.960 on the sampled test but only 0.607 chunk-F1 on every chunk; that gap is explained in the sections below, and it is why the realistic test is the headline.
 
 The model is served through a **FastAPI** microservice, with **MLflow** experiment tracking and **DVC** versioning of data and the adapter. A Dockerfile, Cloudflare Tunnel instructions and an offline Evidently drift demo are included but have not been validated end to end.
 
@@ -46,7 +47,7 @@ Commercial contracts are dense, highly idiosyncratic, and full of financial and 
 Off-the-shelf zero-shot prompting of a general model is a reasonable start, but on our leak-free test set the zero-shot `Llama-3.1-8B-Instruct` baseline raises **62 false alarms on 536 clause-free excerpts** (macro precision 0.833) in a balanced sample, and on every chunk of the held-out contracts it falsely flags **1,451 of 17,689 clause-free cases** (about 19 chunks per contract, macro precision 0.173). In a review queue, every false alarm costs reviewer time.
 
 ### The Objective
-1. **Accurate first-pass triage:** fine-tune `Llama-3.1-8B-Instruct` to decide whether each of 6 high-risk clause types is present in a contract excerpt, and quote the supporting text.
+1. **Accurate first-pass triage:** fine-tune `Llama-3.1-8B-Instruct` to decide whether each of 7 high-risk clause types (6 originally; Anti-Assignment was added in dataset profile v4) is present in a contract excerpt, and quote the supporting text.
 2. **Consumer hardware:** train with 4-bit QLoRA on a single **8 GB laptop GPU** (RTX 5070 Laptop).
 3. **Measurement you can defend:** leak-free splits by near-duplicate contract group, a frozen DVC-versioned test set, paired significance testing, and verification that quoted evidence actually appears in the source.
 4. **Production path:** FastAPI serving of the blend with verified evidence quotes, MLflow tracking and DVC versioning. A Dockerfile, Cloudflare Tunnel instructions and an offline drift demo are included but not yet validated end to end.
@@ -92,21 +93,23 @@ Off-the-shelf zero-shot prompting of a general model is a reasonable start, but 
   └──────────────────────────────────────────────────────────────────────────────────┘
                                              ▼
   ┌──────────────────────────────────────────────────────────────────────────────────┐
-  │ DEPLOYED: per-clause blend of v4 + zero-shot scores (configs/blend_v1.json)      │
+  │ DEPLOYED: v6b, seven clauses, ONE pass per chunk (configs/model_v6b.json)        │
   │                                                                                  │
-  │ Weights fitted on validation; variant chosen out-of-fold; gate fixed in advance  │
-  │ Test contract-F1 0.739 -> 0.828 (+0.089, 95% CI +0.018..+0.156) · chunk-F1 0.781 │
-  │ 0.62 falsely flagged chunks per contract · two passes per chunk (~1.8x compute)  │
-  │ Adapter pinned in DVC (models/.../final_adapter.dvc); config and scores in git   │
+  │ Per-clause score shift + validation-chosen threshold; stable in 5 fold seeds     │
+  │ Test contract-F1 0.771 -> 0.867 (+0.096, 95% CI +0.039..+0.151) · chunk 0.794    │
+  │ 0.88 falsely flagged chunks/contract · 0.97 s per chunk · peak 5.7 GiB VRAM      │
+  │ Adapter pinned in DVC (models/.../lora-v6b/final_adapter.dvc)                    │
   └──────────────────────────────────────────────────────────────────────────────────┘
                                              ▼
   ┌──────────────────────────────────────────────────────────────────────────────────┐
   │ SERVING: FastAPI (/analyze-contract, /upload: PDF/DOCX/TXT), whole documents,    │
   │                                                                                  │
-  │ grounded quotes with offsets, SCORING=blend (default) or v4. The Dockerfile,     │
-  │ Cloudflare Tunnel, Evidently drift demo: included, not validated end to end      │
+  │ grounded quotes with offsets; SCORING=single (v6b, default), blend, or v4.       │
+  │ The Dockerfile, Cloudflare Tunnel, Evidently drift demo: included, not validated │
   └──────────────────────────────────────────────────────────────────────────────────┘
 ```
+
+*The data, training and evaluation boxes describe the original v3/v4 pipeline. v6b reuses it with dataset profile v4 (adds Anti-Assignment, same contracts per split) and continues the adapter in stages v4 → v5 → v6 → v6b; see "Final model: v6b" below.*
 
 ---
 
@@ -138,11 +141,14 @@ Off-the-shelf zero-shot prompting of a general model is a reasonable start, but 
 * **Recovery Stage 1 (`src/calibration_experiments.py`):** can the gap be closed without retraining? Candidates (raw margin, prior-shift correction, per-clause logistic calibration, per-clause blend of the v4 and zero-shot margins) × contract rule × threshold objective are scored with **5-fold out-of-fold validation scores** (folds = near-duplicate contract groups). The success gate was written down before the experiment: paired group-bootstrap 95% CI of the contract-level macro-F1 gain over the validation-tuned zero-shot model must have a lower bound above 0, and one v4-based variant is chosen on validation alone.
 
 ### Step 4: Serving Layer (`api/`, `src/inference.py`, `src/blend.py`, `src/chunk_scoring.py`)
-* **Full-document analysis:** the API normalises the uploaded text, splits the **whole** document with the training chunker, scores every (chunk, clause) pair, then generates one quote per flagged clause. By default (`SCORING=blend`) each chunk is scored twice, adapter on and off, and the two first-token margins are combined with the per-clause weights in `configs/blend_v1.json`; `SCORING=v4` serves the fine-tuned score alone. The system prompt and excerpt are shared by the 6 clause questions, so their KV cache is computed once per pass.
+* **Full-document analysis:** the API normalises the uploaded text, splits the **whole** document with the training chunker, scores every (chunk, clause) pair, then generates one quote per flagged clause. In the default mode (`SCORING=single`, v6b) each chunk is scored in one pass; the earlier `SCORING=blend` scores each chunk twice, adapter on and off, and combines the two first-token margins with the per-clause weights in `configs/blend_v1.json`; `SCORING=v4` serves the v4 score alone. The system prompt and excerpt are shared by the clause questions, so their KV cache is computed once per pass.
+* **Scoring modes:** `SCORING=single` (default) serves v6b alone (7 clauses, one pass per chunk, `configs/model_v6b.json`: per-clause prior shift and threshold −2.0); `SCORING=blend` serves the earlier v4 + zero-shot blend (6 clauses, `configs/blend_v1.json`); `SCORING=v4` serves v4 alone. The 7-clause mode selects its dataset profile from the config, so start it in a fresh process.
+* **Web interface (`api/static/`):** one page with two columns. Left, a card per flagged clause with the quoted text, a green "verified verbatim in the source" mark (or an amber warning), the section heading, the exact character range and chunk, a one-click **Copy citation** (quote, section, characters) and a short "how was this decided" note. Right, the **source document** with every citation highlighted and numbered; clicking a card scrolls the document to its highlight and clicking a highlight jumps to its card. Also: sample contracts, drag-and-drop upload, a live character counter, a progress state, clause filter chips, copy-as-Markdown / download-JSON / print for the findings, a "not found does not mean absent" reminder, light and dark themes, keyboard focus styles, and a phone layout. Model output is only ever inserted as text (never as HTML), the page has no inline script or style, and the server sends a strict Content-Security-Policy with `X-Frame-Options: DENY` and `nosniff`. The page's pure JavaScript (section detection, highlight segments, citation text, report text) has its own node tests; a heading-detection bug found in a dry run (every clause labelled with the same all-caps notice) is covered by one.
 * **Verified evidence:** each quote (always generated by the fine-tuned adapter) is checked against the document. The response includes `grounded` (found verbatim or not) and the quote's character offsets, and the UI marks unverified quotes for manual review.
 * **Endpoints:** `/analyze-contract` (JSON text), `/upload` (PDF via `pdfplumber`, DOCX via `python-docx`, TXT), `/health` (model loaded, adapter, scoring mode, threshold), `/clause-types`. Every analysis response reports `scoring` and `decision_threshold`.
 * **Guardrails:** 2 MB upload limit enforced while streaming (HTTP 413), 15,000-character text limit, Pydantic validation (`min_length=50`), one inference at a time on the GPU (HTTP 503 when busy), internal errors returned as a request ID without stack details, model output HTML-escaped in the UI.
 * **Verified on the GPU through the API path:** on 3 whole test contracts (174 chunk × clause scores) the live v4, zero-shot and blended scores equal the saved evaluation scores exactly (0 decision flips) and the live decisions match the offline ones; a 14,451-character contract takes about 42 s end to end including quotes (61 s with the earlier v4-only path); peak VRAM 5.7 GiB. This is a wiring check; the measured quality is the test result below.
+* **v6b verified on the GPU through the API path (2026-10-23):** on 3 whole test contracts (203 chunk × clause scores) the live margins equal the saved evaluation scores exactly (max difference 0.000, 0 decision flips) and the live decisions match the offline ones on 21 of 21 clause cases; one request for an 8,080-character contract took 32 s (median 0.97 s per chunk, one pass), peak VRAM 5.7 GiB.
 * *Not yet:* authentication / rate limiting for public exposure.
 
 ### Step 5: Public Edge Routing (Cloudflare Tunnel)
@@ -211,7 +217,7 @@ The zero-shot model paraphrases or invents about 28% of its "citations". Every v
 
 Reproduce: `python src/evaluate_documents.py --adapter <adapter>` (add `--split val` for the threshold-selection scores), then `python src/document_eval.py --baseline … --system … --val-baseline … --val …` (see `reports/eval/document_level.md`).
 
-### Recovery: calibrated blend of the two models (deployed)
+### Recovery: calibrated blend of the two models (the earlier deployed model, 6 clauses)
 The default threshold of the fine-tuned model is off by about +4 log-odds, because it was trained at 1.5 negatives per positive while real contracts have 41–204 (the shift is measured per clause from the training data). Rather than retrain, Stage 1 tested what can be fixed on the saved scores. The pre-registered gate: the contract-level macro-F1 gain over the validation-tuned zero-shot model must have a 95% CI lower bound above 0. All selection used validation only (out-of-fold for fitted calibrators); the test split was scored once for the pre-selected variant.
 
 | System (all thresholds chosen on validation) | Test contract F1 | Test chunk F1 |
@@ -219,7 +225,7 @@ The default threshold of the fine-tuned model is off by about +4 log-odds, becau
 | Zero-shot, tuned threshold (approved reference) | 0.739 | 0.576 |
 | v4 alone, tuned threshold | 0.720 | 0.672 |
 | Zero-shot, per-clause calibrated (best baseline variant) | 0.773 | 0.673 |
-| **Blend of v4 + zero-shot (deployed)** | **0.828** | **0.781** |
+| **Blend of v4 + zero-shot (earlier deployed model)** | **0.828** | **0.781** |
 
 * **Primary gate: +0.089 contract macro-F1 (95% CI +0.018 to +0.156): PASS.** Stress test against the best calibrated zero-shot variant (0.773): +0.055 (CI +0.006 to +0.107): PASS, narrowly.
 * **Secondary:** chunk P/R/F1 0.807 / 0.770 / 0.781 (+0.205 over the tuned zero-shot, CI +0.146 to +0.249); contract P/R/F1 0.847 / 0.820 / 0.828; 0.62 falsely flagged chunks and 0.21 wrongly flagged clause types (of 6) per contract; excluding Liquidated Damages, contract F1 0.894. Average precision (threshold-free): chunk level 0.693 → 0.813 (+0.120, CI +0.075 to +0.156); contract level +0.039 (CI −0.005 to +0.083, not significant).
@@ -240,14 +246,40 @@ The default threshold of the fine-tuned model is off by about +4 log-odds, becau
 
 Reproduce: `python src/calibration_experiments.py --export-blend configs/blend_v1.json` (writes `reports/eval/recovery_stage1.md` and the config).
 
+### Final model: v6b, seven clauses, one pass (deployed)
+**Provenance (full honesty):** v4 (fresh QLoRA, dataset v3) → v5 (continued 869 steps on a harder-negative mix) → v6 (continued on dataset profile v4, which adds Anti-Assignment; same contracts per split, so the old test results stay comparable) → **v6b** (continued 700 steps with 47 positive and 49 negative hand-written Liquidated Damages examples added to training only). The synthetic data was first generated by the local 8B model, rejected after two external reviews, then written by hand and reviewed a third time; it is clearly AI-written text, not real data. Validation and test contain only real CUAD chunks.
+
+**Scoring:** one forward pass per chunk. Score = first-token margin (`Found` − `None`) minus a per-clause constant that corrects for training on a harder mix than real contracts (computed from training data only); a clause is flagged when any chunk's score exceeds −2.0 (chosen on validation, stable in 5 other fold assignments). It reproduces the reported test result from saved scores and the exported config alone (`tests/test_single_model.py`).
+
+| Test split, 76 contracts, every chunk, 7 clauses | Contract F1 | Chunk F1 |
+|---|:---:|:---:|
+| Zero-shot, tuned threshold (approved reference) | 0.771 | – |
+| Best calibrated zero-shot variant | 0.799 | – |
+| **v6b (deployed)** | **0.867** | **0.794** |
+
+* **Gate (fixed in advance): +0.096 contract macro-F1 over the tuned zero-shot (95% CI +0.039 to +0.151): PASS.** Stress test against the best calibrated zero-shot variant: +0.068 (CI +0.016 to +0.126): PASS.
+* **Per clause, contract F1:** Anti-Assignment 0.991 · Governing Law 1.000 · Limitation of Liability 0.966 · Termination for Convenience 0.885 · Auto-Renewal 0.873 · Non-Compete 0.783 · **Liquidated Damages 0.571 ⚠️ (12 test positives)**.
+* **Secondary:** chunk P/R/F1 0.790 / 0.814 / 0.794; contract P/R/F1 0.867 / 0.875 / 0.867; 0.88 falsely flagged chunks and 0.22 wrongly flagged clause types per contract; excluding Liquidated Damages, contract F1 0.916.
+* **Ranking quality (threshold-free average precision, 95% ranges from resampling contracts):** v6b 0.844 (0.788 to 0.888) vs untrained 0.710 (0.643 to 0.769). On the six original clauses: v5 0.829, v6 0.813, v6b 0.837, untrained 0.692; the differences between the three adapters are inside the noise (v6b vs v5 +0.008, range −0.017 to +0.033), while all three are clearly better than untrained (about +0.12 to +0.14). Liquidated Damages ranking: untrained 0.584, v5 0.708, v6 0.680, v6b 0.709 (12 test positives: no gain can be attributed to the hand-written data).
+* **Evidence (sampled test, 1:2):** 326 quotes, 100.0% grounded, 99.7% exact substring (325/326), span-F1 0.901 vs 0.776 untrained; macro-F1 0.881 → 0.947 (+0.067, CI +0.032 to +0.120).
+
+**Pre-set targets (written down on 2026-10-18 before this work):** contract F1 ≥ 0.86: **met** (0.867). Beat tuned zero-shot with a CI above zero: **met**. Chunk F1 ≥ 0.81: 0.794, not met. Weakest clause ≥ 0.73: 0.571 (Liquidated Damages), not met. ≤ 0.5 falsely flagged chunks per contract: 0.88, not met. Quotes 100% verbatim: 99.7% exact (100% grounded), not met.
+
+**What this does and does not show:** the system is clearly better than the untrained model at ranking and at contract-level detection, and quotes are almost always verbatim. It is not shown to be better than v4, v5 or v6 beyond noise, Liquidated Damages is unreliable, and 76 test contracts cannot resolve differences of a few points.
+
+Reproduce (CPU, saved scores): `LEXPROBE_PROFILE=v4 python src/calibration_experiments.py --adapter-system lora_v6b --tag v6b --train-queries data/train_mixes/v4h/train.json`, then `LEXPROBE_PROFILE=v4 python src/single_model.py --report reports/eval_v4/recovery_stage1_v6b.json --adapter models/llama-3.1-8b-cuad-lora-v6b/final_adapter --out configs/model_v6b.json`; model comparison with ranges: `LEXPROBE_PROFILE=v4 python src/compare_models.py --split test --out reports/eval_v4/model_comparison ...`.
+
 ### Key Takeaways
 1. **Fine-tuning mostly buys precision.** Zero-shot Llama already finds most clauses (recall 0.931) but over-flags them. v4 keeps recall (0.934) and, on the sampled test, cuts false alarms from 62 to 2, which matters most for a reviewer's queue.
 2. **The trade-off is honest and visible:** v4 misses 4 more clauses than the baseline (16 vs 12): Termination for Convenience 6, Non-Compete 5, Limitation of Liability 5. In a high-recall deployment the Found/None logit margin can be thresholded lower.
 3. **The sampled test overstates real-world precision.** With 1.5% positives, v4's macro-F1 is 0.607 (not 0.960) at the default threshold, and a clause is wrongly flagged in about 1.4 of 6 clause types per contract. Evaluating on every chunk was the most informative experiment in the project.
 4. **Fine-tuning's measured wins are calibration, fewer false alarms, verbatim evidence and better ranking on three clause types.** A zero-shot model with a validation-tuned threshold reaches the same contract-level F1 (0.739 vs 0.720, not significantly different), so the headline gain should not be read as a general detection advantage.
 5. **The data pipeline was the biggest lever.** An earlier iteration showed the model only the first 600 characters of 8,000-character chunks, so the evidence was visible for just 4% of training positives. Fixing it made the task well-posed for both models. Results from that iteration (macro-F1 0.574 → 0.616) are retired and not comparable.
-6. **The deployed model is a calibrated blend, and the honest story is about measurement.** The fine-tuned model alone ties a tuned zero-shot model at contract level; combining the two with validation-fitted per-clause weights passes the pre-registered gate (+0.089, CI +0.018 to +0.156). The headline 0.960 came from a sampled test, 0.607 from the realistic one, and 0.828 is the realistic contract-level result of the deployed blend.
+6. **The earlier deployed model was a calibrated blend, and the honest story is about measurement.** The fine-tuned model alone ties a tuned zero-shot model at contract level; combining the two with validation-fitted per-clause weights passes the pre-registered gate (+0.089, CI +0.018 to +0.156). The headline 0.960 came from a sampled test, 0.607 from the realistic one, and 0.828 was the realistic contract-level result of that blend (6 clauses); the current model, v6b, is covered in item 8.
 7. **Most remaining errors are category confusion between neighbouring clause types**, not label noise: of 42 hand-read high-confidence false alarms, 28 were neighbouring concepts and 6 clearly real clauses the dataset missed.
+8. **One model, seven clauses, one pass.** v6b replaces the two-pass blend: it ranks clauses clearly better than the untrained model (average precision 0.844 vs 0.710) and reaches contract-level F1 0.867, at about 0.97 s per chunk instead of 1.36 s.
+9. **Differences of a few points between model versions are noise on 76 test contracts.** Comparing v5, v6 and v6b by ranking quality with resampled ranges showed they are statistically alike; an earlier reading of 0.877 vs 0.822 contract-F1 as a real regression was a threshold-selection artefact. Reporting ranges, not single numbers, is part of the method.
+10. **Synthetic data needs a human read.** Statistics (cue-word shares) matched while meaning was broken, and only external review found incomplete provisions, template artefacts and a formatting leak. The final hand-written set is small, AI-authored and its effect is unmeasurable here.
 
 ---
 
@@ -268,23 +300,36 @@ LexProbe/
 ├── api/
 │   ├── extractor.py               # Multi-format parser (PDF via pdfplumber, DOCX, TXT)
 │   ├── main.py                    # FastAPI service (/, /health, /analyze-contract, /upload)
-│   ├── model.py                   # loads 4-bit base + v4 adapter; blend (default) or v4 scoring, quotes
-│   └── static/index.html          # Dark-mode UI with per-clause evidence cards
+│   ├── model.py                   # loads 4-bit base + adapter; single (v6b, default), blend or v4 scoring, quotes
+│   └── static/                    # Web UI: index.html + style.css + app.js (no inline script), sample contracts
+│       ├── app.js                 # Pure functions (sections, highlights, citations, report) + the page; model output only as text
+│       └── samples/               # Two public CUAD contracts for the 'Try a sample' buttons
 ├── configs/
-│   ├── blend_v1.json              # Deployed blend: per-clause weights, threshold, provenance
-│   ├── qlora_v4.yaml              # Training config for the current adapter
-│   ├── qlora_v2_historical.yaml   # Record of the earlier (retired) v2 setup
+│   ├── model_v6b.json             # Deployed v6b: per-clause shift, threshold, provenance (7 clauses)
+│   ├── blend_v1.json              # Earlier blend (v4 + zero-shot, 6 clauses), kept as SCORING=blend
+│   ├── qlora_v4.yaml              # Training config for the first adapter (fresh run)
+│   ├── qlora_v5.yaml / smoke_v5.yaml   # Continuation on a harder-negative mix
+│   ├── qlora_v6b.yaml / qlora_v7.yaml  # Latest continuation (deployed) and a planned clean from-scratch run
 │   └── smoke_test.yaml            # 20-step pipeline smoke test
 ├── models/
-│   └── llama-3.1-8b-cuad-lora-v4/final_adapter.dvc   # DVC pointer to the v4 adapter
+│   ├── llama-3.1-8b-cuad-lora-v4/final_adapter.dvc    # DVC pointer to the v4 adapter
+│   └── llama-3.1-8b-cuad-lora-v6b/final_adapter.dvc   # DVC pointer to the deployed v6b adapter
 ├── data/
 │   ├── raw/CUAD_v1.json.dvc       # DVC pointer to the raw CUAD dataset
-│   └── processed.dvc              # DVC pointer to dataset v3 (chunks, queries, manifest)
+│   ├── processed.dvc              # DVC pointer to dataset v3 (chunks, queries, manifest)
+│   └── (processed_v4/, train_mixes/, synthetic/ are rebuilt locally, git-ignored)
 ├── src/
 │   ├── download_data.py           # CUAD v1 download
 │   ├── chunking.py                # Whitespace normalisation (offset-preserving) + chunking
 │   ├── inference.py               # Full-document analysis: chunk → score → quote → ground
 │   ├── blend.py                   # Loads/validates the blend config; blended scores
+│   ├── single_model.py            # v6b config: per-clause shift + threshold; exports it from the validated report
+│   ├── train_mix.py               # Training mixes: harder negatives, oversampled weak clauses, optional synthetic rows
+│   ├── answer_loss.py             # Same loss, logits only at answer positions (about 0.5 GB less GPU memory)
+│   ├── compare_models.py          # Models compared by ranking quality (AP) with 95% ranges from contract resampling
+│   ├── run_report.py              # Builds a run report (timeline, incidents, checkpoint scores) from logs
+│   ├── synthetic_ld.py            # 8B-generated synthetic data and its checks: a documented negative result
+│   ├── synthetic_hand.py          # Checks and trims the hand-written Liquidated Damages examples
 │   ├── chunk_scoring.py           # GPU scoring of one chunk for all clauses (shared KV cache)
 │   ├── calibration_experiments.py # Recovery Stage 1: calibration/blend on saved scores, gate, export
 │   ├── prepare_data.py            # Near-duplicate group split, labelling, sampling, manifest
@@ -297,8 +342,9 @@ LexProbe/
 │   ├── eval_metrics.py            # P/R/F1, evidence grounding, span F1, paired bootstrap, McNemar
 │   ├── compare_results.py         # Significance report → reports/eval/comparison.md
 │   └── mlflow_cleanup.py          # Marks orphaned MLflow runs
-├── tests/                         # pytest suite (data, prompts, labels, metrics, blend, API), 83 tests
-├── reports/eval/                  # Test-set results and comparison report
+├── tests/                         # pytest suite (data, prompts, labels, metrics, blend, v6b config, API, front end, synthetic data), 148 tests
+│   └── js/test_app.js             # Node tests for the page's pure JavaScript (run by tests/test_frontend.py)
+├── reports/eval/, eval_v4/        # Test-set results, comparison reports (eval_v4 = 7-clause profile)
 ├── drift_monitoring.py            # Evidently AI embedding drift report
 ├── Dockerfile / .dockerignore     # Container definition (secrets passed at runtime)
 └── requirements.txt
@@ -327,7 +373,7 @@ HF_TOKEN=your_huggingface_read_token
 ```
 
 ### 2. Run the FastAPI Serving Engine
-Launch the server (loads the 4-bit base model and the v4 adapter on the GPU at startup and serves the blend; `SCORING=v4` serves the fine-tuned score alone):
+Launch the server (loads the 4-bit base model and the v6b adapter on the GPU at startup and serves v6b in one pass; `SCORING=blend` serves the earlier 6-clause blend, `SCORING=v4` the v4 adapter alone). `dvc pull` first to fetch the adapter:
 
 ```powershell
 uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
@@ -357,7 +403,7 @@ Open `drift_report.html` in your browser to inspect 2D semantic density shifts a
 pip install -r requirements-dev.txt
 pytest tests -q                                            # data / prompt / metric invariants
 
-dvc pull                                                   # data + the v4 adapter (or: python src/download_data.py)
+dvc pull                                                   # data v3 + v4, training mixes, v4 and v6b adapters (or: python src/download_data.py)
 python src/prepare_data.py                                 # rebuild dataset v3 (refuses to overwrite)
 python src/finetune.py --config configs/qlora_v4.yaml      # ~3 h on an 8 GB RTX 5070 Laptop GPU
 
@@ -369,6 +415,12 @@ python src/evaluate_documents.py --adapter models/llama-3.1-8b-cuad-lora-v4/fina
 python src/evaluate_documents.py --adapter models/llama-3.1-8b-cuad-lora-v4/final_adapter --split val
 python src/document_eval.py --baseline reports/eval/doc_baseline_test.json --system reports/eval/doc_lora_v4_test.json \
     --val-baseline reports/eval/doc_baseline_val.json --val reports/eval/doc_lora_v4_val.json
+
+# v6b (7 clauses): dataset profile v4, training mix, continued training, scoring (all steps are config-driven)
+python src/prepare_data.py --profile v4                   # dataset v4 -> data/processed_v4 (v3 untouched)
+python src/train_mix.py --profile v4 --synthetic data/synthetic/hand_v1.json --output-dir data/train_mixes/v4h
+python run_overnight.py --config configs/qlora_v6b.yaml   # ~3.5 h: continue v6, score val/test, quotes
+python study/verify_v6b_api.py                            # the API path reproduces the saved scores exactly (GPU, 5 min)
 
 # recovery Stage 1 (CPU, saved scores): calibration + blend, exports configs/blend_v1.json
 python src/calibration_experiments.py --export-blend configs/blend_v1.json
@@ -396,8 +448,8 @@ docker run --gpus all -p 8000:8000 -e HF_TOKEN="your_huggingface_token" lexprobe
 
 Planned enhancements:
 
-### 0. Measurable targets, then (optional) hybrid-sampled retraining
-* **Goal:** agree quantified targets first; then try retraining with realistic negative ratios and CUAD's other 35 annotated categories as hard negatives, aimed at Auto-Renewal and Liquidated Damages, with a single model that no longer needs the two-model blend.
+### 0. Close the remaining target gaps (Liquidated Damages, false alarms, verbatim quotes)
+* **Goal:** targets were agreed on 2026-10-18; two of six are met. Next: a clean from-scratch run (`configs/qlora_v7.yaml`), more *real* Liquidated Damages data (CUAD has only 61 contracts with it), a less saturated validation metric for checkpoint choice, and constrained decoding so quotes are always exact substrings.
 
 ### 1. Model Context Protocol (MCP) Server Extension
 * **Goal:** Package LexProbe's inference logic into an MCP Server (`mcp_server/server.py`).

@@ -1,0 +1,55 @@
+# v7: a CLEAN run from the original Llama weights: new random LoRA adapter, nothing taken from v4/v5/v6.
+# 7 clauses (dataset v4) + matched synthetic Liquidated Damages (training only). Same recipe as v4 (r=16, lr 2e-4).
+# Usage: python run_overnight.py --config configs/qlora_v7.yaml
+run_name: qlora-v7
+profile: v4
+output_dir: models/llama-3.1-8b-cuad-lora-v7
+model_id: meta-llama/Llama-3.1-8B-Instruct
+# no init_adapter: a fresh adapter on the base model
+post_eval: documents
+post_eval_systems: adapter        # the untrained model's scores for all 7 clauses already exist (reports/eval_v4)
+post_eval_sampled: true
+eval_name: lora_v7
+
+data:
+  dir: data/processed_v4
+  expected_dataset_version: v4
+  train_mix_dir: data/train_mixes/v4        # NO synthetic data: three review rounds rejected it (see alignment_plan.md 2026-10-20)
+  train_file: train.json
+  val_file: val.json
+  max_answer_chars: 600
+  multi_span: first
+
+sequence:
+  max_seq_length: 768
+  max_dropped_fraction: 0.01
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+training:
+  seed: 42
+  num_epochs: 1.5                   # v4 needed ~1.2 epochs to peak; ~1,700 steps (~4 h)
+  learning_rate: 2.0e-4             # fresh adapter: same as v4
+  per_device_batch_size: 1
+  grad_accum: 8
+  warmup_ratio: 0.03
+  lr_scheduler: cosine
+  optimizer: adamw_8bit             # never paged_* (BSOD 0x1E, alignment_plan C7)
+  answer_only_logits: true
+  logging_steps: 25
+  eval_steps: 200
+  save_steps: 200
+  save_total_limit: 3
+
+validation:
+  max_samples: 120
+  metric_for_best_model: realistic_ap
+  eval_at_start: false              # nothing to compare against: a fresh adapter starts from the untrained model
+  realistic:                        # bigger than v5/v6 (15/20/25) because that metric saturated
+    pos_per_clause: 25
+    hard_per_clause: 25
+    easy_per_clause: 30

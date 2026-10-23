@@ -29,16 +29,19 @@ from eval_metrics import clean_quote, grounding, per_clause_metrics, token_f1
 from prompting import NEGATIVE_ANSWER, POSITIVE_PREFIX, encode_prompt
 
 MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
-OUT_DIR = "reports/eval"
+from prepare_data import DATA_DIR, EVAL_DIR
+
+OUT_DIR = EVAL_DIR
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--adapter", required=True)
     parser.add_argument("--name", default="lora_v4")
-    parser.add_argument("--split-file", default="data/processed/test.json")
+    parser.add_argument("--split-file", default=f"{DATA_DIR}/test.json")
     parser.add_argument("--max-new-tokens", type=int, default=120)
     parser.add_argument("--skip-generation", action="store_true")
+    parser.add_argument("--skip-baseline", action="store_true", help="score only the adapter; reuse an existing baseline_test.json (saves ~25 min)")
     parser.add_argument("--limit", type=int, default=0, help="Evaluate only the first N queries (smoke test)")
     args = parser.parse_args()
 
@@ -53,7 +56,7 @@ def main():
         queries = json.load(f)
     if args.limit:
         queries = queries[: args.limit]
-    with open("data/processed/manifest.json", "r", encoding="utf-8") as f:
+    with open(f"{DATA_DIR}/manifest.json", "r", encoding="utf-8") as f:
         dataset_version = json.load(f)["dataset_version"]
 
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, token=hf_token)
@@ -71,7 +74,7 @@ def main():
     prefix_ids = tokenizer(POSITIVE_PREFIX.rstrip(), add_special_tokens=False)["input_ids"]
     eot_ids = [tokenizer.convert_tokens_to_ids("<|eot_id|>"), tokenizer.eos_token_id]
 
-    systems = {"baseline": True, args.name: False}  # name -> adapter disabled?
+    systems = {args.name: False} if args.skip_baseline else {"baseline": True, args.name: False}  # name -> adapter disabled?
     prompts = [encode_prompt(tokenizer, q["clause_type"], q["text"]) for q in queries]
     results = {name: [] for name in systems}
 

@@ -110,3 +110,25 @@ def test_legacy_doc_upload_rejected(client):
 def test_txt_upload_analysed(client):
     r = client.post("/upload", files={"file": ("c.txt", TEXT.encode(), "text/plain")})
     assert r.status_code == 200 and r.json()["flagged_count"] == 1
+
+
+# ── browser hardening and the static page ───────────────────────────────────────────────────────
+def test_page_and_api_carry_security_headers(client):
+    for path in ("/", "/health", "/static/app.js"):
+        r = client.get(path)
+        assert r.headers["x-content-type-options"] == "nosniff" and r.headers["x-frame-options"] == "DENY"
+        csp = r.headers["content-security-policy"]
+        assert "script-src 'self'" in csp and "'unsafe-inline'" not in csp and "frame-ancestors 'none'" in csp
+
+
+def test_api_docs_are_left_out_of_the_content_security_policy(client):
+    r = client.get("/docs")
+    assert r.status_code == 200 and "content-security-policy" not in r.headers
+
+
+def test_page_has_no_inline_script_or_style(client):
+    html = client.get("/").text
+    assert "<script>" not in html and "style=" not in html and "onclick=" not in html
+    assert '/static/app.js' in html and '/static/style.css' in html
+    for path in ("/static/app.js", "/static/style.css", "/static/samples/sponsorship_agreement.txt", "/static/samples/ip_agreement.txt"):
+        assert client.get(path).status_code == 200, path

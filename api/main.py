@@ -53,6 +53,28 @@ STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
 os.makedirs(STATIC_DIR, exist_ok=True)
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
+# Browser hardening for the web page. The page has no inline script or style, so a strict policy is possible.
+# The interactive API docs (/docs, /redoc) load their assets from a CDN, so they are left out of the policy.
+SECURITY_HEADERS = {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "no-referrer",
+}
+CONTENT_SECURITY_POLICY = (
+    "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; "
+    "base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+)
+
+
+@app.middleware("http")
+async def security_headers(request, call_next):
+    response = await call_next(request)
+    for name, value in SECURITY_HEADERS.items():
+        response.headers.setdefault(name, value)
+    if not request.url.path.startswith(("/docs", "/redoc", "/openapi.json")):
+        response.headers.setdefault("Content-Security-Policy", CONTENT_SECURITY_POLICY)
+    return response
+
 
 # ── Constants & Limits ─────────────────────────────────────────────────────────
 MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024  # 2 MB upload ceiling
@@ -88,7 +110,7 @@ class AnalyzeResponse(BaseModel):
     total_checked:   int
     chunks_analyzed: int
     model_version:   str
-    scoring:         str = Field(..., description="Scoring mode: 'blend_v1' (v4 + zero-shot blend) or 'v4'")
+    scoring:         str = Field(..., description="Scoring mode: 'v6b' (default, one pass), 'blend_v1' (v4 + zero-shot blend, 6 clauses) or 'v4'")
     decision_threshold: float = Field(..., description="Score above which a chunk counts as containing the clause")
     clauses:         list[ClauseResult]
     contract_text:   str  # normalised text that start/end refer to

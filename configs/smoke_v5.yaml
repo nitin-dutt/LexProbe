@@ -1,0 +1,54 @@
+# Smoke test for the v5 pipeline: 20 steps, tiny eval. Output goes to models/smoke-v5 (deleted afterwards).
+mlflow_experiment: LexProbe-SmokeTests
+# Checkpoint rule: best by realistic_ap (weighted to the real mix), not by F1 at margin 0.
+
+run_name: smoke-v5
+output_dir: models/smoke-v5
+model_id: meta-llama/Llama-3.1-8B-Instruct
+# Weights only; the optimizer and LR schedule start fresh
+init_adapter: models/llama-3.1-8b-cuad-lora-v4/final_adapter
+post_eval: none
+eval_name: lora_v5
+
+data:
+  dir: data/processed               # val/test: the frozen, DVC-pinned dataset v3
+  expected_dataset_version: v3
+  train_mix_dir: data/train_mixes/v5
+  train_file: train.json
+  val_file: val.json
+  max_answer_chars: 600
+  multi_span: first
+
+sequence:
+  max_seq_length: 768
+  max_dropped_fraction: 0.01
+
+lora:                               # must match the v4 adapter (r=16); used only when not warm-starting
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+training:
+  seed: 42
+  num_epochs: 1
+  max_steps: 20
+  learning_rate: 1.0e-4             # half of v4: this is a continuation, not a fresh run
+  per_device_batch_size: 1
+  grad_accum: 8
+  warmup_ratio: 0.03
+  lr_scheduler: cosine
+  optimizer: adamw_8bit             # never paged_* (BSOD 0x1E, alignment_plan C7)
+  logging_steps: 5
+  eval_steps: 10
+  save_steps: 10
+  save_total_limit: 2
+
+validation:
+  max_samples: 20                  # enriched subset: only for eval loss and F1 (secondary)
+  metric_for_best_model: realistic_ap
+  eval_at_start: true               # score the v4 starting point: the bar v5 must beat
+  realistic:                        # weighted sample of val chunks -> metric on the real mix
+    pos_per_clause: 3
+    hard_per_clause: 3
+    easy_per_clause: 3

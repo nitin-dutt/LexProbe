@@ -28,11 +28,11 @@ import time
 
 from dotenv import load_dotenv
 
-from prepare_data import CLAUSE_TYPES
+from prepare_data import CLAUSE_TYPES, DATA_DIR, EVAL_DIR
 from prompting import NEGATIVE_ANSWER, POSITIVE_PREFIX, encode_prompt, split_prompt
 
 MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
-OUT_DIR = "reports/eval"
+OUT_DIR = EVAL_DIR
 SAVE_EVERY = 250
 
 
@@ -53,11 +53,11 @@ def main():
     from peft import PeftModel
     from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
-    with open(f"data/processed/chunks_{args.split}.json", "r", encoding="utf-8") as f:
+    with open(f"{DATA_DIR}/chunks_{args.split}.json", "r", encoding="utf-8") as f:
         chunks = json.load(f)
     if args.limit:
         chunks = chunks[: args.limit]
-    with open("data/processed/manifest.json", "r", encoding="utf-8") as f:
+    with open(f"{DATA_DIR}/manifest.json", "r", encoding="utf-8") as f:
         dataset_version = json.load(f)["dataset_version"]
 
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, token=hf_token)

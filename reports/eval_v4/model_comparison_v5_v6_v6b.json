@@ -1,0 +1,99 @@
+{
+  "split": "test",
+  "clauses": [
+    "Auto-Renewal",
+    "Governing Law",
+    "Limitation of Liability",
+    "Liquidated Damages",
+    "Non-Compete",
+    "Termination for Convenience"
+  ],
+  "systems": {
+    "v5": {
+      "macro_ap": 0.8290662205389792,
+      "range": [
+        0.7693756590014246,
+        0.883549698163549
+      ],
+      "diff_vs_ref": 0.0,
+      "diff_range": [
+        0.0,
+        0.0
+      ],
+      "verdict": "-"
+    },
+    "v6": {
+      "macro_ap": 0.8131208982241193,
+      "range": [
+        0.7467210231913792,
+        0.8749850483781312
+      ],
+      "diff_vs_ref": -0.0159453223148599,
+      "diff_range": [
+        -0.047340703751786825,
+        0.0023294860760098004
+      ],
+      "verdict": "same within noise"
+    },
+    "v6b": {
+      "macro_ap": 0.8369064475916573,
+      "range": [
+        0.7697020037414717,
+        0.8895202585389915
+      ],
+      "diff_vs_ref": 0.007840227052678173,
+      "diff_range": [
+        -0.016834049777724153,
+        0.032830832437676635
+      ],
+      "verdict": "same within noise"
+    },
+    "baseline": {
+      "macro_ap": 0.6924540562799829,
+      "range": [
+        0.6073706676788402,
+        0.7647114768979351
+      ],
+      "diff_vs_ref": -0.13661216425899625,
+      "diff_range": [
+        -0.20777518091763159,
+        -0.08270499046451894
+      ],
+      "verdict": "worse"
+    }
+  },
+  "per_clause": {
+    "v5": {
+      "Auto-Renewal": 0.9528597891800757,
+      "Governing Law": 0.9757007438872651,
+      "Limitation of Liability": 0.9473798150386745,
+      "Liquidated Damages": 0.707779320822799,
+      "Non-Compete": 0.6114133159104318,
+      "Termination for Convenience": 0.7792643383946294
+    },
+    "v6": {
+      "Auto-Renewal": 0.8865465786893725,
+      "Governing Law": 0.9742214338517673,
+      "Limitation of Liability": 0.9458548241997544,
+      "Liquidated Damages": 0.6798400182376527,
+      "Non-Compete": 0.6063692527043275,
+      "Termination for Convenience": 0.7858932816618407
+    },
+    "v6b": {
+      "Auto-Renewal": 0.9563666706089047,
+      "Governing Law": 0.9472789779654992,
+      "Limitation of Liability": 0.936514285344971,
+      "Liquidated Damages": 0.7094272844272845,
+      "Non-Compete": 0.6518015019797299,
+      "Termination for Convenience": 0.8200499652235547
+    },
+    "baseline": {
+      "Auto-Renewal": 0.9149726833515599,
+      "Governing Law": 0.9304729106807591,
+      "Limitation of Liability": 0.7558991509315458,
+      "Liquidated Damages": 0.5841491648421504,
+      "Non-Compete": 0.5911420748808661,
+      "Termination for Convenience": 0.37808835299301546
+    }
+  }
+}

@@ -1,0 +1,58 @@
+# Adapter v6: seven clauses (v5's six + Anti-Assignment), dataset profile v4. Continues from v5.
+# Direction 1 of the 2026-10-19 plan (synthetic Liquidated Damages data is a separate, later step).
+# Usage: python run_overnight.py --config configs/qlora_v6.yaml
+# Checkpoint rule: best by realistic_ap (weighted to the real mix), as for v5.
+
+run_name: smoke-v6
+profile: v4                       # clause set + data/report folders (see prepare_data.PROFILES)
+output_dir: models/smoke-v6
+model_id: meta-llama/Llama-3.1-8B-Instruct
+init_adapter: models/llama-3.1-8b-cuad-lora-v5/final_adapter   # weights only; fresh optimizer
+post_eval: none
+post_eval_systems: baseline,adapter   # the zero-shot baseline must be re-scored: 7 clauses now
+post_eval_sampled: true
+eval_name: lora_v6
+
+data:
+  dir: data/processed_v4
+  expected_dataset_version: v4
+  train_mix_dir: data/train_mixes/v4
+  train_file: train.json
+  val_file: val.json
+  max_answer_chars: 600
+  multi_span: first
+
+sequence:
+  max_seq_length: 768
+  max_dropped_fraction: 0.01
+
+lora:                               # must match the v5/v4 adapter (r=16); used only when not warm-starting
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+training:
+  seed: 42
+  num_epochs: 1
+  max_steps: 20
+  learning_rate: 1.0e-4
+  per_device_batch_size: 1
+  grad_accum: 8
+  warmup_ratio: 0.03
+  lr_scheduler: cosine
+  optimizer: adamw_8bit             # never paged_* (BSOD 0x1E, alignment_plan C7)
+  answer_only_logits: true          # same loss, ~1 GB less GPU memory (src/answer_loss.py)
+  logging_steps: 5
+  eval_steps: 10
+  save_steps: 10
+  save_total_limit: 2
+
+validation:
+  max_samples: 20
+  metric_for_best_model: realistic_ap
+  eval_at_start: true               # v5's score on the 7 clauses: the bar to beat
+  realistic:
+    pos_per_clause: 3
+    hard_per_clause: 3
+    easy_per_clause: 3

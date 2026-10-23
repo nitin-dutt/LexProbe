@@ -69,6 +69,36 @@ CLAUSE_MAP = {
 }
 CLAUSE_TYPES = sorted(set(CLAUSE_MAP.values()))
 
+# Dataset profiles. v3 (6 clauses) is what the deployed model was built on and stays the default.
+# v4 adds Anti-Assignment (374 CUAD contracts have it, 6x the data of Liquidated Damages). Splits
+# depend only on contracts and near-duplicate groups, so v4 uses the SAME contracts per split as v3
+# (tests/test_dataset_profiles.py). The profile is applied only by the prepare_data CLI.
+PROFILES = {
+    "v3": {"extra_map": {}, "output_dir": "data/processed", "eval_dir": "reports/eval"},
+    "v4": {"extra_map": {"Anti-Assignment": "Anti-Assignment"}, "output_dir": "data/processed_v4", "eval_dir": "reports/eval_v4"},
+}
+
+
+def apply_profile(version: str) -> str:
+    """Switch CLAUSE_MAP / CLAUSE_TYPES / DATASET_VERSION in place for this process; returns the output dir."""
+    global DATASET_VERSION
+    prof = PROFILES[version]
+    CLAUSE_MAP.update(prof["extra_map"])
+    CLAUSE_TYPES[:] = sorted(set(CLAUSE_MAP.values()))  # in place: other modules hold this same list
+    DATASET_VERSION = version
+    return prof["output_dir"]
+
+
+# Every script imports this module, so one environment variable switches the whole toolchain
+# (clause list, data folder, report folder): LEXPROBE_PROFILE=v4. Default v3 = the reported six clauses.
+ACTIVE_PROFILE = os.environ.get("LEXPROBE_PROFILE", "v3")
+if ACTIVE_PROFILE not in PROFILES:
+    raise SystemExit(f"LEXPROBE_PROFILE={ACTIVE_PROFILE!r} is not one of {sorted(PROFILES)}")
+if ACTIVE_PROFILE != "v3":
+    apply_profile(ACTIVE_PROFILE)
+DATA_DIR = PROFILES[ACTIVE_PROFILE]["output_dir"]
+EVAL_DIR = PROFILES[ACTIVE_PROFILE]["eval_dir"]
+
 # Negatives sampled per positive, per clause type. Half are "hard" negatives: chunks that
 # contain a DIFFERENT target clause, which is where the model is most likely to confuse labels.
 TRAIN_NEG_PER_POS   = 1.5  # tuned on val in Phase 2 (alignment_plan B6)
@@ -311,18 +341,21 @@ def print_summary(split_contracts, split_chunks, split_queries):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--force", action="store_true", help="Overwrite an existing dataset in OUTPUT_DIR")
+    parser.add_argument("--force", action="store_true", help="Overwrite an existing dataset in output_dir")
     parser.add_argument("--train-neg-per-pos", type=float, default=TRAIN_NEG_PER_POS)
+    parser.add_argument("--profile", choices=sorted(PROFILES), default="v3",
+                        help="v3 = the 6 reported clauses (default); v4 = adds Anti-Assignment, written to data/processed_v4")
     args = parser.parse_args()
+    output_dir = apply_profile(args.profile)
 
     if not os.path.exists(RAW_FILE):
         sys.exit(f"Error: {RAW_FILE} not found. Run src/download_data.py first.")
 
     existing = [f for f in ("manifest.json", "train.json", "val.json", "test.json")
-                if os.path.exists(os.path.join(OUTPUT_DIR, f))]
+                if os.path.exists(os.path.join(output_dir, f))]
     if existing and not args.force:
         sys.exit(
-            f"Refusing to overwrite existing dataset files in {OUTPUT_DIR}: {existing}.\n"
+            f"Refusing to overwrite existing dataset files in {output_dir}: {existing}.\n"
             "Evaluation sets must stay frozen once results are reported (alignment_plan A1).\n"
             "Re-run with --force only if you intend to create a new dataset version."
         )
@@ -351,11 +384,11 @@ def main():
         rng = random.Random(f"{SEED}-{name}-queries")
         split_queries[name] = sample_queries(split_chunks[name], rng, neg_ratio[name])
 
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    os.makedirs(output_dir, exist_ok=True)
     files = {}
     for name in ("train", "val", "test"):
         for fname, obj in ((f"chunks_{name}.json", split_chunks[name]), (f"{name}.json", split_queries[name])):
-            path = os.path.join(OUTPUT_DIR, fname)
+            path = os.path.join(output_dir, fname)
             write_json(obj, path)
             files[fname] = sha256(path)
 
@@ -379,13 +412,13 @@ def main():
         "stats": dict(sorted(stats.items())),
         "files": files,
     }
-    write_json(manifest, os.path.join(OUTPUT_DIR, "manifest.json"))
+    write_json(manifest, os.path.join(output_dir, "manifest.json"))
 
     print_summary(split_contracts, split_chunks, split_queries)
     clipped = sum(v for k, v in stats.items() if k.startswith("clipped_spans"))
     partial = sum(v for k, v in stats.items() if k.startswith("partial::"))
     print(f"Spans longer than a chunk (clipped): {clipped} | partial (chunk, clause) pairs excluded: {partial}")
-    print(f"Wrote dataset {DATASET_VERSION} to {OUTPUT_DIR}/ (manifest.json records config + hashes).")
+    print(f"Wrote dataset {DATASET_VERSION} to {output_dir}/ (manifest.json records config + hashes).")
     print("Next: dvc add data/processed  (then commit the .dvc file)")
 
 

@@ -14,7 +14,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source
 COPY api/     ./api/
 COPY src/     ./src/
-COPY models/  ./models/
+COPY configs/ ./configs/
+# Only the deployed adapter (v6b); older adapter versions and training checkpoints stay out of the image
+COPY models/llama-3.1-8b-cuad-lora-v6b/final_adapter ./models/llama-3.1-8b-cuad-lora-v6b/final_adapter
 # Secrets (HF_TOKEN) are passed at runtime: docker run -e HF_TOKEN=... — never copied into the image
 
 # Create empty __init__ if missing

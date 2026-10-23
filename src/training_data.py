@@ -108,3 +108,71 @@ def decision_metrics(y_true: list[int], y_pred: list[int], clause_types: list[st
         f1s.append(f1)
     metrics["decision_macro_f1"] = sum(f1s) / len(f1s) if f1s else 0.0
     return metrics
+
+
+# ── Realistic-prevalence validation (v5 checkpoint selection) ──────────────────
+def select_realistic_val(chunks: list[dict], clause_types: list[str], pos_per_clause: int,
+                         hard_per_clause: int, easy_per_clause: int, seed: int) -> list[dict]:
+    """
+    A small validation set whose METRIC behaves like the real mix (about 1.5% positives).
+
+    We cannot score every val chunk during training (too slow), so we sample and give each item
+    a weight: weight = (stratum size) / (stratum sampled). Strata per clause are positives,
+    near-miss negatives and easy negatives. A weighted metric on this sample then estimates the
+    metric on ALL val chunks, which a 1:2 enriched sample cannot (it overstates precision).
+    """
+    from train_mix import is_near_miss  # local import: keeps this module light for tests
+
+    items = []
+    for ct in clause_types:
+        pos = sorted((c for c in chunks if c["labels"][ct]["status"] == "positive"), key=lambda c: c["chunk_id"])
+        neg = [c for c in chunks if c["labels"][ct]["status"] == "negative"]
+        hard = sorted((c for c in neg if is_near_miss(c, ct)), key=lambda c: c["chunk_id"])
+        hard_ids = {c["chunk_id"] for c in hard}
+        easy = sorted((c for c in neg if c["chunk_id"] not in hard_ids), key=lambda c: c["chunk_id"])
+        rng = random.Random(f"{seed}-realistic-val-{ct}")
+        for pool, n, label in ((pos, pos_per_clause, 1), (hard, hard_per_clause, 0), (easy, easy_per_clause, 0)):
+            take = rng.sample(pool, min(n, len(pool)))
+            for c in take:
+                items.append({"clause_type": ct, "text": c["text"], "label": label,
+                              "weight": len(pool) / len(take), "chunk_id": c["chunk_id"]})
+    return items
+
+
+def weighted_average_precision(y_true: list[int], scores: list[float], weights: list[float]) -> float:
+    """Average precision where each item counts `weight` times. Ties are broken by input order."""
+    order = sorted(range(len(scores)), key=lambda i: -scores[i])
+    tp = seen = 0.0
+    total_pos = sum(w for y, w in zip(y_true, weights) if y == 1)
+    if total_pos == 0:
+        return 0.0
+    ap = 0.0
+    for i in order:
+        seen += weights[i]
+        if y_true[i] == 1:
+            tp += weights[i]
+            ap += weights[i] * (tp / seen)
+    return ap / total_pos
+
+
+def realistic_ap_metrics(items: list[dict], margins: list[float]) -> dict:
+    """Per-clause weighted AP and their macro average, from the margins of `items`."""
+    out, aps = {}, []
+    for ct in sorted({it["clause_type"] for it in items}):
+        idx = [i for i, it in enumerate(items) if it["clause_type"] == ct]
+        if not any(items[i]["label"] == 1 for i in idx):
+            continue
+        ap = weighted_average_precision([items[i]["label"] for i in idx], [margins[i] for i in idx],
+                                        [items[i]["weight"] for i in idx])
+        out[f"realistic_ap_{ct.replace(' ', '_')}"] = ap
+        aps.append(ap)
+    out["realistic_ap"] = sum(aps) / len(aps) if aps else 0.0
+    return out
+
+
+def verify_train_mix(mix_manifest: dict, dataset_manifest: dict) -> None:
+    """Refuse a training mix whose frozen inputs differ from the dataset the run evaluates against."""
+    frozen = mix_manifest["frozen_files_sha256"]
+    for name in ("val.json", "test.json", "chunks_val.json", "chunks_test.json", "chunks_train.json"):
+        if frozen.get(name) != dataset_manifest["files"].get(name):
+            raise ValueError(f"train mix was built against a different {name} than the dataset in use")

@@ -20,10 +20,11 @@ import sys
 from collections import defaultdict
 
 from eval_metrics import mcnemar, paired_bootstrap, per_clause_metrics
+from prepare_data import DATA_DIR, EVAL_DIR
 
 MIN_SUPPORT = 30
-OUT_JSON = "reports/eval/comparison.json"
-OUT_MD = "reports/eval/comparison.md"
+OUT_JSON = f"{EVAL_DIR}/comparison.json"
+OUT_MD = f"{EVAL_DIR}/comparison.md"
 
 
 def load(path):
@@ -33,7 +34,7 @@ def load(path):
 
 def group_map(titles: set[str]) -> dict:
     """Map contract title -> near-duplicate group (from the dataset manifest)."""
-    with open("data/processed/manifest.json", "r", encoding="utf-8") as f:
+    with open(f"{DATA_DIR}/manifest.json", "r", encoding="utf-8") as f:
         pairs = json.load(f)["near_duplicate_pairs"]
     parent = {t: t for t in titles}
 

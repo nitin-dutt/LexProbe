@@ -56,13 +56,23 @@ data/*.json
 test_contract.txt
 
 # Legacy scripts from the retired v2 pipeline (superseded by src/evaluate.py + src/compare_results.py)
-src/bootstrap_ci.py
-src/error_analysis.py
-src/plot_results.py
-src/evaluate_lora.py
 src/baseline_eval.py
 src/log_dataset_stats.py
-upload_adapter.py
 
 # Personal study manual (local only)
 study/
+
+# Training mixes built from the frozen chunks (regenerable; v3 dataset stays DVC-pinned)
+data/train_mixes/
+data/processed_v4/
+
+# 7-clause (dataset profile v4) results: the v6b scores, gate and reports that tests/README refer to
+!reports/eval_v4/
+reports/eval_v4/*.partial.json
+!reports/eval_v4/recovery_stage1_v6b.md
+!reports/eval_v4/comparison_v6b.md
+!reports/eval_v4/model_comparison_v5_v6_v6b.md
+
+# Synthetic data: the hand-written set is kept; the rejected 8B-generated files are not
+data/synthetic/ld_v*
+data/synthetic/*.partial.json

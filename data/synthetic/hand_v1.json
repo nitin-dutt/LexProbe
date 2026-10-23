@@ -1,0 +1,2059 @@
+[
+ {
+  "query_id": "syn::hand::0001",
+  "chunk_id": "syn::hand::0001",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "this Agreement for convenience at any time during the Initial Term upon ninety (90) days' prior written notice to Provider. If Customer terminates this Agreement for convenience during the Initial Term, Customer shall pay Provider, within thirty (30) days after the effective date of termination, an early termination fee equal to fifty percent (50%) of the Subscription Fees that would have been payable for the remainder of the Initial Term, which the Parties agree is a reasonable estimate of Provider's losses and not a penalty.\n\n9.6 Effect of Termination. Upon any termination or expiration of this Agreement, Provider shall make Customer Data available for export for a period of thirty (30) days, after which Provider may delete such data in accordance with its standard retention practices. Sections 5 (Confidentiality), 11 (Limitation of Liability) and 14 (General Provisions) shall survive termination.",
+  "answers": [
+   {
+    "start": 124,
+    "end": 532,
+    "text": "If Customer terminates this Agreement for convenience during the Initial Term, Customer shall pay Provider, within thirty (30) days after the effective date of termination, an early termination fee equal to fifty percent (50%) of the Subscription Fees that would have been payable for the remainder of the Initial Term, which the Parties agree is a reasonable estimate of Provider's losses and not a penalty.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Customer terminates this Agreement for convenience during the Initial Term, Customer shall pay Provider, within thirty (30) days after the effective date of termination, an early termination fee equal to fifty percent (50%) of the Subscription Fees that would have been payable for the remainder of the Initial Term, which the Parties agree is a reasonable estimate of Provider's losses and not a penalty.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "SaaS subscription agreement",
+   "style": "hand-written",
+   "trigger": "termination_fee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0002",
+  "chunk_id": "syn::hand::0002",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "14.3 Termination by Franchisor. Franchisor may terminate this Agreement upon written notice, without opportunity to cure, if Franchisee fails to pay any amount due under this Agreement within ten (10) days after written notice of non-payment, or if Franchisee ceases to operate the Franchised Business for more than five (5) consecutive days without Franchisor's prior written consent.\n\n14.4 Damages upon Termination. If Franchisor terminates this Agreement because of a default by Franchisee, Franchisee shall pay Franchisor, within fifteen (15) days after the effective date of termination, as liquidated damages and not as a penalty, an amount equal to the average monthly Royalty Fees paid or payable by Franchisee during the twelve (12) months preceding termination, multiplied by the lesser of (a) thirty-six (36) or (b) the number of months remaining in the then-current term. The parties agree that Franchisor's actual damages from the premature loss of Royalty Fees would be difficult to determine.\n\n14.5 Post-Termination",
+  "answers": [
+   {
+    "start": 418,
+    "end": 883,
+    "text": "If Franchisor terminates this Agreement because of a default by Franchisee, Franchisee shall pay Franchisor, within fifteen (15) days after the effective date of termination, as liquidated damages and not as a penalty, an amount equal to the average monthly Royalty Fees paid or payable by Franchisee during the twelve (12) months preceding termination, multiplied by the lesser of (a) thirty-six (36) or (b) the number of months remaining in the then-current term.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Franchisor terminates this Agreement because of a default by Franchisee, Franchisee shall pay Franchisor, within fifteen (15) days after the effective date of termination, as liquidated damages and not as a penalty, an amount equal to the average monthly Royalty Fees paid or payable by Franchisee during the twelve (12) months preceding termination, multiplied by the lesser of (a) thirty-six (36) or (b) the number of months remaining in the then-current term.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "franchise agreement",
+   "style": "hand-written",
+   "trigger": "franchise_default",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0003",
+  "chunk_id": "syn::hand::0003",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Notice to Proceed (the \"Completion Date\"). The Completion Date shall be extended only by written Change Order for delays caused by Owner, by changes in the Work, or by Force Majeure events properly noticed under Article 12.\n\nIf Contractor fails to achieve Substantial Completion by the Completion Date, Contractor shall pay Owner liquidated damages in the amount of Two Thousand Five Hundred Dollars ($2,500) for each calendar day thereafter until Substantial Completion is achieved, the parties agreeing that Owner's loss from delayed occupancy is difficult to quantify and that this sum is a reasonable forecast of it. Owner may deduct liquidated damages from any sum otherwise payable to Contractor.\n\nSubstantial Completion shall be determined by the Architect, whose certificate shall be conclusive as to the date achieved.",
+  "answers": [
+   {
+    "start": 225,
+    "end": 620,
+    "text": "If Contractor fails to achieve Substantial Completion by the Completion Date, Contractor shall pay Owner liquidated damages in the amount of Two Thousand Five Hundred Dollars ($2,500) for each calendar day thereafter until Substantial Completion is achieved, the parties agreeing that Owner's loss from delayed occupancy is difficult to quantify and that this sum is a reasonable forecast of it.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Contractor fails to achieve Substantial Completion by the Completion Date, Contractor shall pay Owner liquidated damages in the amount of Two Thousand Five Hundred Dollars ($2,500) for each calendar day thereafter until Substantial Completion is achieved, the parties agreeing that Owner's loss from delayed occupancy is difficult to quantify and that this sum is a reasonable forecast of it.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "construction contract",
+   "style": "hand-written",
+   "trigger": "construction_delay",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0004",
+  "chunk_id": "syn::hand::0004",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Seller in each Contract Year not less than the Minimum Annual Quantity set out in Exhibit A. Seller shall make available to Buyer, and shall reserve production capacity sufficient to supply, the Minimum Annual Quantity in each Contract Year.\n\nIf Buyer's purchases in any Contract Year are less than the Minimum Annual Quantity, Buyer shall pay Seller, within thirty (30) days after the end of that Contract Year, an amount equal to the Unit Price multiplied by the number of units by which purchases fell short, as liquidated damages for Seller's reserved capacity and not as a penalty. Payment of the shortfall amount shall be Seller's sole remedy for Buyer's failure to purchase the Minimum Annual Quantity, except where the shortfall results from Seller's failure to supply or from Force Majeure.\n\nUnits paid for under this Section shall not be carried forward to any later Contract Year.",
+  "answers": [
+   {
+    "start": 243,
+    "end": 586,
+    "text": "If Buyer's purchases in any Contract Year are less than the Minimum Annual Quantity, Buyer shall pay Seller, within thirty (30) days after the end of that Contract Year, an amount equal to the Unit Price multiplied by the number of units by which purchases fell short, as liquidated damages for Seller's reserved capacity and not as a penalty.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Buyer's purchases in any Contract Year are less than the Minimum Annual Quantity, Buyer shall pay Seller, within thirty (30) days after the end of that Contract Year, an amount equal to the Unit Price multiplied by the number of units by which purchases fell short, as liquidated damages for Seller's reserved capacity and not as a penalty.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "supply agreement",
+   "style": "hand-written",
+   "trigger": "minimum_shortfall",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0005",
+  "chunk_id": "syn::hand::0005",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "the date that is forty-five (45) days after the expiration of the Inspection Period, at the offices of the Title Company.\n\n6.2 Default by Purchaser. If Purchaser fails to complete the purchase of the Property at the Closing for any reason other than Seller's default or the failure of a condition to Purchaser's obligation to close, Seller shall be entitled to retain the Deposit as liquidated damages, the parties agreeing that Seller's actual damages would be impracticable to ascertain and that the Deposit is a reasonable estimate of them. Retention of the Deposit shall be Seller's sole and exclusive remedy.\n\n6.3 Default by Seller. If Seller fails to convey the Property in accordance with this Agreement, Purchaser may either terminate this Agreement and receive a return of the Deposit or seek specific performance, provided that any action for specific performance is commenced within sixty (60) days.",
+  "answers": [
+   {
+    "start": 149,
+    "end": 543,
+    "text": "If Purchaser fails to complete the purchase of the Property at the Closing for any reason other than Seller's default or the failure of a condition to Purchaser's obligation to close, Seller shall be entitled to retain the Deposit as liquidated damages, the parties agreeing that Seller's actual damages would be impracticable to ascertain and that the Deposit is a reasonable estimate of them.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Purchaser fails to complete the purchase of the Property at the Closing for any reason other than Seller's default or the failure of a condition to Purchaser's obligation to close, Seller shall be entitled to retain the Deposit as liquidated damages, the parties agreeing that Seller's actual damages would be impracticable to ascertain and that the Deposit is a reasonable estimate of them.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "real estate purchase agreement",
+   "style": "hand-written",
+   "trigger": "deposit_forfeiture",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0006",
+  "chunk_id": "syn::hand::0006",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "and eighty (180) days' written notice.\n\n12.3 Termination Payment. If Supplier terminates this Agreement under Section 12.2, Supplier shall pay Distributor, within sixty (60) days after the effective date of termination, an amount equal to the gross margin earned by Distributor on sales of the Products during the twelve (12) months immediately preceding the date of the notice of termination, which the parties agree is a reasonable estimate of the value to Distributor of the distribution rights lost, is payable as liquidated damages, and is Distributor's sole compensation for that loss.\n\n12.4 Repurchase of Inventory. Following any termination, Supplier shall have the option, exercisable",
+  "answers": [
+   {
+    "start": 66,
+    "end": 591,
+    "text": "If Supplier terminates this Agreement under Section 12.2, Supplier shall pay Distributor, within sixty (60) days after the effective date of termination, an amount equal to the gross margin earned by Distributor on sales of the Products during the twelve (12) months immediately preceding the date of the notice of termination, which the parties agree is a reasonable estimate of the value to Distributor of the distribution rights lost, is payable as liquidated damages, and is Distributor's sole compensation for that loss.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Supplier terminates this Agreement under Section 12.2, Supplier shall pay Distributor, within sixty (60) days after the effective date of termination, an amount equal to the gross margin earned by Distributor on sales of the Products during the twelve (12) months immediately preceding the date of the notice of termination, which the parties agree is a reasonable estimate of the value to Distributor of the distribution rights lost, is payable as liquidated damages, and is Distributor's sole compensation for that loss.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "distribution agreement",
+   "style": "hand-written",
+   "trigger": "supplier_termination_payment",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0007",
+  "chunk_id": "syn::hand::0007",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "notice to Provider. Termination of a Service Tower shall not affect the remaining Service Towers.\n\nIf Client terminates a Service Tower for convenience before the end of the Initial Term, Client shall pay Provider a termination charge equal to the unamortized portion, calculated on a straight-line basis over the Initial Term, of the transition and set-up costs actually incurred by Provider for that Service Tower, together with the cost of any third-party contracts that Provider cannot terminate without penalty, and the parties acknowledge that this charge is a genuine pre-estimate of Provider's loss.\n\nProvider shall provide reasonable evidence of the amount of the",
+  "answers": [
+   {
+    "start": 188,
+    "end": 607,
+    "text": "Client shall pay Provider a termination charge equal to the unamortized portion, calculated on a straight-line basis over the Initial Term, of the transition and set-up costs actually incurred by Provider for that Service Tower, together with the cost of any third-party contracts that Provider cannot terminate without penalty, and the parties acknowledge that this charge is a genuine pre-estimate of Provider's loss.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: Client shall pay Provider a termination charge equal to the unamortized portion, calculated on a straight-line basis over the Initial Term, of the transition and set-up costs actually incurred by Provider for that Service Tower, together with the cost of any third-party contracts that Provider cannot terminate without penalty, and the parties acknowledge that this charge is a genuine pre-estimate of Provider's loss.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "outsourcing agreement",
+   "style": "hand-written",
+   "trigger": "wind_down_charge",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0008",
+  "chunk_id": "syn::hand::0008",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "and notify Developer of acceptance or of any Defects within ten (10) Business Days after delivery.\n\n5.3 Delay. If Developer fails to deliver a Milestone Deliverable by its Delivery Date for any reason other than Client's delay, Developer shall pay Client liquidated damages equal to one percent (1%) of the Development Fee for each full week of delay, up to a maximum of ten percent (10%) of the Development Fee. Such liquidated damages shall be Client's sole and exclusive remedy for delay, without prejudice to Client's right to terminate under Section 14.2 if the delay exceeds sixty (60) days.\n\n5.4 Acceptance Testing. Acceptance testing shall be performed in Client's test environment using the test scripts agreed in the Project Plan.",
+  "answers": [
+   {
+    "start": 111,
+    "end": 412,
+    "text": "If Developer fails to deliver a Milestone Deliverable by its Delivery Date for any reason other than Client's delay, Developer shall pay Client liquidated damages equal to one percent (1%) of the Development Fee for each full week of delay, up to a maximum of ten percent (10%) of the Development Fee.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Developer fails to deliver a Milestone Deliverable by its Delivery Date for any reason other than Client's delay, Developer shall pay Client liquidated damages equal to one percent (1%) of the Development Fee for each full week of delay, up to a maximum of ten percent (10%) of the Development Fee.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "software development agreement",
+   "style": "hand-written",
+   "trigger": "late_delivery_credit",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0009",
+  "chunk_id": "syn::hand::0009",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "7.4 Non-Solicitation. During the Term and for a period of twenty-four (24) months thereafter, neither Party shall, without the prior written consent of the other Party, directly or indirectly solicit for employment any employee of the other Party who was materially involved in the Venture.\n\n7.5 Remedy. If either Party breaches Section 7.4, the breaching Party shall pay the other Party the sum of Seventy-Five Thousand Dollars ($75,000) for each employee so solicited, the Parties acknowledging that the other Party's actual damages from the loss of trained personnel would be difficult to determine and that this sum is a reasonable estimate of those damages and not a penalty. The foregoing shall not prevent the non-breaching Party from seeking injunctive relief to prevent further breaches.\n\n7.6 General recruitment advertisements not targeted at employees of the other Party shall not constitute solicitation for purposes of this Section.",
+  "answers": [
+   {
+    "start": 304,
+    "end": 680,
+    "text": "If either Party breaches Section 7.4, the breaching Party shall pay the other Party the sum of Seventy-Five Thousand Dollars ($75,000) for each employee so solicited, the Parties acknowledging that the other Party's actual damages from the loss of trained personnel would be difficult to determine and that this sum is a reasonable estimate of those damages and not a penalty.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If either Party breaches Section 7.4, the breaching Party shall pay the other Party the sum of Seventy-Five Thousand Dollars ($75,000) for each employee so solicited, the Parties acknowledging that the other Party's actual damages from the loss of trained personnel would be difficult to determine and that this sum is a reasonable estimate of those damages and not a penalty.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "joint venture agreement",
+   "style": "hand-written",
+   "trigger": "non_solicitation_breach",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0010",
+  "chunk_id": "syn::hand::0010",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Fee. (a) The Company shall pay to Parent a fee of Twelve Million Five Hundred Thousand Dollars ($12,500,000) (the \"Termination Fee\") if this Agreement is terminated by Parent pursuant to Section 8.1(d) (Change of Recommendation) or by the Company pursuant to Section 8.1(g) (Superior Proposal).\n\n(b) The Termination Fee shall be paid by wire transfer of immediately available funds within two (2) Business Days after termination. The parties acknowledge that the Termination Fee is not a penalty but constitutes liquidated damages in a reasonable amount that will compensate Parent for the efforts and resources expended and opportunities foregone while negotiating this Agreement and in reliance on it.\n\n(c) In no event shall the Company be required to pay the Termination Fee on more than one occasion.",
+  "answers": [
+   {
+    "start": 430,
+    "end": 703,
+    "text": "The parties acknowledge that the Termination Fee is not a penalty but constitutes liquidated damages in a reasonable amount that will compensate Parent for the efforts and resources expended and opportunities foregone while negotiating this Agreement and in reliance on it.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: The parties acknowledge that the Termination Fee is not a penalty but constitutes liquidated damages in a reasonable amount that will compensate Parent for the efforts and resources expended and opportunities foregone while negotiating this Agreement and in reliance on it.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "merger agreement",
+   "style": "hand-written",
+   "trigger": "merger_termination_fee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0011",
+  "chunk_id": "syn::hand::0011",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "the Equipment at Lessee's expense, and exercise any other right available at law.\n\nUpon termination of this Lease by Lessor following an Event of Default, Lessee shall pay Lessor, as liquidated damages and not as a penalty, an amount equal to the present value, discounted at five percent (5%) per annum, of all Rent that would have become due during the remainder of the Lease Term, less the net proceeds of any re-lease or sale of the Equipment received by Lessor. Rent due and unpaid at the date of termination remains payable separately.\n\n19. Lessor's Right to Cure. Lessor may, but shall not be obliged to, remedy any default by Lessee, and Lessee shall reimburse Lessor on demand for its reasonable costs in doing so.",
+  "answers": [
+   {
+    "start": 83,
+    "end": 466,
+    "text": "Upon termination of this Lease by Lessor following an Event of Default, Lessee shall pay Lessor, as liquidated damages and not as a penalty, an amount equal to the present value, discounted at five percent (5%) per annum, of all Rent that would have become due during the remainder of the Lease Term, less the net proceeds of any re-lease or sale of the Equipment received by Lessor.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: Upon termination of this Lease by Lessor following an Event of Default, Lessee shall pay Lessor, as liquidated damages and not as a penalty, an amount equal to the present value, discounted at five percent (5%) per annum, of all Rent that would have become due during the remainder of the Lease Term, less the net proceeds of any re-lease or sale of the Equipment received by Lessor.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "equipment lease agreement",
+   "style": "hand-written",
+   "trigger": "lease_default",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0012",
+  "chunk_id": "syn::hand::0012",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "on the date Hotel receives the notice.\n\nCustomer acknowledges that Hotel will turn away other business in reliance on this Agreement. Accordingly:\n\nIf Customer cancels the Event less than thirty (30) days before the first day of the Event, Customer shall pay Hotel a cancellation charge equal to seventy-five percent (75%) of the estimated Food and Beverage revenue stated on the Banquet Event Order, which the parties agree is liquidated damages and not a penalty. If Hotel is able to resell the contracted space for the same dates, Hotel shall refund the portion of the charge attributable to that revenue.\n\n10. Attrition. Customer may reduce the Guest Room Block by up to ten percent (10%) without charge.",
+  "answers": [
+   {
+    "start": 148,
+    "end": 465,
+    "text": "If Customer cancels the Event less than thirty (30) days before the first day of the Event, Customer shall pay Hotel a cancellation charge equal to seventy-five percent (75%) of the estimated Food and Beverage revenue stated on the Banquet Event Order, which the parties agree is liquidated damages and not a penalty.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Customer cancels the Event less than thirty (30) days before the first day of the Event, Customer shall pay Hotel a cancellation charge equal to seventy-five percent (75%) of the estimated Food and Beverage revenue stated on the Banquet Event Order, which the parties agree is liquidated damages and not a penalty.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "hospitality event contract",
+   "style": "hand-written",
+   "trigger": "cancellation_charge",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0013",
+  "chunk_id": "syn::hand::0013",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "written notice describing the breach in reasonable detail. If the breach is not capable of cure, the non-breaching party may terminate immediately upon notice.\n\n11.2 Insolvency. Either party may terminate this Agreement immediately upon written notice if the other party becomes insolvent, makes an assignment for the benefit of creditors, or becomes the subject of any bankruptcy or similar proceeding that is not dismissed within sixty (60) days.\n\n11.3 Effect of Termination. Upon termination for any reason, each party shall promptly return or destroy the other party's Confidential Information. Customer shall pay Provider for all Services performed and expenses properly incurred up to the effective date of termination. Termination shall not affect rights or obligations that accrued before the effective date.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "master services agreement",
+   "style": "hand-written",
+   "trigger": "termination_for_cause",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0014",
+  "chunk_id": "syn::hand::0014",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "of termination.\n\n8.5 No Other Refunds. Except as expressly provided in this Agreement, all Fees are non-cancellable and non-refundable once the applicable Service Period has begun. Customer remains responsible for Fees for the period before termination.\n\n8.6 Data Return. For thirty (30) days after termination Customer may retrieve Customer Data using the export tools made available through the Service. After that period Provider may delete Customer Data and shall have no further obligation to retain it.\n\n8.7 Survival. Sections 4 (Payment), 6 (Intellectual Property), 9 (Warranties and Disclaimers) and 12 (Governing Law) survive termination.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "online services terms",
+   "style": "hand-written",
+   "trigger": "prepaid_refund",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0015",
+  "chunk_id": "syn::hand::0015",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "alleging that the Software, as delivered by Licensor and used in accordance with this Agreement, infringes a patent, copyright or trademark, and shall pay the damages and costs finally awarded against Licensee or agreed by Licensor in settlement. Licensee shall give Licensor prompt written notice of the claim, sole control of the defense and settlement, and reasonable cooperation at Licensor's expense.\n\n13.2 Exclusions. Licensor shall have no obligation under Section 13.1 to the extent a claim arises from modifications not made by Licensor, from combination of the Software with items not supplied by Licensor, or from use after Licensor has provided a non-infringing replacement.\n\n13.3 Mitigation. If the Software becomes, or in Licensor's opinion is likely to become, the subject of a claim, Licensor may procure the right for Licensee to continue using it, replace or modify it so that it is non-infringing, or terminate the license and refund the unamortized license fee.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "software license agreement",
+   "style": "hand-written",
+   "trigger": "indemnification",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0016",
+  "chunk_id": "syn::hand::0016",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "with Seller's instructions.\n\n7.2 Remedy. If Buyer notifies Seller in writing of a defect during the Warranty Period, Seller shall, at its option and expense, repair or replace the defective Equipment or part within a reasonable time, including the cost of shipping the repaired or replacement item to Buyer. This Section states Seller's entire obligation, and Buyer's exclusive remedy, in respect of defective Equipment.\n\n7.3 Exclusions. The warranty does not cover damage caused by misuse, accident, unauthorized repair, normal wear and tear, or the use of non-approved spare parts. THE FOREGOING WARRANTY IS IN LIEU OF ALL OTHER WARRANTIES, EXPRESS OR IMPLIED.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "equipment purchase agreement",
+   "style": "hand-written",
+   "trigger": "warranty_remedy",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0017",
+  "chunk_id": "syn::hand::0017",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "A PARTY'S INDEMNIFICATION OBLIGATIONS, BREACH OF CONFIDENTIALITY, OR GROSS NEGLIGENCE OR WILLFUL MISCONDUCT, NEITHER PARTY'S TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT, WHETHER IN CONTRACT, TORT OR OTHERWISE, SHALL EXCEED THE TOTAL FEES PAID OR PAYABLE BY CLIENT TO CONSULTANT UNDER THIS AGREEMENT DURING THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE LIABILITY.\n\n12.2 Exclusion of Consequential Damages. IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS, EVEN IF ADVISED OF THEIR POSSIBILITY.\n\n12.3 Basis of the Bargain. The parties agree that the limitations in this Article reflect an",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "consulting agreement",
+   "style": "hand-written",
+   "trigger": "liability_cap",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0018",
+  "chunk_id": "syn::hand::0018",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "each Statement of Work. Unless a Statement of Work provides otherwise, Provider shall invoice Fees monthly in arrears, and expenses approved in advance by Customer shall be invoiced at cost without mark-up.\n\n4.2 Payment. Customer shall pay each undisputed invoice within thirty (30) days after receipt by wire transfer to the account designated by Provider. Invoices shall be sent to the accounts payable contact identified in the Statement of Work.\n\n4.3 Disputed Amounts. If Customer disputes any portion of an invoice in good faith, Customer shall notify Provider in writing within fifteen (15) days after receipt, describing the dispute in reasonable detail, and shall pay the undisputed portion. The parties shall work together promptly to resolve the dispute.\n\n4.4 Taxes. Fees are exclusive of applicable sales, use and value-added taxes, which Customer shall bear, other than taxes based on Provider's net income.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "services agreement",
+   "style": "hand-written",
+   "trigger": "payment_terms",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0019",
+  "chunk_id": "syn::hand::0019",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "this Agreement (other than payment obligations) to the extent the failure or delay is caused by an event beyond its reasonable control, including acts of God, fire, flood, war, terrorism, epidemic, government action, or failure of public utilities or transportation networks.\n\n16.2 Notice and Mitigation. The affected party shall give the other party prompt written notice describing the event and its expected duration, and shall use commercially reasonable efforts to mitigate its effects and resume performance as soon as practicable.\n\n16.3 Extended Events. If a force majeure event continues for more than ninety (90) consecutive days, either party may terminate the affected purchase orders upon written notice, without liability to the other for that termination, and Buyer shall pay for finished goods already completed.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "manufacturing agreement",
+   "style": "hand-written",
+   "trigger": "force_majeure",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0020",
+  "chunk_id": "syn::hand::0020",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Restrictions) would cause the other party irreparable harm for which monetary damages would not be an adequate remedy. Accordingly, the non-breaching party shall be entitled to seek injunctive relief or specific performance in any court of competent jurisdiction, without the requirement of posting a bond or proving actual damages.\n\n9.2 Cumulative Remedies. The rights and remedies under this Agreement are cumulative and in addition to any other rights available at law or in equity.\n\n9.3 Notice of Breach. Each party shall notify the other promptly upon becoming aware of any unauthorized use or disclosure of Confidential Information and shall cooperate to regain possession of it and prevent further unauthorized use.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "non-disclosure and cooperation agreement",
+   "style": "hand-written",
+   "trigger": "injunctive_relief",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0021",
+  "chunk_id": "syn::hand::0021",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "10.1 Records. Licensee shall keep complete and accurate books and records of all Net Sales of Licensed Products for at least three (3) years after the end of the calendar quarter to which they relate.\n\n10.2 Audit. Not more than once in any calendar year, Licensor may appoint an independent certified public accountant, reasonably acceptable to Licensee, to inspect those records during normal business hours on ten (10) Business Days' notice, solely to verify the royalty reports and payments made under Article 6.\n\n10.3 Underpayments. If the audit reveals that Licensee underpaid royalties, Licensee shall pay the underpaid amount within thirty (30) days after receiving the accountant's report. Licensor shall bear the cost of the audit unless the underpayment exceeds five percent (5%) of the royalties due for the audited period, in which case Licensee shall reimburse the reasonable cost of the audit.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "license and royalty agreement",
+   "style": "hand-written",
+   "trigger": "audit_rights",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0022",
+  "chunk_id": "syn::hand::0022",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "which it renews automatically for successive one (1) year terms unless a party gives notice of non-renewal at least sixty (60) days before the end of the then-current term.\n\n14.2 Termination for Convenience. Either party may terminate this Agreement for any reason or no reason by giving the other party sixty (60) days' prior written notice. Neither party shall be liable to the other solely because of the termination or expiration of this Agreement in accordance with its terms, including for loss of anticipated profits, or for compensation, indemnity or reimbursement of investments made in reliance on this Agreement.\n\n14.3 Orders. Reseller may continue to fulfil accepted orders placed before the effective date of termination.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "reseller agreement",
+   "style": "hand-written",
+   "trigger": "termination_for_convenience_no_fee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0023",
+  "chunk_id": "syn::hand::0023",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "in it. Seller shall notify Buyer promptly if it becomes aware that delivery may be late and shall use commercially reasonable efforts to meet the delivery date.\n\n3.2 Late Delivery. If Seller does not deliver the Goods within ten (10) days after the delivery date, Buyer may cancel the affected Purchase Order by written notice without further obligation to Seller, and may purchase substitute goods from another source.\n\n3.3 Inspection. Buyer shall inspect the Goods within fifteen (15) days after delivery and may reject Goods that do not conform to the Purchase Order by written notice stating the grounds for rejection. Seller",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "purchase order terms",
+   "style": "hand-written",
+   "trigger": "delivery_and_acceptance",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0024",
+  "chunk_id": "syn::hand::0024",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "those in this Section.\n\n6.2 Exceptions. Confidential Information does not include information that the receiving party can show (a) is or becomes public through no fault of its own, (b) was already known to it without restriction, (c) was independently developed without use of the disclosing party's information, or (d) was rightfully received from a third party without restriction.\n\n6.3 Return of Materials. Upon request or termination, the receiving party shall promptly return or destroy all Confidential Information and confirm in writing that it has done so.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "collaboration agreement",
+   "style": "hand-written",
+   "trigger": "confidentiality",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0025",
+  "chunk_id": "syn::hand::0025",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "this Section 15.3 is conditional on Licensee not being in breach of any payment obligation at the time the notice is given.\n\nUpon any termination by Licensee under Section 15.3 before the third anniversary of the Effective Date, Licensee shall pay Licensor a Termination Fee equal to the Minimum Annual Royalty for the Contract Year in which termination takes effect, less any royalties already paid for that Contract Year. The Termination Fee is payable within thirty (30) days after the effective date of termination.\n\nNo Termination Fee shall be payable if Licensee terminates under Section 15.1 (Termination for Material Breach) or Section 15.2 (Termination for Insolvency).\n\nAfter termination, Licensee shall cease all manufacture of Licensed Products but may sell its remaining inventory for a period of ninety (90) days.",
+  "answers": [
+   {
+    "start": 125,
+    "end": 423,
+    "text": "Upon any termination by Licensee under Section 15.3 before the third anniversary of the Effective Date, Licensee shall pay Licensor a Termination Fee equal to the Minimum Annual Royalty for the Contract Year in which termination takes effect, less any royalties already paid for that Contract Year.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: Upon any termination by Licensee under Section 15.3 before the third anniversary of the Effective Date, Licensee shall pay Licensor a Termination Fee equal to the Minimum Annual Royalty for the Contract Year in which termination takes effect, less any royalties already paid for that Contract Year.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "licensing agreement",
+   "style": "hand-written",
+   "trigger": "termination_fee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0026",
+  "chunk_id": "syn::hand::0026",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "costs in order to provide the Services at the Customer Premises.\n\nCustomer may cancel a Service before the end of the Initial Term only by written notice. If Customer cancels a Service, or Carrier disconnects it because of Customer's default, before the end of the Initial Term, Customer shall pay Carrier an early termination charge equal to one hundred percent (100%) of the monthly recurring charges for the remainder of the first twelve (12) months of the Initial Term and fifty percent (50%) of the monthly recurring charges for the balance of the Initial Term.\n\nEarly termination charges are due on the date of disconnection and are in addition to any outstanding usage and installation charges.",
+  "answers": [
+   {
+    "start": 155,
+    "end": 566,
+    "text": "If Customer cancels a Service, or Carrier disconnects it because of Customer's default, before the end of the Initial Term, Customer shall pay Carrier an early termination charge equal to one hundred percent (100%) of the monthly recurring charges for the remainder of the first twelve (12) months of the Initial Term and fifty percent (50%) of the monthly recurring charges for the balance of the Initial Term.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Customer cancels a Service, or Carrier disconnects it because of Customer's default, before the end of the Initial Term, Customer shall pay Carrier an early termination charge equal to one hundred percent (100%) of the monthly recurring charges for the remainder of the first twelve (12) months of the Initial Term and fifty percent (50%) of the monthly recurring charges for the balance of the Initial Term.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "telecommunications services agreement",
+   "style": "hand-written",
+   "trigger": "break_fee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0027",
+  "chunk_id": "syn::hand::0027",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "deliver the Plant to the Site, ready for installation, not later than the Delivery Date stated in the Contract Schedule, being one hundred and eighty (180) days after the Effective Date. Time is of the essence in respect of the Delivery Date.\n\nIf the Supplier is late in delivering the Plant for reasons other than Purchaser delay or Force Majeure, the Supplier shall pay the Purchaser, as the Purchaser's sole compensation for the delay, an amount equal to half of one percent (0.5%) of the Contract Price for each full week of delay, subject to an overall limit of ten percent (10%) of the Contract Price. The Purchaser may deduct this amount from any payment due to the Supplier.\n\nIf the delay exceeds sixteen (16) weeks, the Purchaser may",
+  "answers": [
+   {
+    "start": 244,
+    "end": 607,
+    "text": "If the Supplier is late in delivering the Plant for reasons other than Purchaser delay or Force Majeure, the Supplier shall pay the Purchaser, as the Purchaser's sole compensation for the delay, an amount equal to half of one percent (0.5%) of the Contract Price for each full week of delay, subject to an overall limit of ten percent (10%) of the Contract Price.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If the Supplier is late in delivering the Plant for reasons other than Purchaser delay or Force Majeure, the Supplier shall pay the Purchaser, as the Purchaser's sole compensation for the delay, an amount equal to half of one percent (0.5%) of the Contract Price for each full week of delay, subject to an overall limit of ten percent (10%) of the Contract Price.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "turnkey equipment supply contract",
+   "style": "hand-written",
+   "trigger": "delay_compensation",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0028",
+  "chunk_id": "syn::hand::0028",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "of any amounts due under Section 2.10 (Breakage) and to the following prepayment premium.\n\nIf the Loans are prepaid, repaid or accelerated for any reason before the second anniversary of the Closing Date, the Borrower shall pay the Lenders a prepayment premium equal to two percent (2.00%) of the principal amount so prepaid, and the Borrower acknowledges that the premium is a reasonable estimate of the Lenders' loss of yield and is not a penalty. After the second anniversary and before the third anniversary the premium shall be one percent (1.00%), and thereafter no premium shall be payable.\n\nEach prepayment shall be applied to the remaining scheduled installments in inverse order of maturity.",
+  "answers": [
+   {
+    "start": 91,
+    "end": 449,
+    "text": "If the Loans are prepaid, repaid or accelerated for any reason before the second anniversary of the Closing Date, the Borrower shall pay the Lenders a prepayment premium equal to two percent (2.00%) of the principal amount so prepaid, and the Borrower acknowledges that the premium is a reasonable estimate of the Lenders' loss of yield and is not a penalty.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If the Loans are prepaid, repaid or accelerated for any reason before the second anniversary of the Closing Date, the Borrower shall pay the Lenders a prepayment premium equal to two percent (2.00%) of the principal amount so prepaid, and the Borrower acknowledges that the premium is a reasonable estimate of the Lenders' loss of yield and is not a penalty.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "term loan agreement",
+   "style": "hand-written",
+   "trigger": "prepayment_premium",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0029",
+  "chunk_id": "syn::hand::0029",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "in breach of this Article 11, Franchisor may terminate this Agreement immediately by written notice, and Franchisee shall have no right to cure.\n\n11.7 Payment on Unauthorized Transfer. In the event of an unauthorized transfer in breach of this Article, Franchisee shall pay Franchisor within ten (10) days a sum of Fifty Thousand Dollars ($50,000), which the parties agree is liquidated damages for the harm to the goodwill of the System and the cost of locating a replacement operator, and not a penalty. Payment of this sum shall not relieve Franchisee of its post-term obligations under Article 16.\n\n11.8 Permitted Transfers. A transfer to a Controlled Affiliate of Franchisee that meets Franchisor's then-current requirements shall not require payment of a transfer fee.",
+  "answers": [
+   {
+    "start": 185,
+    "end": 505,
+    "text": "In the event of an unauthorized transfer in breach of this Article, Franchisee shall pay Franchisor within ten (10) days a sum of Fifty Thousand Dollars ($50,000), which the parties agree is liquidated damages for the harm to the goodwill of the System and the cost of locating a replacement operator, and not a penalty.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: In the event of an unauthorized transfer in breach of this Article, Franchisee shall pay Franchisor within ten (10) days a sum of Fifty Thousand Dollars ($50,000), which the parties agree is liquidated damages for the harm to the goodwill of the System and the cost of locating a replacement operator, and not a penalty.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "master franchise agreement",
+   "style": "hand-written",
+   "trigger": "franchise_transfer_fee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0030",
+  "chunk_id": "syn::hand::0030",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "a one-time right to terminate this Lease effective as of the last day of the sixtieth (60th) full month of the Term (the \"Termination Date\"), provided Tenant gives Landlord not less than twelve (12) months' prior written notice and is not then in default.\n\nIf Tenant exercises its right to terminate under this Section, Tenant shall pay Landlord on or before the Termination Date a termination fee equal to the unamortized balance, as of the Termination Date, of the Tenant Improvement Allowance, the leasing commissions and the free rent granted under this Lease, amortized in equal monthly installments over the Term at an interest rate of eight percent (8%) per annum. If Tenant fails to pay the termination fee when due, the notice of termination shall be",
+  "answers": [
+   {
+    "start": 257,
+    "end": 671,
+    "text": "If Tenant exercises its right to terminate under this Section, Tenant shall pay Landlord on or before the Termination Date a termination fee equal to the unamortized balance, as of the Termination Date, of the Tenant Improvement Allowance, the leasing commissions and the free rent granted under this Lease, amortized in equal monthly installments over the Term at an interest rate of eight percent (8%) per annum.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Tenant exercises its right to terminate under this Section, Tenant shall pay Landlord on or before the Termination Date a termination fee equal to the unamortized balance, as of the Termination Date, of the Tenant Improvement Allowance, the leasing commissions and the free rent granted under this Lease, amortized in equal monthly installments over the Term at an interest rate of eight percent (8%) per annum.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "commercial lease agreement",
+   "style": "hand-written",
+   "trigger": "early_exit_fee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0031",
+  "chunk_id": "syn::hand::0031",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Section 6.4 Failure to Fund. Each Investor shall fund its Capital Commitment within five (5) Business Days after receipt of a Drawdown Notice from the General Partner. The General Partner may issue Drawdown Notices on not less than ten (10) Business Days' notice.\n\nSection 6.5 Default. If an Investor fails to fund any portion of its Capital Commitment when due and such failure continues for five (5) Business Days after notice, such Investor shall forfeit fifty percent (50%) of its capital account balance to the Partnership, which the Investors agree is a reasonable estimate of the damages the Partnership will suffer from such default and not a penalty.\n\nSection 6.6 Remedies Cumulative. The Partnership's remedies upon default, including the right to sell the defaulting Investor's interest, are in addition to those in Section 6.5, except that the amount in Section 6.5 shall not be recovered more than once.",
+  "answers": [
+   {
+    "start": 286,
+    "end": 659,
+    "text": "If an Investor fails to fund any portion of its Capital Commitment when due and such failure continues for five (5) Business Days after notice, such Investor shall forfeit fifty percent (50%) of its capital account balance to the Partnership, which the Investors agree is a reasonable estimate of the damages the Partnership will suffer from such default and not a penalty.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If an Investor fails to fund any portion of its Capital Commitment when due and such failure continues for five (5) Business Days after notice, such Investor shall forfeit fifty percent (50%) of its capital account balance to the Partnership, which the Investors agree is a reasonable estimate of the damages the Partnership will suffer from such default and not a penalty.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "investment agreement",
+   "style": "hand-written",
+   "trigger": "stock_purchase_default",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0032",
+  "chunk_id": "syn::hand::0032",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Owner has committed to purchase the Minimum Quantities set out in Schedule 2.\n\nIf Brand Owner terminates this Agreement other than for Manufacturer's uncured breach before the fourth anniversary of the Effective Date, Brand Owner shall pay Manufacturer a sum equal to the purchase price of the Minimum Quantities for the remainder of the then-current Contract Year plus the net book value of the dedicated tooling listed in Schedule 4, and the parties agree that this sum is in full settlement of Manufacturer's losses from the early termination.\n\nTitle to the tooling shall pass to Brand Owner upon payment.",
+  "answers": [
+   {
+    "start": 79,
+    "end": 546,
+    "text": "If Brand Owner terminates this Agreement other than for Manufacturer's uncured breach before the fourth anniversary of the Effective Date, Brand Owner shall pay Manufacturer a sum equal to the purchase price of the Minimum Quantities for the remainder of the then-current Contract Year plus the net book value of the dedicated tooling listed in Schedule 4, and the parties agree that this sum is in full settlement of Manufacturer's losses from the early termination.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Brand Owner terminates this Agreement other than for Manufacturer's uncured breach before the fourth anniversary of the Effective Date, Brand Owner shall pay Manufacturer a sum equal to the purchase price of the Minimum Quantities for the remainder of the then-current Contract Year plus the net book value of the dedicated tooling listed in Schedule 4, and the parties agree that this sum is in full settlement of Manufacturer's losses from the early termination.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "exclusive manufacturing agreement",
+   "style": "hand-written",
+   "trigger": "supplier_exit_payment",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0033",
+  "chunk_id": "syn::hand::0033",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "1 of the Statement of Work (the \"Design Completion Date\"). Time is of the essence.\n\nShould the Engineer fail to deliver the Design Package by the Design Completion Date, the Engineer shall pay the Client the amount of One Thousand Dollars ($1,000) for each day of delay until delivery, and the parties agree that this amount is liquidated damages representing a genuine estimate of the Client's loss from deferred construction and not a penalty. The Client may set off any such amount against Fees due to the Engineer.\n\nDelay caused by the Client's failure to provide information requested under Section 4.3 within five (5) Business Days shall extend the Design Completion Date day for day.",
+  "answers": [
+   {
+    "start": 84,
+    "end": 445,
+    "text": "Should the Engineer fail to deliver the Design Package by the Design Completion Date, the Engineer shall pay the Client the amount of One Thousand Dollars ($1,000) for each day of delay until delivery, and the parties agree that this amount is liquidated damages representing a genuine estimate of the Client's loss from deferred construction and not a penalty.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: Should the Engineer fail to deliver the Design Package by the Design Completion Date, the Engineer shall pay the Client the amount of One Thousand Dollars ($1,000) for each day of delay until delivery, and the parties agree that this amount is liquidated damages representing a genuine estimate of the Client's loss from deferred construction and not a penalty.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "engineering services agreement",
+   "style": "hand-written",
+   "trigger": "late_completion",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0034",
+  "chunk_id": "syn::hand::0034",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Claim of the Licensed Patents.\n\nLicensee may terminate this Agreement for convenience on ninety (90) days' written notice. If Licensee terminates for convenience before the first commercial sale of a Licensed Product, Licensee shall pay Licensor a one-time termination payment of Two Hundred and Fifty Thousand Dollars ($250,000) in consideration of the development effort Licensor has expended; after the first commercial sale, the payment shall be equal to the royalties paid in the preceding twelve (12) months.\n\nUpon payment of the termination payment, all licenses granted to Licensee shall terminate",
+  "answers": [
+   {
+    "start": 123,
+    "end": 514,
+    "text": "If Licensee terminates for convenience before the first commercial sale of a Licensed Product, Licensee shall pay Licensor a one-time termination payment of Two Hundred and Fifty Thousand Dollars ($250,000) in consideration of the development effort Licensor has expended; after the first commercial sale, the payment shall be equal to the royalties paid in the preceding twelve (12) months.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Licensee terminates for convenience before the first commercial sale of a Licensed Product, Licensee shall pay Licensor a one-time termination payment of Two Hundred and Fifty Thousand Dollars ($250,000) in consideration of the development effort Licensor has expended; after the first commercial sale, the payment shall be equal to the royalties paid in the preceding twelve (12) months.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "patent license agreement",
+   "style": "hand-written",
+   "trigger": "royalty_buyout",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0035",
+  "chunk_id": "syn::hand::0035",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Sponsor may terminate this Agreement if Club is relegated from the Premier Division at the end of any Season, by written notice given within thirty (30) days after the final league fixture of that Season.\n\nIf Sponsor terminates this Agreement for any reason other than Club's material breach or relegation, Sponsor shall pay Club the Sponsorship Fee for the remainder of the current Season and fifty percent (50%) of the Sponsorship Fee for each subsequent Season of the Term, such sum being a genuine pre-estimate of Club's loss of commercial income. Club shall use reasonable efforts to find a replacement sponsor and any fees received from a replacement sponsor for the same period shall reduce the amount payable.\n\nClub shall remove Sponsor's branding from the Stadium within sixty (60) days of termination.",
+  "answers": [
+   {
+    "start": 206,
+    "end": 551,
+    "text": "If Sponsor terminates this Agreement for any reason other than Club's material breach or relegation, Sponsor shall pay Club the Sponsorship Fee for the remainder of the current Season and fifty percent (50%) of the Sponsorship Fee for each subsequent Season of the Term, such sum being a genuine pre-estimate of Club's loss of commercial income.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Sponsor terminates this Agreement for any reason other than Club's material breach or relegation, Sponsor shall pay Club the Sponsorship Fee for the remainder of the current Season and fifty percent (50%) of the Sponsorship Fee for each subsequent Season of the Term, such sum being a genuine pre-estimate of Club's loss of commercial income.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "sponsorship agreement",
+   "style": "hand-written",
+   "trigger": "resignation_payment",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0036",
+  "chunk_id": "syn::hand::0036",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "3.1 Exclusive Appointment. Supplier appoints Distributor as its exclusive distributor of the Products in the Territory for the Term and agrees not to appoint any other distributor or to sell the Products directly to customers in the Territory, except for the Reserved Accounts listed in Schedule 1.\n\n3.2 Distributor Undertakings. Distributor shall use commercially reasonable efforts to promote and sell the Products in the Territory and shall not sell the Products outside the Territory or actively solicit customers outside it.\n\n3.3 Review of Performance. The parties shall meet quarterly to review sales performance against the annual forecast. If Distributor's sales fall materially below the forecast for two consecutive quarters, Supplier may convert the appointment to non-exclusive upon thirty (30)",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "exclusive distribution agreement",
+   "style": "hand-written",
+   "trigger": "exclusivity_without_fee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0037",
+  "chunk_id": "syn::hand::0037",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "firm purchase orders; the remainder is for planning purposes only and is not binding on Buyer.\n\n4.2 Capacity. Seller shall use commercially reasonable efforts to supply quantities up to one hundred and twenty percent (120%) of the quantities forecast for any month. Seller shall notify Buyer promptly if it expects to be unable to meet a forecast.\n\n4.3 Allocation. If Seller's supply is constrained, Seller shall allocate available Components among its customers on a fair and reasonable basis, and shall not give preference to its own",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "component supply agreement",
+   "style": "hand-written",
+   "trigger": "minimum_forecast",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0038",
+  "chunk_id": "syn::hand::0038",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "efforts to make the Hosted Environment available at least 99.9% of the time in each calendar month, excluding scheduled maintenance announced at least forty-eight (48) hours in advance and downtime caused by Customer or by events outside Provider's reasonable control.\n\n5.2 Reporting. Within ten (10) days after the end of each month, Provider shall deliver to Customer a report showing actual availability, the cause of any outage that lasted longer than thirty (30) minutes, and the steps taken to prevent a recurrence.\n\n5.3 Chronic Failure. If availability falls below 99.0% in any three (3) months in a rolling six (6) month period, Customer may terminate this Agreement upon thirty (30) days' notice without liability for early termination.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "managed hosting agreement",
+   "style": "hand-written",
+   "trigger": "service_levels_reporting",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0039",
+  "chunk_id": "syn::hand::0039",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "or in part, without the prior written consent of the other party, which shall not be unreasonably withheld, conditioned or delayed. Any attempted assignment in violation of this Section is void.\n\n17.2 Change of Control. A change of control of a party shall not be deemed an assignment, but the non-affected party may terminate this Agreement on sixty (60) days' notice if the change of control results in a direct competitor of that party acquiring control.\n\n17.3 Successors. This Agreement binds and benefits the parties and their respective successors and permitted assigns. Nothing in this Agreement confers any right or remedy on any person other than the parties.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "software maintenance agreement",
+   "style": "hand-written",
+   "trigger": "assignment",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0040",
+  "chunk_id": "syn::hand::0040",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "(15) days, to senior executives of each party, who shall meet within a further fifteen (15) days.\n\n20.2 Arbitration. Any dispute not resolved under Section 20.1 shall be finally settled by arbitration under the rules of the International Chamber of Commerce by a single arbitrator appointed in accordance with those rules. The seat of arbitration shall be London and the language shall be English.\n\n20.3 Interim Relief. Nothing in this Article prevents a party from seeking urgent interim or injunctive relief from a court of competent jurisdiction.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "joint development agreement",
+   "style": "hand-written",
+   "trigger": "dispute_resolution",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0041",
+  "chunk_id": "syn::hand::0041",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Licensor's material breach, Licensor shall refund the license fees paid by Licensee for the Software, less depreciation calculated on a straight-line basis over a five (5) year period from the Delivery Date, within thirty (30) days after the date of termination.\n\n9.3 Accrued Rights. Termination shall not affect the accrued rights of either party, including Licensor's right to payment for support services performed before the effective date of termination.\n\n9.4 Transition. For ninety (90) days after termination Licensee may continue to use the Software for the sole purpose of transitioning its data to a replacement system, at Licensor's then-current rates for support.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "enterprise license agreement",
+   "style": "hand-written",
+   "trigger": "pro_rata_license_refund",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0042",
+  "chunk_id": "syn::hand::0042",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "13.1 Insurance. Subcontractor shall maintain throughout the performance of the Work commercial general liability insurance with limits of not less than One Million Dollars ($1,000,000) per occurrence and Two Million Dollars ($2,000,000) in the aggregate, automobile liability insurance of not less than One Million Dollars ($1,000,000) combined single limit, and workers' compensation insurance as required by law.\n\n13.2 Certificates. Before commencing the Work, Subcontractor shall deliver to Contractor certificates of insurance naming Contractor and Owner as additional insureds and providing for thirty (30) days' prior written notice of cancellation.\n\n13.3 Failure to Insure. If Subcontractor fails to maintain the required insurance, Contractor may purchase it and deduct the premium cost from amounts otherwise due to Subcontractor.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "construction subcontract",
+   "style": "hand-written",
+   "trigger": "insurance",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0043",
+  "chunk_id": "syn::hand::0043",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "warrants to the original purchaser that the Device will be free from defects in materials and workmanship under normal use for one (1) year from the date of purchase. This warranty does not apply to batteries, cosmetic damage, or damage resulting from accident, misuse, liquid exposure or unauthorized modification.\n\n10.2 Remedy. If the Device is found to be defective during the warranty period, the Company will, at its option, repair the Device, replace it with a new or refurbished Device of equivalent function, or refund the purchase price.\n\n10.3 Disclaimer. EXCEPT AS EXPRESSLY PROVIDED IN THIS SECTION, THE DEVICE IS PROVIDED \"AS IS\" AND THE COMPANY DISCLAIMS ALL OTHER WARRANTIES, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "consumer device terms",
+   "style": "hand-written",
+   "trigger": "warranty_disclaimer",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0044",
+  "chunk_id": "syn::hand::0044",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "material contact during the last twenty-four (24) months of employment.\n\n8.2 Reasonableness. Executive acknowledges that the restrictions in this Article are reasonable in scope and duration and are necessary to protect the Company's legitimate business interests.\n\n8.3 Remedies. The Company shall be entitled to seek injunctive relief to enforce this Article, and the restricted period shall be extended by any period during which Executive is found to have",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "executive employment agreement",
+   "style": "hand-written",
+   "trigger": "non_solicit_injunction",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0045",
+  "chunk_id": "syn::hand::0045",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "before the effective date of termination.\n\n6.2 Transition Plan. Within fifteen (15) days after notice of termination, the parties shall agree a written plan for the orderly transfer of the Services to Customer or its designee, including the transfer of data, documentation and any third-party licences that can lawfully be assigned.\n\n6.3 Cooperation. Provider shall cooperate in good faith with Customer and its replacement service provider and shall make its personnel reasonably available to answer questions, and Customer shall reimburse Provider's reasonable, documented out-of-pocket costs of doing so.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "transition services agreement",
+   "style": "hand-written",
+   "trigger": "wind_down_cooperation",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0046",
+  "chunk_id": "syn::hand::0046",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "after each major release.\n\n12.2 Release Conditions. The Escrow Agent shall release the deposit to Licensee if (a) Licensor files for bankruptcy or ceases business operations, or (b) Licensor fails to provide maintenance and support for the Software for a period of sixty (60) consecutive days after written notice from Licensee.\n\n12.3 Use of Released Materials. Licensee may use released materials solely to maintain and support the Software for its internal business purposes and subject to the",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "software license and escrow agreement",
+   "style": "hand-written",
+   "trigger": "escrow",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0047",
+  "chunk_id": "syn::hand::0047",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "A. The retainer is payable in advance on the first day of each month and covers the services described in Exhibit A.\n\n7.2 Expenses. Agency shall obtain Client's written approval before incurring any out-of-pocket expense exceeding Five Hundred Dollars ($500). Approved expenses shall be invoiced at cost, with supporting receipts, and shall be paid within thirty (30) days after receipt of the invoice.\n\n7.3 Taxes. Client shall be responsible for all sales, use and value-added taxes arising from the services, other than taxes on Agency's net income, and shall pay such taxes to",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "marketing services agreement",
+   "style": "hand-written",
+   "trigger": "taxes_and_expenses",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0048",
+  "chunk_id": "syn::hand::0048",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "not directly or indirectly provide the same or similar services to any competitor of Party A.\n\nArticle 10 Liability for Breach. If Party B breaches Article 9, Party B shall pay Party A liquidated damages of RMB 200,000 (RMB TWO HUNDRED THOUSAND) within seven days after Party A's written demand, and Party A shall be entitled to terminate this Agreement immediately and to claim compensation for any loss that exceeds the amount of the liquidated damages.\n\nArticle 11 Notice. All notices under this Agreement shall be in writing and delivered in person, by courier or by registered mail to the addresses set out on the signature page. Any change of address shall be notified to the other party in writing.",
+  "answers": [
+   {
+    "start": 128,
+    "end": 455,
+    "text": "If Party B breaches Article 9, Party B shall pay Party A liquidated damages of RMB 200,000 (RMB TWO HUNDRED THOUSAND) within seven days after Party A's written demand, and Party A shall be entitled to terminate this Agreement immediately and to claim compensation for any loss that exceeds the amount of the liquidated damages.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Party B breaches Article 9, Party B shall pay Party A liquidated damages of RMB 200,000 (RMB TWO HUNDRED THOUSAND) within seven days after Party A's written demand, and Party A shall be entitled to terminate this Agreement immediately and to claim compensation for any loss that exceeds the amount of the liquidated damages.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "cooperation agreement",
+   "style": "hand-written",
+   "trigger": "exclusivity_breach_rmb",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0049",
+  "chunk_id": "syn::hand::0049",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "end of the then-current term.\n\n4.6 Early Termination. If Customer terminates this Agreement for any reason other than Provider's uncured material breach before the end of the Initial Term, all Fees for the remainder of the Initial Term shall become immediately due and payable, discounted to present value at the rate of four percent (4%) per annum.\n\n4.7 Provider's Duty. Provider shall have no obligation to refund any Fees paid in advance for the Initial Term. Customer remains entitled to use",
+  "answers": [
+   {
+    "start": 54,
+    "end": 349,
+    "text": "If Customer terminates this Agreement for any reason other than Provider's uncured material breach before the end of the Initial Term, all Fees for the remainder of the Initial Term shall become immediately due and payable, discounted to present value at the rate of four percent (4%) per annum.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Customer terminates this Agreement for any reason other than Provider's uncured material breach before the end of the Initial Term, all Fees for the remainder of the Initial Term shall become immediately due and payable, discounted to present value at the rate of four percent (4%) per annum.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "hosting services agreement",
+   "style": "hand-written",
+   "trigger": "remaining_fees_acceleration",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0050",
+  "chunk_id": "syn::hand::0050",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "period of twelve (12) months beginning on the Start Date. During this period Consultant shall devote the agreed number of days per month to the Project as set out in the Statement of Work.\n\n2.3 Early Withdrawal by Consultant. If Consultant terminates this Agreement without cause before the end of the fixed period, Consultant shall pay Company an amount equal to three (3) months of the monthly fee, which both parties accept as fair compensation for the cost and disruption of finding and training a replacement.\n\n2.4 Early Termination by Company. Company may terminate this Agreement at any time on thirty (30) days' notice, in which case Company shall pay Consultant for all days worked up to the effective date of termination and no further fee.",
+  "answers": [
+   {
+    "start": 226,
+    "end": 514,
+    "text": "If Consultant terminates this Agreement without cause before the end of the fixed period, Consultant shall pay Company an amount equal to three (3) months of the monthly fee, which both parties accept as fair compensation for the cost and disruption of finding and training a replacement.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Consultant terminates this Agreement without cause before the end of the fixed period, Consultant shall pay Company an amount equal to three (3) months of the monthly fee, which both parties accept as fair compensation for the cost and disruption of finding and training a replacement.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "consulting agreement",
+   "style": "hand-written",
+   "trigger": "consultant_walkaway",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0051",
+  "chunk_id": "syn::hand::0051",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "are free of charge.\n\nIf Advertiser cancels an insertion after the closing date for the issue, or reduces the size of the advertisement, Advertiser shall pay Publisher a cancellation fee of fifty percent (50%) of the rate-card price of the original insertion, and if the cancellation is received less than seven (7) days before publication, one hundred percent (100%) of that price.\n\nPublisher shall use reasonable efforts to resell cancelled space but is under no obligation to do so, and any resale shall not reduce the",
+  "answers": [
+   {
+    "start": 21,
+    "end": 381,
+    "text": "If Advertiser cancels an insertion after the closing date for the issue, or reduces the size of the advertisement, Advertiser shall pay Publisher a cancellation fee of fifty percent (50%) of the rate-card price of the original insertion, and if the cancellation is received less than seven (7) days before publication, one hundred percent (100%) of that price.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Advertiser cancels an insertion after the closing date for the issue, or reduces the size of the advertisement, Advertiser shall pay Publisher a cancellation fee of fifty percent (50%) of the rate-card price of the original insertion, and if the cancellation is received less than seven (7) days before publication, one hundred percent (100%) of that price.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "advertising insertion order",
+   "style": "hand-written",
+   "trigger": "media_cancellation",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0052",
+  "chunk_id": "syn::hand::0052",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "the same good order and condition as when delivered, ordinary wear and tear excepted, and with her tanks cleaned.\n\nClause 15 - Early Redelivery. Should Charterers redeliver the Vessel before the expiry of the charter period other than as a result of a default by Owners or a total loss of the Vessel, Charterers shall pay to Owners as agreed damages the hire that would have been payable for the balance of the charter period, less the net hire earned by Owners from any substitute employment of the Vessel during that period.\n\nOwners shall use reasonable endeavours to find substitute employment but shall not be required to accept employment that would prejudice their other commitments.",
+  "answers": [
+   {
+    "start": 145,
+    "end": 526,
+    "text": "Should Charterers redeliver the Vessel before the expiry of the charter period other than as a result of a default by Owners or a total loss of the Vessel, Charterers shall pay to Owners as agreed damages the hire that would have been payable for the balance of the charter period, less the net hire earned by Owners from any substitute employment of the Vessel during that period.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: Should Charterers redeliver the Vessel before the expiry of the charter period other than as a result of a default by Owners or a total loss of the Vessel, Charterers shall pay to Owners as agreed damages the hire that would have been payable for the balance of the charter period, less the net hire earned by Owners from any substitute employment of the Vessel during that period.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "time charter party",
+   "style": "hand-written",
+   "trigger": "charter_early_redelivery",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0053",
+  "chunk_id": "syn::hand::0053",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "take and pay for, or pay for if made available but not taken, not less than eighty-five percent (85%) of the Annual Contract Quantity in each Contract Year (the \"Take-or-Pay Quantity\").\n\n8.2 Deficiency Payment. If, in any Contract Year, Buyer fails to take the Take-or-Pay Quantity for any reason other than Seller's failure to deliver or Force Majeure, Buyer shall pay Seller for the deficiency at the Contract Price for that Contract Year, and the parties agree that the deficiency payment is Seller's sole remedy for the shortfall and represents a reasonable estimate of the loss Seller would suffer.\n\n8.3 Make-Up Gas. Buyer may recover gas paid for under Section 8.2 by taking quantities in excess of the Take-or-Pay Quantity in any of the following three (3) Contract Years, at no further charge.",
+  "answers": [
+   {
+    "start": 211,
+    "end": 603,
+    "text": "If, in any Contract Year, Buyer fails to take the Take-or-Pay Quantity for any reason other than Seller's failure to deliver or Force Majeure, Buyer shall pay Seller for the deficiency at the Contract Price for that Contract Year, and the parties agree that the deficiency payment is Seller's sole remedy for the shortfall and represents a reasonable estimate of the loss Seller would suffer.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If, in any Contract Year, Buyer fails to take the Take-or-Pay Quantity for any reason other than Seller's failure to deliver or Force Majeure, Buyer shall pay Seller for the deficiency at the Contract Price for that Contract Year, and the parties agree that the deficiency payment is Seller's sole remedy for the shortfall and represents a reasonable estimate of the loss Seller would suffer.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "gas supply agreement",
+   "style": "hand-written",
+   "trigger": "take_or_pay",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0054",
+  "chunk_id": "syn::hand::0054",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "or the Term expires, whichever occurs first.\n\n23. Security Deposit. If Tenant abandons the Premises or the Lease is terminated because of Tenant's default, Landlord may retain the Security Deposit of One Thousand Eight Hundred Dollars ($1,800) as liquidated damages for the costs of re-letting and lost Rent, in addition to any amounts owed for damage to the Premises beyond ordinary wear and tear.\n\n24. Return of Deposit. In all other cases Landlord shall return the Security Deposit, less lawful deductions, within thirty",
+  "answers": [
+   {
+    "start": 68,
+    "end": 398,
+    "text": "If Tenant abandons the Premises or the Lease is terminated because of Tenant's default, Landlord may retain the Security Deposit of One Thousand Eight Hundred Dollars ($1,800) as liquidated damages for the costs of re-letting and lost Rent, in addition to any amounts owed for damage to the Premises beyond ordinary wear and tear.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Tenant abandons the Premises or the Lease is terminated because of Tenant's default, Landlord may retain the Security Deposit of One Thousand Eight Hundred Dollars ($1,800) as liquidated damages for the costs of re-letting and lost Rent, in addition to any amounts owed for damage to the Premises beyond ordinary wear and tear.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "residential lease",
+   "style": "hand-written",
+   "trigger": "abandonment_deposit",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0055",
+  "chunk_id": "syn::hand::0055",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "in accordance with this Contract and the Specifications, not later than the Delivery Date of 30 September 2027, subject to permissible delays under Article 8.\n\nArticle 9 - Non-Delivery. If the delivery of the Vessel is delayed beyond the Delivery Date as extended by permissible delays, the Builder shall pay the Buyer liquidated damages of Three Thousand United States Dollars (US$3,000) per day for each day of delay, commencing on the thirty-first (31st) day after the Delivery Date, up to a maximum of one hundred and eighty (180) days.\n\nIf the delay in delivery continues for one hundred and eighty (180) days after the Delivery Date, the Buyer may rescind this Contract by notice and shall be repaid all installments paid,",
+  "answers": [
+   {
+    "start": 186,
+    "end": 540,
+    "text": "If the delivery of the Vessel is delayed beyond the Delivery Date as extended by permissible delays, the Builder shall pay the Buyer liquidated damages of Three Thousand United States Dollars (US$3,000) per day for each day of delay, commencing on the thirty-first (31st) day after the Delivery Date, up to a maximum of one hundred and eighty (180) days.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If the delivery of the Vessel is delayed beyond the Delivery Date as extended by permissible delays, the Builder shall pay the Buyer liquidated damages of Three Thousand United States Dollars (US$3,000) per day for each day of delay, commencing on the thirty-first (31st) day after the Delivery Date, up to a maximum of one hundred and eighty (180) days.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "shipbuilding contract",
+   "style": "hand-written",
+   "trigger": "shipbuilding_delay",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0056",
+  "chunk_id": "syn::hand::0056",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "3. Engagement. Artist shall perform one (1) live set of not less than ninety (90) minutes at the Venue on the Performance Date, and shall arrive for sound check at least three (3) hours before the scheduled start time.\n\n4. Guarantee and Deposit. Promoter has paid Artist a deposit of Twenty Thousand Dollars ($20,000) on signature of this Agreement against the total guarantee of Sixty Thousand Dollars ($60,000).\n\n5. Failure to Perform. If Artist fails to appear or perform on the Performance Date for any reason other than illness certified by a doctor, accident or an event of force majeure, Artist shall immediately return the deposit and shall pay Promoter an additional sum equal to the full amount of the guarantee, as the parties' agreed estimate of Promoter's wasted production and marketing costs.",
+  "answers": [
+   {
+    "start": 438,
+    "end": 807,
+    "text": "If Artist fails to appear or perform on the Performance Date for any reason other than illness certified by a doctor, accident or an event of force majeure, Artist shall immediately return the deposit and shall pay Promoter an additional sum equal to the full amount of the guarantee, as the parties' agreed estimate of Promoter's wasted production and marketing costs.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Artist fails to appear or perform on the Performance Date for any reason other than illness certified by a doctor, accident or an event of force majeure, Artist shall immediately return the deposit and shall pay Promoter an additional sum equal to the full amount of the guarantee, as the parties' agreed estimate of Promoter's wasted production and marketing costs.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "entertainment services agreement",
+   "style": "hand-written",
+   "trigger": "performer_no_show",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0057",
+  "chunk_id": "syn::hand::0057",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "without Cause. Dealer may terminate this Agreement on one hundred and eighty (180) days' notice. Dealer shall not be entitled to any compensation upon termination under this Section.\n\n17.4 Early Termination Fee. Where Dealer terminates this Agreement before the end of the initial five (5) year term, Dealer shall pay Manufacturer an amount equal to the unrecovered portion of Manufacturer's investment in the dealership signage, demonstration vehicles and dealer training, as shown in the Investment Schedule, which the parties agree is a fair estimate of Manufacturer's loss of that investment.\n\n17.5 Inventory. Manufacturer may elect to repurchase new, unused vehicles at the invoice price less any rebates received by Dealer.",
+  "answers": [
+   {
+    "start": 212,
+    "end": 596,
+    "text": "Where Dealer terminates this Agreement before the end of the initial five (5) year term, Dealer shall pay Manufacturer an amount equal to the unrecovered portion of Manufacturer's investment in the dealership signage, demonstration vehicles and dealer training, as shown in the Investment Schedule, which the parties agree is a fair estimate of Manufacturer's loss of that investment.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: Where Dealer terminates this Agreement before the end of the initial five (5) year term, Dealer shall pay Manufacturer an amount equal to the unrecovered portion of Manufacturer's investment in the dealership signage, demonstration vehicles and dealer training, as shown in the Investment Schedule, which the parties agree is a fair estimate of Manufacturer's loss of that investment.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "dealership agreement",
+   "style": "hand-written",
+   "trigger": "dealer_repurchase",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0058",
+  "chunk_id": "syn::hand::0058",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "shall pay to the Lender a commitment fee of Seventy-Five Thousand Dollars ($75,000) on the date of countersignature of this letter, which is earned on payment.\n\n3. Withdrawal. If the Borrower withdraws its application, or fails to satisfy the conditions precedent set out in Schedule 1 by the Long-Stop Date for any reason within its control, the Borrower shall pay the Lender a break-up fee of One Hundred and Fifty Thousand Dollars ($150,000), as compensation for the Lender's committed funds and credit-approval costs.\n\n4. Expiry. The Lender's commitment shall lapse automatically if the facility agreement is not signed on or before the Long-Stop Date, and the Lender shall have no further obligation to the Borrower.",
+  "answers": [
+   {
+    "start": 176,
+    "end": 521,
+    "text": "If the Borrower withdraws its application, or fails to satisfy the conditions precedent set out in Schedule 1 by the Long-Stop Date for any reason within its control, the Borrower shall pay the Lender a break-up fee of One Hundred and Fifty Thousand Dollars ($150,000), as compensation for the Lender's committed funds and credit-approval costs.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If the Borrower withdraws its application, or fails to satisfy the conditions precedent set out in Schedule 1 by the Long-Stop Date for any reason within its control, the Borrower shall pay the Lender a break-up fee of One Hundred and Fifty Thousand Dollars ($150,000), as compensation for the Lender's committed funds and credit-approval costs.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "credit facility commitment letter",
+   "style": "hand-written",
+   "trigger": "withdrawal_fee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0059",
+  "chunk_id": "syn::hand::0059",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Commercial Operation Date, being 31 December 2026, as extended by Force Majeure or by Buyer-caused delay.\n\n5.2 Delay Damages. If Seller fails to achieve the Commercial Operation Date by the Guaranteed Commercial Operation Date, Seller shall pay Buyer delay damages equal to Fifty Dollars ($50) per kilowatt of Contract Capacity for each day of delay, which the parties acknowledge is a reasonable measure of Buyer's replacement power costs and not a penalty.\n\n5.3 Termination for Extended Delay. If the Commercial Operation Date has not occurred within one hundred and eighty (180) days after the Guaranteed Commercial",
+  "answers": [
+   {
+    "start": 126,
+    "end": 458,
+    "text": "If Seller fails to achieve the Commercial Operation Date by the Guaranteed Commercial Operation Date, Seller shall pay Buyer delay damages equal to Fifty Dollars ($50) per kilowatt of Contract Capacity for each day of delay, which the parties acknowledge is a reasonable measure of Buyer's replacement power costs and not a penalty.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Seller fails to achieve the Commercial Operation Date by the Guaranteed Commercial Operation Date, Seller shall pay Buyer delay damages equal to Fifty Dollars ($50) per kilowatt of Contract Capacity for each day of delay, which the parties acknowledge is a reasonable measure of Buyer's replacement power costs and not a penalty.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "power purchase agreement",
+   "style": "hand-written",
+   "trigger": "commercial_operation_delay",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0060",
+  "chunk_id": "syn::hand::0060",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "security deposit of Two Thousand Dollars ($2,000), which Landlord shall hold in a separate account as security for Tenant's performance of its obligations under this Lease. The deposit does not bear interest and is not a limit on Tenant's liability.\n\n7. Return. Within thirty (30) days after the Lease ends and Tenant has delivered possession, Landlord shall return the deposit to Tenant, less only the amounts reasonably necessary to repair damage beyond ordinary wear and tear and to pay Rent that is due and unpaid, and shall give Tenant an itemised statement of any deductions with supporting receipts.\n\n8. Utilities. Tenant shall arrange and pay for electricity, gas, water and internet services from the date of possession.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "rental agreement",
+   "style": "hand-written",
+   "trigger": "deposit_returned",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0061",
+  "chunk_id": "syn::hand::0061",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "2.4 Changes and Cancellation. Buyer may reschedule or cancel any Purchase Order, in whole or in part, without charge by giving Seller written notice at least thirty (30) days before the scheduled shipment date. For notice given within thirty (30) days of the shipment date, Buyer shall pay Seller for finished Goods and for raw materials purchased solely for the Purchase Order that cannot be returned or used for other customers, at Seller's documented cost.\n\n2.5 Seller Changes. Seller may not substitute materials or change the manufacturing site for the Goods without Buyer's prior written consent.\n\n2.6 Documents. Seller shall provide a certificate of conformity with each shipment.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "purchase terms",
+   "style": "hand-written",
+   "trigger": "order_cancellation_free",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0062",
+  "chunk_id": "syn::hand::0062",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "on the other's behalf.\n\n19.2 Publicity. Neither party shall issue any press release or public statement about this Agreement without the prior written approval of the other party, except as required by law or the rules of a securities exchange.\n\n19.3 Subcontracting. Agency may use subcontractors to perform the Services only with Client's prior written consent. Agency remains responsible for the acts and omissions of its subcontractors as if they were its own.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "marketing agreement",
+   "style": "hand-written",
+   "trigger": "relationship_of_parties",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0063",
+  "chunk_id": "syn::hand::0063",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "full of the Fees for the relevant Deliverable. Developer hereby assigns to Client all such rights with effect from that payment.\n\n10.2 Developer Tools. Developer retains all rights in its pre-existing materials, tools, libraries and methodologies (the \"Developer Tools\"). To the extent any Developer Tools are incorporated in a Deliverable, Developer grants Client a perpetual, worldwide, non-exclusive, royalty-free licence to use them as part of that Deliverable.\n\n10.3 Third-Party Components. Open source and third-party components are licensed to Client under their own terms, which Developer shall identify in a schedule delivered with each Deliverable.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "development agreement",
+   "style": "hand-written",
+   "trigger": "ip_ownership",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0064",
+  "chunk_id": "syn::hand::0064",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "that persons authorized to process it are bound by confidentiality obligations.\n\n12.2 Security. Provider shall implement and maintain appropriate technical and organizational measures to protect Personal Data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure or access, including the measures described in Annex 2.\n\n12.3 Breach Notification. Provider shall notify Customer without undue delay, and in any event within seventy-two (72) hours, after becoming aware of a Personal Data breach, and shall provide the information Customer reasonably requires to meet its own notification obligations.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "cloud services agreement",
+   "style": "hand-written",
+   "trigger": "data_protection",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0065",
+  "chunk_id": "syn::hand::0065",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "fails to meet the criteria.\n\n6.2 Correction. Provider shall correct any non-conformity notified under Section 6.1 and re-submit the Deliverable within ten (10) Business Days at no additional charge. The acceptance procedure shall then be repeated.\n\n6.3 Repeated Failure. If a Deliverable fails acceptance after the second re-submission, Client may by notice either extend the correction period or terminate the affected Statement of Work and receive a refund of the Fees",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "professional services agreement",
+   "style": "hand-written",
+   "trigger": "acceptance_reperformance",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0066",
+  "chunk_id": "syn::hand::0066",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "that subject matter.\n\n22.2 Amendment. No amendment of this Agreement shall be effective unless it is in writing and signed by an authorized representative of each party.\n\n22.3 Severability. If any provision of this Agreement is held to be invalid or unenforceable, the remaining provisions shall continue in full force, and the parties shall negotiate in good faith to replace the invalid provision with a valid one that achieves, as nearly as possible, the same commercial result.\n\n22.4 Waiver. A failure or delay in exercising any right under this Agreement shall not operate as a waiver of that right.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "general terms",
+   "style": "hand-written",
+   "trigger": "severability_entire_agreement",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0067",
+  "chunk_id": "syn::hand::0067",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "If Provider fails to perform a critical Service and does not remedy the failure within five (5) Business Days after notice, Customer may, on written notice, take over the performance of the affected Service itself or through a third party (the \"Step-In\") for as long as the failure continues.\n\n15.2 Costs. During the Step-In, Customer shall continue to pay Provider the Fees for the affected Service, reduced by the reasonable costs Customer incurs in performing it. Provider shall give Customer the access and information it reasonably requires for the Step-In.\n\n15.3 Ending the Step-In. Customer shall end the Step-In and return the affected Service to Provider on written notice once Provider demonstrates to Customer's reasonable",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "outsourcing agreement",
+   "style": "hand-written",
+   "trigger": "step_in_rights",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0068",
+  "chunk_id": "syn::hand::0068",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "party at least thirty (30) days' notice before that date.\n\n13.2 Termination for Cause. Either party may terminate this Agreement immediately upon notice if the other party commits a material breach that is not cured within fifteen (15) days after notice.\n\n13.3 Effect. Upon termination Customer shall pay for maintenance services performed and parts supplied up to the date of termination and Provider shall refund any prepaid charges for the period after the date of termination.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "maintenance agreement",
+   "style": "hand-written",
+   "trigger": "termination_for_convenience_equipment",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0069",
+  "chunk_id": "syn::hand::0069",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "export control and sanctions laws applicable to the Products and the technology provided under this Agreement. Distributor shall not export, re-export or transfer the Products to any country, entity or person subject to sanctions or to which export is prohibited without the necessary authorization.\n\n18.2 Information. Distributor shall provide Supplier on request with the end-use and end-user information Supplier reasonably needs to obtain any export licence.\n\n18.3 Suspension. Supplier may suspend deliveries without liability if it reasonably believes that continued performance would violate applicable export control or sanctions laws.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "technology distribution agreement",
+   "style": "hand-written",
+   "trigger": "export_compliance",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0070",
+  "chunk_id": "syn::hand::0070",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "a business continuity and disaster recovery plan designed to restore the processing of Transactions within four (4) hours after a disruption, and shall test the plan at least once each year.\n\n9.2 Test Results. Processor shall give Merchant a summary of the results of each test on request, together with a description of any material deficiencies identified and the steps taken to correct them.\n\n9.3 Disaster. If a disaster prevents Processor from processing Transactions for more than twenty-four (24) consecutive hours, Merchant may route Transactions to another processor until Processor confirms that normal operation has resumed, and the minimum monthly volume shall be reduced accordingly.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "payment processing agreement",
+   "style": "hand-written",
+   "trigger": "business_continuity",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0071",
+  "chunk_id": "syn::hand::0071",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "that Vendor has agreed to the discounts in Schedule 2 in reliance on Reseller's commitment to the full initial term.\n\nIf Reseller terminates this Agreement for convenience before the end of the initial term, Reseller shall pay Vendor a termination fee equal to the average monthly purchases made by Reseller during the six (6) months preceding the notice multiplied by the number of whole months remaining in the initial term, up to a maximum of twelve (12) months. The termination fee is payable on the effective date of termination.\n\nVendor may deduct the termination fee from any rebates or credits otherwise due to Reseller.",
+  "answers": [
+   {
+    "start": 208,
+    "end": 465,
+    "text": "Reseller shall pay Vendor a termination fee equal to the average monthly purchases made by Reseller during the six (6) months preceding the notice multiplied by the number of whole months remaining in the initial term, up to a maximum of twelve (12) months.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: Reseller shall pay Vendor a termination fee equal to the average monthly purchases made by Reseller during the six (6) months preceding the notice multiplied by the number of whole months remaining in the initial term, up to a maximum of twelve (12) months.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "reseller agreement",
+   "style": "hand-written",
+   "trigger": "months_of_fees",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0072",
+  "chunk_id": "syn::hand::0072",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "consent.\n\nIf Customer terminates a Site Order for convenience, or Provider terminates it for Customer's uncured breach, before the end of the minimum service period, Customer shall pay Provider an amount equal to the Monthly Charges for that Site multiplied by the number of months remaining in the minimum service period, together with any unrecovered installation charges.\n\nProvider shall issue an invoice for the early termination amount on the effective date of termination, payable within thirty (30) days.\n\nTermination of one Site Order does not affect any other",
+  "answers": [
+   {
+    "start": 10,
+    "end": 374,
+    "text": "If Customer terminates a Site Order for convenience, or Provider terminates it for Customer's uncured breach, before the end of the minimum service period, Customer shall pay Provider an amount equal to the Monthly Charges for that Site multiplied by the number of months remaining in the minimum service period, together with any unrecovered installation charges.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Customer terminates a Site Order for convenience, or Provider terminates it for Customer's uncured breach, before the end of the minimum service period, Customer shall pay Provider an amount equal to the Monthly Charges for that Site multiplied by the number of months remaining in the minimum service period, together with any unrecovered installation charges.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "managed network services agreement",
+   "style": "hand-written",
+   "trigger": "remaining_months",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0073",
+  "chunk_id": "syn::hand::0073",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Agreement for convenience on twelve (12) months' prior written notice to Supplier.\n\n14.3 Termination Fee. Where Purchaser terminates under Section 14.2, Purchaser shall pay Supplier a termination fee equal to the sum of (i) the book value of the production equipment dedicated to Purchaser's Products, as stated in Schedule 5, less depreciation to the termination date, and (ii) the cost of raw materials and work in progress held for Purchaser's forecast requirements for the following ninety (90) days.\n\n14.4 Title. Upon payment of the fee in full,",
+  "answers": [
+   {
+    "start": 106,
+    "end": 504,
+    "text": "Where Purchaser terminates under Section 14.2, Purchaser shall pay Supplier a termination fee equal to the sum of (i) the book value of the production equipment dedicated to Purchaser's Products, as stated in Schedule 5, less depreciation to the termination date, and (ii) the cost of raw materials and work in progress held for Purchaser's forecast requirements for the following ninety (90) days.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: Where Purchaser terminates under Section 14.2, Purchaser shall pay Supplier a termination fee equal to the sum of (i) the book value of the production equipment dedicated to Purchaser's Products, as stated in Schedule 5, less depreciation to the termination date, and (ii) the cost of raw materials and work in progress held for Purchaser's forecast requirements for the following ninety (90) days.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "exclusive supply agreement",
+   "style": "hand-written",
+   "trigger": "termination_fee_formula",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0074",
+  "chunk_id": "syn::hand::0074",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "may be extended only in accordance with Clause 8.4.\n\nIf the Contractor fails to comply with the Time for Completion, the Contractor shall pay the Employer agreed damages of One Thousand Five Hundred Euros (EUR 1,500) for each day that elapses between the Time for Completion and the date of taking over, and these agreed damages shall be the Contractor's only liability to the Employer for the delay. The Employer may recover the damages by deduction from sums due to the Contractor or from the performance guarantee.\n\nThe agreed damages shall not exceed ten percent (10%) of the Contract Price.",
+  "answers": [
+   {
+    "start": 53,
+    "end": 400,
+    "text": "If the Contractor fails to comply with the Time for Completion, the Contractor shall pay the Employer agreed damages of One Thousand Five Hundred Euros (EUR 1,500) for each day that elapses between the Time for Completion and the date of taking over, and these agreed damages shall be the Contractor's only liability to the Employer for the delay.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If the Contractor fails to comply with the Time for Completion, the Contractor shall pay the Employer agreed damages of One Thousand Five Hundred Euros (EUR 1,500) for each day that elapses between the Time for Completion and the date of taking over, and these agreed damages shall be the Contractor's only liability to the Employer for the delay.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "plant construction contract",
+   "style": "hand-written",
+   "trigger": "agreed_delay_damages_euro",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0075",
+  "chunk_id": "syn::hand::0075",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "price for each day of delay.\n\nArticle 8 Liquidated Damages. If Party B fails to pay the Technical Service Fee in accordance with Article 4 and the failure continues for more than sixty days, Party A may terminate this Agreement, and Party B shall pay Party A liquidated damages equal to twenty percent of the total contract price, which shall not exclude Party A's right to claim for the actual loss exceeding such amount.\n\nArticle 9 Force Majeure. Neither party shall be liable for delay caused by force majeure, but the affected party shall notify the other party within",
+  "answers": [
+   {
+    "start": 60,
+    "end": 422,
+    "text": "If Party B fails to pay the Technical Service Fee in accordance with Article 4 and the failure continues for more than sixty days, Party A may terminate this Agreement, and Party B shall pay Party A liquidated damages equal to twenty percent of the total contract price, which shall not exclude Party A's right to claim for the actual loss exceeding such amount.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Party B fails to pay the Technical Service Fee in accordance with Article 4 and the failure continues for more than sixty days, Party A may terminate this Agreement, and Party B shall pay Party A liquidated damages equal to twenty percent of the total contract price, which shall not exclude Party A's right to claim for the actual loss exceeding such amount.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "technical cooperation agreement",
+   "style": "hand-written",
+   "trigger": "party_a_breach",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0076",
+  "chunk_id": "syn::hand::0076",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "number of hours of Programming stated in Schedule 3 in each License Year, and shall give Licensor monthly broadcast logs within ten (10) days after the end of each month.\n\n5.2 Shortfall. If Licensee broadcasts fewer than the committed hours in any License Year, Licensee shall pay Licensor an amount equal to the Minimum Guarantee for that License Year divided by the committed hours, multiplied by the number of hours of shortfall, and the parties agree that this sum compensates Licensor for the loss of exposure of the Programming.\n\n5.3 Make-Good. Licensee may make good a shortfall by broadcasting the missing hours within ninety (90) days after the end of the License Year, in which case no payment is due for those hours.",
+  "answers": [
+   {
+    "start": 187,
+    "end": 534,
+    "text": "If Licensee broadcasts fewer than the committed hours in any License Year, Licensee shall pay Licensor an amount equal to the Minimum Guarantee for that License Year divided by the committed hours, multiplied by the number of hours of shortfall, and the parties agree that this sum compensates Licensor for the loss of exposure of the Programming.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Licensee broadcasts fewer than the committed hours in any License Year, Licensee shall pay Licensor an amount equal to the Minimum Guarantee for that License Year divided by the committed hours, multiplied by the number of hours of shortfall, and the parties agree that this sum compensates Licensor for the loss of exposure of the Programming.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "media licensing agreement",
+   "style": "hand-written",
+   "trigger": "minimum_guarantee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0077",
+  "chunk_id": "syn::hand::0077",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "7. Acceptance of Delivery. Buyer shall take delivery of the Goods at the Delivery Point within five (5) days after Seller's notice that the Goods are ready. Risk passes to Buyer on delivery, or on the date when Buyer should have taken delivery.\n\n8. Buyer's Default. If Buyer fails to take delivery of the Goods or refuses to accept them without lawful excuse, Buyer shall pay Seller, as liquidated damages for the costs of re-marketing the Goods and the loss of the sale, ten percent (10%) of the price of the Goods. Seller may also store the Goods at Buyer's risk and expense and may resell them without further notice to Buyer.\n\n9. Resale. Net proceeds of any resale, after deducting storage costs, shall be credited against the price owed by Buyer.",
+  "answers": [
+   {
+    "start": 266,
+    "end": 516,
+    "text": "If Buyer fails to take delivery of the Goods or refuses to accept them without lawful excuse, Buyer shall pay Seller, as liquidated damages for the costs of re-marketing the Goods and the loss of the sale, ten percent (10%) of the price of the Goods.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Buyer fails to take delivery of the Goods or refuses to accept them without lawful excuse, Buyer shall pay Seller, as liquidated damages for the costs of re-marketing the Goods and the loss of the sale, ten percent (10%) of the price of the Goods.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "goods sale contract",
+   "style": "hand-written",
+   "trigger": "buyer_default_sale_of_goods",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0078",
+  "chunk_id": "syn::hand::0078",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "4.1 Opening Schedule. Developer shall open and begin operating each Restaurant by the Opening Deadline stated for it in the Development Schedule attached as Exhibit B.\n\n4.2 Failure to Open. If Developer fails to open a Restaurant by its Opening Deadline, Developer shall forfeit the Development Fee paid for that Restaurant, and Franchisor may, on written notice, terminate Developer's rights to develop in the unopened portion of the Territory, in each case without refund, the Development Fee being the parties' reasonable estimate of Franchisor's loss from holding that part of the Territory unavailable to other developers.\n\n4.3 Extension. Franchisor may extend an Opening Deadline once for up to ninety (90) days if Developer shows that delay was caused by permitting or construction matters outside its control and pays an extension fee of Five Thousand Dollars ($5,000).",
+  "answers": [
+   {
+    "start": 190,
+    "end": 627,
+    "text": "If Developer fails to open a Restaurant by its Opening Deadline, Developer shall forfeit the Development Fee paid for that Restaurant, and Franchisor may, on written notice, terminate Developer's rights to develop in the unopened portion of the Territory, in each case without refund, the Development Fee being the parties' reasonable estimate of Franchisor's loss from holding that part of the Territory unavailable to other developers.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Developer fails to open a Restaurant by its Opening Deadline, Developer shall forfeit the Development Fee paid for that Restaurant, and Franchisor may, on written notice, terminate Developer's rights to develop in the unopened portion of the Territory, in each case without refund, the Development Fee being the parties' reasonable estimate of Franchisor's loss from holding that part of the Territory unavailable to other developers.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "area development agreement",
+   "style": "hand-written",
+   "trigger": "opening_deadline_forfeiture",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0079",
+  "chunk_id": "syn::hand::0079",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "deposit equal to one quarter of the Hire Charge on signing this Agreement. The balance of the Hire Charge is due thirty (30) days before the Event Date.\n\nIf Hirer cancels this booking for any reason, the booking deposit shall be retained by the Venue as agreed compensation for the loss of the date, and if the cancellation takes place within sixty (60) days of the Event Date, Hirer shall also pay the balance of the Hire Charge less any amount received from re-letting the date.\n\nThe Venue shall use reasonable efforts to re-let the date, and any amount received from re-letting shall first be applied to reduce the balance payable by Hirer.\n\nHirer may transfer the booking to another date, subject to availability, on payment of an administration fee.",
+  "answers": [
+   {
+    "start": 154,
+    "end": 480,
+    "text": "If Hirer cancels this booking for any reason, the booking deposit shall be retained by the Venue as agreed compensation for the loss of the date, and if the cancellation takes place within sixty (60) days of the Event Date, Hirer shall also pay the balance of the Hire Charge less any amount received from re-letting the date.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If Hirer cancels this booking for any reason, the booking deposit shall be retained by the Venue as agreed compensation for the loss of the date, and if the cancellation takes place within sixty (60) days of the Event Date, Hirer shall also pay the balance of the Hire Charge less any amount received from re-letting the date.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "venue hire agreement",
+   "style": "hand-written",
+   "trigger": "venue_deposit",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0080",
+  "chunk_id": "syn::hand::0080",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "by the Company pursuant to Section 9.1(e) because Parent has failed to consummate the Closing when required by Section 2.2, then Parent shall pay the Company, within three (3) Business Days after such termination, a fee of Forty Million Dollars ($40,000,000) (the \"Parent Termination Fee\").\n\nThe parties agree that the Parent Termination Fee is not a penalty but constitutes liquidated damages in a reasonable amount that will compensate the Company in the circumstances in which it is payable, in light of the difficulty of accurately determining actual damages, and that payment of the Parent Termination Fee shall be the Company's sole and exclusive remedy against Parent in such circumstances.\n\nSection 9.5 Expenses. Except as set out in this Article, each party shall bear its own expenses in connection with this Agreement.",
+  "answers": [
+   {
+    "start": 292,
+    "end": 697,
+    "text": "The parties agree that the Parent Termination Fee is not a penalty but constitutes liquidated damages in a reasonable amount that will compensate the Company in the circumstances in which it is payable, in light of the difficulty of accurately determining actual damages, and that payment of the Parent Termination Fee shall be the Company's sole and exclusive remedy against Parent in such circumstances.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: The parties agree that the Parent Termination Fee is not a penalty but constitutes liquidated damages in a reasonable amount that will compensate the Company in the circumstances in which it is payable, in light of the difficulty of accurately determining actual damages, and that payment of the Parent Termination Fee shall be the Company's sole and exclusive remedy against Parent in such circumstances.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "acquisition agreement",
+   "style": "hand-written",
+   "trigger": "reverse_termination_fee",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0081",
+  "chunk_id": "syn::hand::0081",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "In each Contract Year Distributor shall purchase not less than the Minimum Annual Purchase Quantity stated in Exhibit C for each Product.\n\n6.2 Shortfall Payment. If, in any Contract Year, Distributor's purchases of a Product are below the Minimum Annual Purchase Quantity, Distributor shall pay Supplier, within thirty (30) days after the end of that Contract Year, the Unit Margin for that Product multiplied by the number of units by which purchases were below the minimum, as liquidated damages for the margin Supplier loses on those units, and Supplier may elect instead to convert the distribution rights for that Product to non-exclusive.\n\n6.3 Unit Margin. The \"Unit Margin\" for a Product is the list price less Supplier's standard cost, as set out in Exhibit C and adjusted annually in accordance with Section 4.2.",
+  "answers": [
+   {
+    "start": 162,
+    "end": 644,
+    "text": "If, in any Contract Year, Distributor's purchases of a Product are below the Minimum Annual Purchase Quantity, Distributor shall pay Supplier, within thirty (30) days after the end of that Contract Year, the Unit Margin for that Product multiplied by the number of units by which purchases were below the minimum, as liquidated damages for the margin Supplier loses on those units, and Supplier may elect instead to convert the distribution rights for that Product to non-exclusive.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: If, in any Contract Year, Distributor's purchases of a Product are below the Minimum Annual Purchase Quantity, Distributor shall pay Supplier, within thirty (30) days after the end of that Contract Year, the Unit Margin for that Product multiplied by the number of units by which purchases were below the minimum, as liquidated damages for the margin Supplier loses on those units, and Supplier may elect instead to convert the distribution rights for that Product to non-exclusive.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "non-exclusive distribution agreement",
+   "style": "hand-written",
+   "trigger": "shortfall_amount",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0082",
+  "chunk_id": "syn::hand::0082",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "for a term of four (4) seasons commencing on 1 July 2025.\n\n12.2 Buy-Out. The Player may terminate this Agreement before the end of the term in order to join another club only if the Player, or the new club on his behalf, pays the Club a release fee of Eight Million Euros (EUR 8,000,000) in cleared funds before the registration of the Player with the new club, and the parties agree that this sum represents a reasonable estimate of the Club's loss of the Player's services.\n\n12.3 Notice. Notice of the Player's intention to exercise his right under Section 12.2 must be given in writing to the Club's general manager no later than 31 March in the season before the proposed transfer.",
+  "answers": [
+   {
+    "start": 73,
+    "end": 475,
+    "text": "The Player may terminate this Agreement before the end of the term in order to join another club only if the Player, or the new club on his behalf, pays the Club a release fee of Eight Million Euros (EUR 8,000,000) in cleared funds before the registration of the Player with the new club, and the parties agree that this sum represents a reasonable estimate of the Club's loss of the Player's services.",
+    "clipped": false
+   }
+  ],
+  "explanation": "Found: The Player may terminate this Agreement before the end of the term in order to join another club only if the Player, or the new club on his behalf, pays the Club a release fee of Eight Million Euros (EUR 8,000,000) in cleared funds before the registration of the Player with the new club, and the parties agree that this sum represents a reasonable estimate of the Club's loss of the Player's services.",
+  "hard_negative": false,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "player services agreement",
+   "style": "hand-written",
+   "trigger": "player_buyout",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0083",
+  "chunk_id": "syn::hand::0083",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "of each subsequent Contract Year, Seller may propose an adjustment to the prices to reflect changes in the published Producer Price Index for the relevant product category since the previous adjustment, provided that no adjustment in any year shall exceed five percent (5%).\n\n5.3 Most Favoured Customer. If Seller sells substantially similar quantities of the Products to any other customer in the Territory at a lower price, Seller shall offer the lower price to Buyer from the date of that sale.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "long-term supply agreement",
+   "style": "hand-written",
+   "trigger": "price_adjustment",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0084",
+  "chunk_id": "syn::hand::0084",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "or expiration of this Agreement, or at any earlier time when Lender requests it in writing, Borrower shall return the Equipment to Lender at the address stated in Schedule 1 within ten (10) days, in good condition, ordinary wear and tear excepted, and with all accessories and manuals.\n\n11.2 Inspection. Lender shall inspect the Equipment within five (5) Business Days after its return and shall notify Borrower in writing of any damage beyond ordinary wear and tear, which Borrower shall repair at its cost or reimburse at Lender's documented repair cost.\n\n11.3 Risk. Risk of loss or damage to the Equipment remains with Borrower until Lender has received it at the return address.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "equipment loan agreement",
+   "style": "hand-written",
+   "trigger": "return_of_equipment",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0085",
+  "chunk_id": "syn::hand::0085",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "14.1 Records. Provider shall maintain complete and accurate records of the Services performed, including all source data, correspondence and reports, in accordance with applicable law and good clinical practice.\n\n14.2 Retention. Provider shall retain such records for at least fifteen (15) years after completion of the Study, or for any longer period required by law, and shall give Sponsor not less than ninety (90) days' notice before destroying any records so that Sponsor may take possession of them.\n\n14.3 Access. Sponsor and regulatory authorities may inspect the records and the facilities used for the Services during normal business hours on reasonable notice.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "clinical services agreement",
+   "style": "hand-written",
+   "trigger": "records_retention",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0086",
+  "chunk_id": "syn::hand::0086",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "out of or in connection with it or its subject matter shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of laws principles.\n\n25.2 Jurisdiction. Each party irrevocably submits to the exclusive jurisdiction of the state and federal courts located in New York County, New York, for any proceeding arising out of this Agreement, and waives any objection to venue in",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "software distribution agreement",
+   "style": "hand-written",
+   "trigger": "governing_law",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0087",
+  "chunk_id": "syn::hand::0087",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "Agreement for any reason: Article 1 (Definitions), Section 4.6 (Reports and Payments Accrued), Article 8 (Confidentiality), Article 10 (Indemnification), Article 11 (Limitation of Liability), Section 15.5 (Effect of Termination) and Article 18 (General).\n\n21.2 Accrued Rights. Termination or expiration of this Agreement shall not relieve either party of any obligation or liability that accrued before the effective date, and shall not prejudice any other right or remedy of either party.\n\n21.3 Sell-Off. After expiration, but not after termination for Licensee's breach, Licensee may sell Licensed Products in inventory for a period of ninety (90) days, subject to the payment of royalties on those sales.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "patent and know-how licence",
+   "style": "hand-written",
+   "trigger": "survival",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0088",
+  "chunk_id": "syn::hand::0088",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "health and safety, environmental protection and anti-corruption.\n\n9.2 Audits. Buyer or its designee may, on reasonable notice and not more than twice a year, audit Supplier's facilities for compliance with the Code. Supplier shall correct any non-compliance identified within the period agreed in a written corrective action plan.\n\n9.3 Serious Violations. Buyer may suspend purchases while a serious violation, such as the use of forced labour or bribery, is investigated and may terminate this Agreement if the violation is not remedied.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "supply chain agreement",
+   "style": "hand-written",
+   "trigger": "subcontractor_conduct",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0089",
+  "chunk_id": "syn::hand::0089",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "4.1 Key Personnel. The individuals named in the Statement of Work as Key Personnel shall be principally responsible for the Services. Provider shall not remove or replace any Key Personnel without Customer's prior written consent, except in the case of illness, resignation, termination of employment or leave of absence.\n\n4.2 Replacement. If any Key Personnel must be replaced, Provider shall promptly propose a replacement of equivalent qualifications and experience and shall bear the cost of any time the replacement needs to become familiar with the Services.\n\n4.3 Customer Request. Customer may require Provider to remove any individual from the Services if the individual's performance or conduct is unsatisfactory, and Provider shall promptly provide a replacement.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "professional services agreement",
+   "style": "hand-written",
+   "trigger": "key_personnel",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0090",
+  "chunk_id": "syn::hand::0090",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "6.1 Sublicensing. Licensee may not grant sublicenses of the Licensed Marks without Licensor's prior written consent. Any sublicense permitted by Licensor shall be in writing, shall be consistent with and no broader than this Agreement, and shall terminate automatically upon termination of this Agreement.\n\n6.2 Responsibility. Licensee remains responsible for the acts and omissions of its sublicensees. Licensee shall provide Licensor with a copy of each sublicense within ten (10) days after it is signed.\n\n6.3 Quality Control. Each sublicensee shall comply with Licensor's quality standards, and Licensor may inspect samples of goods bearing the Licensed Marks on request.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "trademark licence",
+   "style": "hand-written",
+   "trigger": "sublicense",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0091",
+  "chunk_id": "syn::hand::0091",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "8.1 Training. Vendor shall provide the training services described in Schedule 4, which include two (2) days of on-site administrator training and unlimited access to Vendor's online training library for the term of the subscription.\n\n8.2 Additional Training. Customer may order additional training at Vendor's then-current rates. Training sessions cancelled by Customer less than five (5) Business Days before the scheduled date may be rescheduled once without charge.\n\n8.3 Materials. Vendor grants Customer the right to copy and distribute the training materials internally for use by Customer's employees.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "enterprise software agreement",
+   "style": "hand-written",
+   "trigger": "training",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0092",
+  "chunk_id": "syn::hand::0092",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "more than once every two (2) years after the second anniversary of the Effective Date, appoint an independent benchmarker to compare the Charges for the Services with the charges of other providers for comparable services in comparable volumes.\n\n17.2 Procedure. Provider shall give the benchmarker the information it reasonably needs and shall cooperate in good faith. Customer shall bear the benchmarker's fees unless the benchmark shows that the Charges exceed the benchmark by more than ten percent (10%).\n\n17.3 Outcome. If the benchmark shows that the Charges exceed the benchmark range, the parties shall negotiate in good faith an adjustment to the Charges to bring them within that range.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "information technology outsourcing",
+   "style": "hand-written",
+   "trigger": "benchmarking",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0093",
+  "chunk_id": "syn::hand::0093",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "claim, with reasonable details, within eighteen (18) months after Closing, or in the case of the Tax Warranties within six (6) years after Closing.\n\n10.3 Thresholds. The Seller shall not be liable for any individual claim under the Warranties unless the amount of the claim exceeds Fifty Thousand Dollars ($50,000), and shall not be liable for any claims unless their aggregate amount exceeds Four Hundred Thousand Dollars ($400,000), in which case the Seller shall be liable only for the excess.\n\n10.4 Conduct of Claims. The Buyer shall allow the Seller to participate in the defence of any third-party claim.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "share purchase agreement",
+   "style": "hand-written",
+   "trigger": "limitation_period",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0094",
+  "chunk_id": "syn::hand::0094",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "days after delivery, by notifying Supplier and following Supplier's returns procedure. Supplier shall collect the returned Products at its own cost.\n\n10.2 Credit. Supplier shall issue a credit note for the invoice price of returned Products within fourteen (14) days after receiving them. The credit may be applied to future orders or, at Customer's request, refunded.\n\n10.3 Other Returns. Products that are not defective may be returned only with Supplier's prior written consent and may be subject to a restocking arrangement agreed at the time.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "wholesale agreement",
+   "style": "hand-written",
+   "trigger": "interest_free_credit_note",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0095",
+  "chunk_id": "syn::hand::0095",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "to receive payment under this Agreement to a financial institution upon written notice to Buyer. Buyer shall, after receiving that notice, pay the assigned amounts to the assignee and shall be entitled to the same defences and set-offs against the assignee as it would have had against Seller.\n\n13.2 No Other Assignment. Except as provided in Section 13.1, neither party may assign this Agreement without the prior written consent of the other party.\n\n13.3 Notice. Any assignment notice shall identify the assignee and the account to which payments are to be made.",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "master purchase agreement",
+   "style": "hand-written",
+   "trigger": "assignment_of_receivables",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ },
+ {
+  "query_id": "syn::hand::0096",
+  "chunk_id": "syn::hand::0096",
+  "contract_title": "synthetic",
+  "clause_type": "Liquidated Damages",
+  "text": "23.1 Notices. Any notice under this Agreement shall be in writing and shall be delivered by hand, sent by recognised international courier, or sent by email with a confirming copy by courier, to the address or email address stated on the signature page or such other address as the recipient has notified.\n\n23.2 Deemed Receipt. A notice delivered by hand is deemed received on delivery; a notice sent by courier is deemed received on the second Business Day after dispatch; and a notice sent by email is deemed received on the next",
+  "answers": [],
+  "explanation": "None",
+  "hard_negative": true,
+  "synthetic": true,
+  "gen_meta": {
+   "type": "joint marketing agreement",
+   "style": "hand-written",
+   "trigger": "notices",
+   "position": "-"
+  },
+  "author": "hand-written by Claude (Anthropic); training only"
+ }
+]
