@@ -73,6 +73,8 @@ async def security_headers(request, call_next):
         response.headers.setdefault(name, value)
     if not request.url.path.startswith(("/docs", "/redoc", "/openapi.json")):
         response.headers.setdefault("Content-Security-Policy", CONTENT_SECURITY_POLICY)
+    if request.url.path == "/" or request.url.path.startswith("/static"):
+        response.headers["Cache-Control"] = "no-cache"  # always revalidate (etag), so a UI update is never shown half-old
     return response
 
 

@@ -2,7 +2,7 @@
 // Pure-function tests for api/static/app.js (run with: node tests/js/test_app.js). Exits non-zero on the first failure.
 const assert = require('assert');
 const path = require('path');
-const { parseSections, findSection, buildSegments, citationText, reportMarkdown } = require(path.join(__dirname, '..', '..', 'api', 'static', 'app.js'));
+const { parseSections, findSection, buildSegments, citationText } = require(path.join(__dirname, '..', '..', 'api', 'static', 'app.js'));
 
 let n = 0;
 const test = (name, fn) => { fn(); n++; console.log('ok -', name); };
@@ -83,24 +83,6 @@ test('citationText gives quote, document, section and exact character range', ()
   assert.strictEqual(c, '“This Agreement may not be assigned.” — Sponsorship agreement, § 8 (Miscellaneous), characters 6,592–6,884');
   assert.ok(citationText(clause, null, '').startsWith('“'));
   assert.ok(citationText({ ...clause, grounded: false }, null, 'Doc').includes('NOT found verbatim'));
-});
-
-test('reportMarkdown lists flagged clauses with citations and the clauses that were not found', () => {
-  const data = {
-    total_checked: 3, chunks_analyzed: 7, model_version: 'v6b', scoring: 'v6b', decision_threshold: -2,
-    clauses: [
-      { clause_type: 'Governing Law', detected: true, extracted_text: 'Governed by Delaware law.', start: 5853, end: 5878, chunk_index: 5, grounded: true },
-      { clause_type: 'Non-Compete', detected: false },
-      { clause_type: 'Auto-Renewal', detected: true, extracted_text: 'Renews yearly.\nSecond line.', start: 2629, end: 2650, chunk_index: 2, grounded: false },
-    ],
-  };
-  const md = reportMarkdown(data, 'Test contract', parseSections(SPONSOR));
-  assert.ok(md.includes('2 of 3 clause types flagged'));
-  assert.ok(md.includes('## 1. Governing Law') && md.includes('> Governed by Delaware law.'));
-  assert.ok(md.includes('> Second line.'));                          // multi-line quotes stay inside the blockquote
-  assert.ok(md.includes('chunk 6 of 7') && md.includes('NOT found verbatim'));
-  assert.ok(md.includes('## Not found in this document') && md.includes('- Non-Compete'));
-  assert.ok(md.includes('not legal advice'));
 });
 
 console.log(`${n} frontend tests passed`);

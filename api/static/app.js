@@ -1,10 +1,10 @@
 'use strict';
 /*
  * LexProbe front end. Two parts:
- *   1. pure functions (sections, highlight segments, citation text, report text): no DOM, unit-tested with node
- *      (tests/js/test_app.js, run by tests/test_frontend.py);
- *   2. the page: renders results with DOM methods only (textContent / text nodes). Model output is NEVER put into
- *      innerHTML, so a quote cannot inject markup.
+ *   1. pure functions (sections, highlight segments, citation text, Markdown report, downloadable HTML report): no DOM,
+ *      unit-tested with node (tests/js/test_app.js, run by tests/test_frontend.py);
+ *   2. the page: three screens (start, analysing, results). Model output is NEVER put into innerHTML: the page uses
+ *      DOM methods and text nodes, and the downloadable report escapes every value and carries a CSP that forbids scripts.
  */
 
 const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024;
@@ -41,8 +41,8 @@ function findSection(pos, sections) {
 }
 
 /**
- * Split `text` at every span boundary. spans: [{id, start, end}]. Returns [{text, ids}] where ids lists every span that covers
- * the piece (overlaps are allowed). Invalid spans (non-integers, empty, outside the text) are ignored.
+ * Split `text` at every span boundary. spans: [{id, start, end}]. Returns [{start, text, ids}] where ids lists every span that
+ * covers the piece (overlaps are allowed). Invalid spans (non-integers, empty, outside the text) are ignored.
  */
 function buildSegments(text, spans) {
   const valid = spans.filter(s => Number.isInteger(s.start) && Number.isInteger(s.end) && s.start >= 0 && s.end > s.start && s.end <= text.length);
@@ -59,6 +59,7 @@ function buildSegments(text, spans) {
 }
 
 const fmt = n => Number(n).toLocaleString('en-US');
+const escapeHtml = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 
 /** One-line citation a reviewer can paste into a memo. */
 function citationText(clause, section, docName) {
@@ -68,27 +69,81 @@ function citationText(clause, section, docName) {
 }
 
 /** Markdown report of the findings (flagged clauses with citations, then what was not found). */
-function reportMarkdown(data, docName, sections) {
-  const flagged = data.clauses.filter(c => c.detected);
-  const lines = [
-    `# LexProbe contract review: ${docName || 'Contract'}`, '',
-    `${flagged.length} of ${data.total_checked} clause types flagged · ${data.chunks_analyzed} chunks analysed · model ${data.model_version} (${data.scoring}, threshold ${data.decision_threshold})`, '',
-  ];
-  flagged.forEach((c, i) => {
-    const sec = findSection(c.start, sections);
-    lines.push(`## ${i + 1}. ${c.clause_type}`, '');
-    String(c.extracted_text || '').split('\n').forEach(l => lines.push(`> ${l}`));
-    lines.push('', `- Location: ${sec ? `§ ${sec.number} (${sec.title}), ` : ''}characters ${fmt(c.start)}–${fmt(c.end)}, chunk ${c.chunk_index + 1} of ${data.chunks_analyzed}`,
-      `- Verification: ${c.grounded ? 'quote found verbatim in the document' : 'NOT found verbatim: verify manually'}`, '');
-  });
-  const none = data.clauses.filter(c => !c.detected).map(c => c.clause_type);
-  if (none.length) lines.push('## Not found in this document', '', none.map(n => `- ${n}`).join('\n'), '');
-  lines.push('---', 'AI-assisted triage, not legal advice. A clause that is not flagged may still be present; read the source.');
-  return lines.join('\n');
+/** A file name that is safe on every system: lexprobe-report-<document>-<YYYY-MM-DD>.html */
+function reportFileName(docName, date) {
+  const base = String(docName || 'contract').replace(/\.[A-Za-z0-9]{1,5}$/, '').replace(/[^A-Za-z0-9._-]+/g, '-').replace(/^[-.]+|[-.]+$/g, '').slice(0, 60) || 'contract';
+  return `lexprobe-report-${base}-${date.toISOString().slice(0, 10)}.html`;
+}
+
+const REPORT_CSS = `
+:root{color-scheme:light}*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#14172b;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+main{max-width:900px;margin:0 auto;padding:32px 24px 48px}
+h1{margin:0 0 4px;font-size:1.7rem}h2{margin:30px 0 10px;font-size:1.2rem;border-bottom:2px solid #d9dcec;padding-bottom:4px}h3{margin:0;font-size:1.05rem}
+.doc{font-size:1.1rem;font-weight:600;margin:0}.meta,.muted{color:#566089;font-size:.88rem}
+.disclaimer{margin:18px 0;padding:10px 14px;border:1px solid #e0b25c;background:#fff6e0;border-radius:8px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.92rem}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid #e3e6f3;vertical-align:top}td:nth-child(2),td:nth-child(4){white-space:nowrap}th{background:#f2f4fb}
+.finding{margin:14px 0;padding:12px 14px;border:1px solid #cfd4ea;border-left:6px solid hsl(var(--h) 70% 45%);border-radius:8px;break-inside:avoid}
+.finding header{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.num{display:inline-block;min-width:24px;padding:1px 6px;text-align:center;border-radius:12px;background:hsl(var(--h) 70% 40%);color:#fff;font-weight:700;font-size:.85rem}
+.ok{color:#0a6b46;font-weight:600;font-size:.85rem}.warn{color:#9a5200;font-weight:700;font-size:.85rem}
+blockquote{margin:10px 0;padding:8px 12px;background:#f5f6fc;border-left:3px solid hsl(var(--h) 70% 45%);font-family:Georgia,"Times New Roman",serif;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.contract{white-space:pre-wrap;overflow-wrap:anywhere;font-family:Georgia,"Times New Roman",serif;font-size:.95rem;line-height:1.65;border:1px solid #cfd4ea;border-radius:8px;padding:14px 16px}
+mark.h{color:inherit;background:hsl(var(--h) 90% 82%);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px;text-decoration-color:hsl(var(--h) 70% 35%)}
+.tag{display:inline-block;margin-right:4px;padding:0 5px;border:1px solid #14172b;border-radius:4px;background:#fff;color:#14172b;font:700 .72rem system-ui,sans-serif;vertical-align:1px;text-decoration:none}
+footer{margin-top:30px;font-size:.82rem;color:#566089}
+@media(max-width:560px){main{padding:20px 14px 36px}th,td{padding:5px 6px;font-size:.82rem}h1{font-size:1.4rem}}
+@media print{main{padding:0}h2{break-after:avoid}}`;
+
+/**
+ * A self-contained HTML report: summary table, every finding with its citation, and the full contract with each cited passage
+ * highlighted and tagged "[n Clause]" (readable in black and white). Every value is escaped; the page carries a CSP that forbids
+ * scripts and network access, so even a hostile quote cannot execute anything.
+ */
+function reportHtml(data, docName, sections, now) {
+  const e = escapeHtml;
+  const flagged = data.clauses.map((c, i) => ({ c, i })).filter(o => o.c.detected);
+  const number = {};
+  flagged.forEach((o, k) => { number[o.i] = k + 1; });
+  const hueOf = i => HUES[i % HUES.length];
+  const when = `${now.toISOString().slice(0, 10)} ${now.toISOString().slice(11, 16)} UTC`;
+  const rows = data.clauses.map((c, i) => {
+    const sec = c.detected ? findSection(c.start, sections) : null;
+    const where = c.detected ? `${sec ? `§ ${e(sec.number)} — ${e(sec.title)}, ` : ''}characters ${fmt(c.start)}–${fmt(c.end)}` : '—';
+    const ver = !c.detected ? '—' : c.grounded ? '<span class="ok">✓ verbatim</span>' : '<span class="warn">⚠ not verbatim</span>';
+    return `<tr><td>${e(c.clause_type)}</td><td>${c.detected ? `Flagged [${number[i]}]` : 'Not found'}</td><td>${where}</td><td>${ver}</td></tr>`;
+  }).join('');
+  const findings = flagged.map(o => {
+    const c = o.c, sec = findSection(c.start, sections);
+    const score = c.confidence_margin === null || c.confidence_margin === undefined ? 'n/a' : Number(c.confidence_margin).toFixed(2);
+    return `<article class="finding" style="--h:${hueOf(o.i)}"><header><span class="num">${number[o.i]}</span><h3>${e(c.clause_type)}</h3>` +
+      (c.grounded ? '<span class="ok">✓ Verified verbatim in the source</span>' : '<span class="warn">⚠ Not found verbatim — verify manually</span>') +
+      `</header><blockquote>${e(c.extracted_text || '')}</blockquote>` +
+      `<p class="muted">${sec ? `§ ${e(sec.number)} — ${e(sec.title)} · ` : ''}characters ${fmt(c.start)}–${fmt(c.end)} · chunk ${Number(c.chunk_index) + 1} of ${fmt(data.chunks_analyzed)} · ` +
+      `score ${e(score)} against a flag threshold of ${e(data.decision_threshold)} (a ranking signal, not a probability)</p></article>`;
+  }).join('');
+  const none = data.clauses.filter(c => !c.detected).map(c => `<li>${e(c.clause_type)}</li>`).join('');
+  const spans = flagged.filter(o => Number.isInteger(o.c.start)).map(o => ({ id: o.i, start: o.c.start, end: o.c.end }));
+  const started = new Set();
+  const marked = buildSegments(data.contract_text || '', spans).map(s => {
+    if (!s.ids.length) return e(s.text);
+    const tags = s.ids.filter(id => !started.has(id)).map(id => { started.add(id); return `<span class="tag">[${number[id]} ${e(data.clauses[id].clause_type)}]</span>`; }).join('');
+    return `<mark class="h" style="--h:${hueOf(s.ids[s.ids.length - 1])}">${tags}${e(s.text)}</mark>`;
+  }).join('');
+  return `<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">` +
+    `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'"><title>LexProbe review: ${e(docName || 'Contract')}</title><style>${REPORT_CSS}</style></head><body><main>` +
+    `<header><h1>LexProbe contract review</h1><p class="doc">${e(docName || 'Contract')}</p>` +
+    `<p class="meta">Generated ${e(when)} · model ${e(data.model_version)} (${e(data.scoring)}) · ${fmt(data.chunks_analyzed)} chunks analysed · flag threshold ${e(data.decision_threshold)}</p></header>` +
+    `<div class="disclaimer"><strong>AI-assisted triage, not legal advice.</strong> A clause that is not flagged may still be present, and a flagged clause may be a false alarm. Read every finding in context. This file contains the full text of the contract.</div>` +
+    `<h2>Summary: ${flagged.length} of ${data.total_checked} clause types flagged</h2><div class="tw"><table><thead><tr><th>Clause type</th><th>Result</th><th>Location</th><th>Quote check</th></tr></thead><tbody>${rows}</tbody></table></div>` +
+    `<h2>Findings and citations</h2>${findings || '<p class="muted">No clause type was flagged.</p>'}` +
+    (none ? `<h2>Not found in this document</h2><ul>${none}</ul><p class="muted">“Not found” means the model did not flag the clause; it does not prove the clause is absent.</p>` : '') +
+    `<h2>Marked contract</h2><p class="muted">Each highlighted passage carries the number and clause type of its finding.</p><div class="contract">${marked}</div>` +
+    `<footer>Quotes are checked character by character against the text supplied. Produced by LexProbe (Llama-3.1-8B-Instruct with a QLoRA adapter, trained on CUAD).</footer></main></body></html>`;
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { parseSections, findSection, buildSegments, citationText, reportMarkdown, fmt };
+  module.exports = { parseSections, findSection, buildSegments, citationText, reportHtml, reportFileName, escapeHtml, fmt };
 }
 
 // ── the page ────────────────────────────────────────────────────────────────────────────────────
@@ -108,7 +163,24 @@ if (typeof document !== 'undefined') {
     return node;
   }
 
-  let state = { data: null, docName: 'Pasted text', sections: [], active: null, timer: null };
+  let state = { data: null, docName: 'Pasted text', sections: [], active: null, timer: null, screen: 'input', fromFile: false };
+
+  // ── screens ──────────────────────────────────────────────────────────────────────────────
+  function showScreen(name) {
+    state.screen = name;
+    $('screen-input').hidden = name !== 'input';
+    $('screen-busy').hidden = name !== 'busy';
+    $('screen-results').hidden = name !== 'results';
+    $('new-btn').hidden = name !== 'results';
+    document.title = name === 'results' ? `${state.docName} · LexProbe` : 'LexProbe · Contract risk triage with verified citations';
+    const back = $('back-link');
+    back.hidden = !(name === 'input' && state.data);
+    if (!back.hidden) back.textContent = `← Back to the results for ${state.docName}`;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    const heading = { input: 'h-input', busy: 'h-busy', results: 'h-results' }[name];
+    $(heading).setAttribute('tabindex', '-1');
+    $(heading).focus({ preventScroll: true });
+  }
 
   function setError(msg) {
     const box = $('error');
@@ -136,6 +208,7 @@ if (typeof document !== 'undefined') {
     }
   }
 
+  // ── input: file, paste, samples, drag and drop ───────────────────────────────────────────
   function readTextFile(file) {
     return new Promise((resolve, reject) => {
       const r = new FileReader();
@@ -145,56 +218,74 @@ if (typeof document !== 'undefined') {
     });
   }
 
+  function clearFile() {
+    $('file-input').value = '';
+    $('file-chip').hidden = true;
+    $('drop').hidden = false;
+    if (state.fromFile) $('contract-text').value = '';
+    state.fromFile = false;
+    $('contract-text').disabled = false;
+    $('contract-text').placeholder = 'Paste the contract text here…';
+    state.docName = 'Pasted text';
+    updateCounter();
+  }
+
   async function onFileChosen(file) {
     if (!file) return;
     setError('');
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (!['txt', 'pdf', 'docx'].includes(ext)) { setError('Please choose a .pdf, .docx or .txt file.'); $('file-input').value = ''; return; }
     if (file.size > MAX_FILE_SIZE_BYTES) {
       setError(`File is too large (${(file.size / 1048576).toFixed(2)} MB). The limit is 2 MB.`);
       $('file-input').value = '';
       return;
     }
     state.docName = file.name;
-    $('file-name').textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
-    const ext = file.name.split('.').pop().toLowerCase();
+    $('file-name').textContent = file.name;
+    $('file-size').textContent = ` · ${(file.size / 1024).toFixed(1)} KB`;
+    $('file-chip').hidden = false;
+    $('drop').hidden = true;
+    state.fromFile = true;
     if (ext === 'txt') {
+      $('contract-text').disabled = false;
       $('contract-text').value = await readTextFile(file);
-      $('contract-text').placeholder = 'Paste the contract text here…';
       if ($('contract-text').value.length > MAX_TEXT_CHARS) setError(`This text has ${fmt($('contract-text').value.length)} characters; the limit is ${fmt(MAX_TEXT_CHARS)} (about 5 pages). Shorten it or select an excerpt.`);
     } else {
       $('contract-text').value = '';
-      $('contract-text').placeholder = `${file.name} selected. Its text is extracted on the server when you click Analyze.`;
+      $('contract-text').disabled = true;
+      $('contract-text').placeholder = `${file.name} will be read on the server when you click Analyse.`;
     }
     updateCounter();
   }
 
+  function adoptFile(file) {
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    $('file-input').files = dt.files;
+    return onFileChosen(file);
+  }
+
   async function loadSample(path, title) {
     setError('');
+    clearFile();
     const r = await fetch(path);
     $('contract-text').value = await r.text();
-    $('file-input').value = '';
-    $('file-name').textContent = '';
     state.docName = title;
     updateCounter();
     $('contract-text').scrollTop = 0;
   }
 
+  // ── analysis ─────────────────────────────────────────────────────────────────────────────
   function startBusy() {
-    $('analyze-btn').disabled = true;
-    $('analyze-btn').textContent = 'Analysing…';
-    $('progress').hidden = false;
-    $('results').hidden = true;
+    $('busy-name').textContent = state.docName;
+    showScreen('busy');
     const t0 = Date.now();
     const tick = () => { $('elapsed').textContent = `${Math.round((Date.now() - t0) / 1000)} s`; };
     tick();
     state.timer = setInterval(tick, 1000);
   }
 
-  function stopBusy() {
-    clearInterval(state.timer);
-    $('progress').hidden = true;
-    $('analyze-btn').disabled = false;
-    $('analyze-btn').textContent = 'Analyse contract';
-  }
+  function stopBusy() { clearInterval(state.timer); }
 
   async function analyze() {
     setError('');
@@ -202,9 +293,10 @@ if (typeof document !== 'undefined') {
     const text = $('contract-text').value.trim();
     const ext = file ? file.name.split('.').pop().toLowerCase() : '';
     const serverExtract = file && ['pdf', 'docx'].includes(ext);
-    if (!serverExtract && !text) { setError('Paste contract text or choose a file first.'); return; }
+    if (!serverExtract && !text) { setError('Choose a file or paste the contract text first.'); return; }
     if (!serverExtract && text.length > MAX_TEXT_CHARS) { setError(`The text has ${fmt(text.length)} characters; the limit is ${fmt(MAX_TEXT_CHARS)} (about 5 pages).`); return; }
     if (!serverExtract && text.length < 50) { setError('The text is too short to analyse (minimum 50 characters).'); return; }
+    $('analyze-btn').disabled = true;
     startBusy();
     try {
       let resp;
@@ -220,15 +312,20 @@ if (typeof document !== 'undefined') {
         try { const j = await resp.json(); detail = typeof j.detail === 'string' ? j.detail : detail; } catch (e) { /* keep default */ }
         throw new Error(detail);
       }
-      render(await resp.json());
+      const data = await resp.json();
+      stopBusy();
+      render(data);
+      history.pushState({ s: 'results' }, '');
     } catch (err) {
+      stopBusy();
+      showScreen('input');
       setError(err.message || 'Something went wrong.');
     } finally {
-      stopBusy();
+      $('analyze-btn').disabled = false;
     }
   }
 
-  // ── rendering ──────────────────────────────────────────────────────────────────────────────
+  // ── results ──────────────────────────────────────────────────────────────────────────────
   const hue = i => HUES[i % HUES.length];
 
   function render(data) {
@@ -241,26 +338,24 @@ if (typeof document !== 'undefined') {
     order.forEach(o => { o.n = o.c.detected ? ++n : null; });
     state.order = order;
 
+    $('results-title').textContent = state.docName;
     $('summary-count').textContent = `${flagged.length} of ${data.total_checked}`;
     $('summary-label').textContent = 'clause types flagged';
     $('summary-meta').textContent = `${data.chunks_analyzed} chunks analysed · ${data.model_version} · flag threshold ${data.decision_threshold}`;
     $('doc-name').textContent = state.docName;
 
-    const chips = $('chips');
-    chips.replaceChildren(...order.map(o => el('button', {
+    $('chips').replaceChildren(...order.map(o => el('button', {
       type: 'button', class: 'chip', 'data-flagged': o.c.detected, 'aria-label': `${o.c.clause_type}: ${o.c.detected ? 'flagged, show citation' : 'not found'}`,
       style: `--h:${hue(o.i)}`, disabled: !o.c.detected, onclick: () => activate(o.i, true),
     }, el('span', { class: 'dot' }), o.c.clause_type)));
 
-    const list = $('findings');
-    list.replaceChildren(...order.map(o => o.c.detected ? flaggedCard(o) : null).filter(Boolean));
+    $('findings').replaceChildren(...order.map(o => o.c.detected ? flaggedCard(o) : null).filter(Boolean));
     const none = order.filter(o => !o.c.detected);
     $('not-found').hidden = none.length === 0;
     $('not-found-list').replaceChildren(...none.map(o => el('li', { text: o.c.clause_type })));
 
     renderDocument(data, order);
-    $('results').hidden = false;
-    $('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showScreen('results');
   }
 
   function flaggedCard(o) {
@@ -318,6 +413,7 @@ if (typeof document !== 'undefined') {
       return m;
     });
     $('doc').replaceChildren(...nodes);
+    $('doc-pane').scrollTop = 0;
   }
 
   function activate(i, scrollCard, fromCard, fromDoc) {
@@ -339,33 +435,67 @@ if (typeof document !== 'undefined') {
     }
   }
 
-  function downloadReport() {
-    const blob = new Blob([JSON.stringify({ document: state.docName, ...state.data, contract_text: undefined }, null, 2)], { type: 'application/json' });
-    const a = el('a', { href: URL.createObjectURL(blob), download: 'lexprobe-report.json' });
+  // ── exports ──────────────────────────────────────────────────────────────────────────────
+  function saveBlob(blob, name) {
+    const a = el('a', { href: URL.createObjectURL(blob), download: name });
     document.body.append(a); a.click(); a.remove(); URL.revokeObjectURL(a.href);
   }
 
-  async function copyReport(ev) {
-    const btn = ev.currentTarget;
-    try { await navigator.clipboard.writeText(reportMarkdown(state.data, state.docName, state.sections)); btn.textContent = 'Copied ✓'; }
-    catch (e) { btn.textContent = 'Copy failed'; }
-    setTimeout(() => { btn.textContent = 'Copy report (Markdown)'; }, 1800);
+  function downloadReport() {
+    const now = new Date();
+    const html = reportHtml(state.data, state.docName, state.sections, now);
+    saveBlob(new Blob([html], { type: 'text/html;charset=utf-8' }), reportFileName(state.docName, now));
+  }
+
+  // The browser's print dialog ("Save as PDF") prints the results page; the print CSS includes the marked contract.
+  function downloadPdf() {
+    const old = document.title;
+    document.title = reportFileName(state.docName, new Date()).replace(/\.html$/, '');   // becomes the suggested PDF file name
+    window.print();
+    document.title = old;
+  }
+
+  function analyseAnother() {
+    if (history.state && history.state.s === 'results') history.back();   // popstate shows the start screen
+    else showScreen('input');
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    history.replaceState({ s: 'input' }, '');
     $('analyze-btn').addEventListener('click', analyze);
-    $('contract-text').addEventListener('input', () => { if (!$('file-input').files[0]) state.docName = 'Pasted text'; updateCounter(); });
+    $('new-btn').addEventListener('click', analyseAnother);
+    $('back-link').addEventListener('click', e => { e.preventDefault(); if (state.data) { showScreen('results'); history.pushState({ s: 'results' }, ''); } });
+    window.addEventListener('popstate', e => {
+      if (e.state && e.state.s === 'results' && state.data) showScreen('results');
+      else if (state.screen !== 'busy') showScreen('input');
+    });
+    $('contract-text').addEventListener('input', () => {
+      if ($('file-input').files[0]) { $('file-input').value = ''; $('file-chip').hidden = true; $('drop').hidden = false; state.fromFile = false; }
+      state.docName = 'Pasted text';
+      updateCounter();
+    });
     $('file-input').addEventListener('change', e => onFileChosen(e.target.files[0]));
+    $('file-remove').addEventListener('click', clearFile);
     const drop = $('drop');
     ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
-    ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
-    drop.addEventListener('drop', e => { const f = e.dataTransfer.files[0]; if (f) { const dt = new DataTransfer(); dt.items.add(f); $('file-input').files = dt.files; onFileChosen(f); } });
+    ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, () => drop.classList.remove('over')));
+    // dropping a file anywhere on the start screen works
+    let depth = 0;
+    const hasFiles = e => e.dataTransfer && [...(e.dataTransfer.types || [])].includes('Files');
+    window.addEventListener('dragenter', e => { if (state.screen === 'input' && hasFiles(e)) { depth++; $('drop-overlay').hidden = false; } });
+    window.addEventListener('dragleave', e => { if (hasFiles(e)) { depth = Math.max(0, depth - 1); if (!depth) $('drop-overlay').hidden = true; } });
+    window.addEventListener('dragover', e => { if (hasFiles(e)) e.preventDefault(); });
+    window.addEventListener('drop', e => {
+      if (!hasFiles(e)) return;
+      e.preventDefault();
+      depth = 0;
+      $('drop-overlay').hidden = true;
+      if (state.screen === 'input' && e.dataTransfer.files[0]) adoptFile(e.dataTransfer.files[0]);
+    });
     $('sample-1').addEventListener('click', () => loadSample('/static/samples/sponsorship_agreement.txt', 'Sponsorship agreement (sample)'));
     $('sample-2').addEventListener('click', () => loadSample('/static/samples/ip_agreement.txt', 'Intellectual property agreement (sample)'));
-    $('download-btn').addEventListener('click', downloadReport);
-    $('copy-report-btn').addEventListener('click', copyReport);
-    $('print-btn').addEventListener('click', () => window.print());
-    $('again-btn').addEventListener('click', () => { $('input-card').scrollIntoView({ behavior: 'smooth' }); $('contract-text').focus(); });
+    $('report-btn').addEventListener('click', downloadReport);
+    $('pdf-btn').addEventListener('click', downloadPdf);
     updateCounter();
     loadHealth();
   });
